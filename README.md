@@ -23,3 +23,20 @@ auth-support    登录封装，单点登录
 commons 
 
 ## 日志组件
+log4j2
+
+## 部署
+jekins + docker + elk 
+
+## 完成排期
+|版本|内容|时间规划|
+V1     commons组件,Rest组件,dubbo组件，文档swagger组件      0522
+V2     redis组件，kafka组件，log组件               
+V3     定时任务组件，持久化组件，配置中心组件
+V4     文件上传组件,健康检查组件，配置中心组件
+V5     单点登录，zooker锁组件，demo组件
+V6     docker步数脚本，日志中心搭建，jenkins搭建
+V7     微服务架构图，开发流程，团队沟通等
+
+
+
