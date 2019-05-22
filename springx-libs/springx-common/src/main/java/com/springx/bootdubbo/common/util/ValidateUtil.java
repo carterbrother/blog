@@ -12,10 +12,10 @@ import java.util.regex.Pattern;
 /**
  * 验证工具类
  *
- * @author <a href="mailto:wei.jiang@lifesense.com">vakin</a>
+ * @author <a href="mailto:505847426@qq.com">carterbrother</a>
  * @description <br>
  * @date 2015年12月28日
- * @Copyright (c) 2015, lifesense.com
+ * @Copyright (c) 2015, springx.com
  */
 public class ValidateUtil {
 

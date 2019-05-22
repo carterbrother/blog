@@ -1,6 +1,6 @@
 package com.springx.bootdubbo.common.util;
 
-import com.springx.bootdubbo.common.bean.BaseEnum;
+import com.springx.bootdubbo.common.enums.BaseEnum;
 import org.apache.commons.lang3.StringUtils;
 
 import java.beans.BeanInfo;
@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Bean复制<br>
- * Copyright (c) 2015, vakinge@gmail.com.
+ * Copyright (c) 2015, carterbrotherge@gmail.com.
  */
 public class BeanConverterUtil {
 

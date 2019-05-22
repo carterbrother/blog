@@ -1,6 +1,6 @@
 package com.springx.bootdubbo.common.exception;
 
-import com.springx.bootdubbo.common.bean.ErrorCodeMsgEnum;
+import com.springx.bootdubbo.common.enums.ErrorCodeMsgEnum;
 
 import java.io.Serializable;
 

@@ -8,10 +8,10 @@ import java.io.FileReader;
 import java.util.*;
 
 /**
- * @author <a href="mailto:wei.jiang@lifesense.com">vakin</a>
+ * @author <a href="mailto:505847426@qq.com">carterbrother</a>
  * @description <br>
  * @date 2015年11月13日
- * @Copyright (c) 2015, lifesense.com
+ * @Copyright (c) 2015, springx.com
  */
 public class ResourceUtil {
 

@@ -13,10 +13,10 @@ import java.util.*;
 /**
  * 日期处理工具类
  *
- * @author <a href="mailto:wei.jiang@lifesense.com">vakin</a>
+ * @author <a href="mailto:505847426@qq.com">carterbrother</a>
  * @description <br>
  * @date 2015年10月27日
- * Copyright (c) 2015, lifesense.com
+ * Copyright (c) 2015, springx.com
  */
 public class DateUtil {
     public static final String DATE_PATTERN = "yyyy-MM-dd";
@@ -55,7 +55,7 @@ public class DateUtil {
     /**
      * 解析日期<br>
      * 支持格式：<br>
-     * generate by: vakin jiang at 2012-3-1
+     * generate by: carterbrother jiang at 2012-3-1
      *
      * @param dateStr
      * @return
@@ -104,7 +104,7 @@ public class DateUtil {
 
     /**
      * 解析日期字符串转化成日期格式<br>
-     * generate by: vakin jiang at 2012-3-1
+     * generate by: carterbrother jiang at 2012-3-1
      *
      * @param dateStr
      * @param pattern
@@ -128,7 +128,7 @@ public class DateUtil {
 
     /**
      * 获取一天开始时间<br>
-     * generate by: vakin jiang at 2011-12-23
+     * generate by: carterbrother jiang at 2011-12-23
      *
      * @param date
      * @return
@@ -140,7 +140,7 @@ public class DateUtil {
 
     /**
      * 获取一天结束时间<br>
-     * generate by: vakin jiang at 2011-12-23
+     * generate by: carterbrother jiang at 2011-12-23
      *
      * @param date
      * @return
@@ -152,7 +152,7 @@ public class DateUtil {
 
     /**
      * 时间戳格式转换为日期（年月日）格式<br>
-     * generate by: vakin jiang at 2011-12-23
+     * generate by: carterbrother jiang at 2011-12-23
      *
      * @param date
      * @return
@@ -163,7 +163,7 @@ public class DateUtil {
 
     /**
      * 格式化日期格式为：ddMMMyy<br>
-     * generate by: vakin jiang
+     * generate by: carterbrother jiang
      * at 2012-10-17
      *
      * @return
@@ -175,7 +175,7 @@ public class DateUtil {
 
     /**
      * 格式化日期格式为：ddMMMyy<br>
-     * generate by: vakin jiang
+     * generate by: carterbrother jiang
      * at 2012-10-17
      *
      * @param dateStr
@@ -188,7 +188,7 @@ public class DateUtil {
 
     /**
      * 格式化日期字符串<br>
-     * generate by: vakin jiang at 2012-3-7
+     * generate by: carterbrother jiang at 2012-3-7
      *
      * @param dateStr
      * @param patterns
@@ -205,7 +205,7 @@ public class DateUtil {
 
     /**
      * 格式化日期为日期字符串<br>
-     * generate by: vakin jiang at 2012-3-7
+     * generate by: carterbrother jiang at 2012-3-7
      *
      * @param patterns
      * @return
@@ -228,7 +228,7 @@ public class DateUtil {
 
     /**
      * 格式化日期为指定格式<br>
-     * generate by: vakin jiang at 2012-3-7
+     * generate by: carterbrother jiang at 2012-3-7
      *
      * @param orig
      * @param patterns
@@ -607,7 +607,7 @@ public class DateUtil {
 
     /**
      * 计算并格式化消耗时间<br>
-     * generate by: vakin jiang at 2012-2-16
+     * generate by: carterbrother jiang at 2012-2-16
      *
      * @param startPoint
      * @return
