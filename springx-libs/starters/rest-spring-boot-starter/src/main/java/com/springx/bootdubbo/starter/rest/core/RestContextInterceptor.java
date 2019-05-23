@@ -5,31 +5,41 @@ import com.google.common.base.Strings;
 import com.springx.bootdubbo.common.bean.RestContextBean;
 import com.springx.bootdubbo.common.enums.AppTypeEnum;
 import com.springx.bootdubbo.common.exception.BaseException;
+import com.springx.bootdubbo.common.util.RequestUtil;
+import com.springx.bootdubbo.starter.rest.config.RestPropertiesConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.slf4j.MDC;
-import org.springframework.stereotype.Component;
+import org.springframework.context.ApplicationContext;
 import org.springframework.util.Assert;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.*;
 
 /**
  * @author <a href="mailto:505847426@qq.com">carterbrother</a>
- * @description 自定义拦截器
+ * @description 自定义拦截器,
+ * 用途：
+ * 1，填充和清理RestContextBean;
+ * 2.记录Rest的请求日志和正常响应日志
+ * 3.执行登录校验
  * @date 2019年05月16日 6:15 PM
  * @Copyright (c) carterbrother
  */
 @Slf4j
-@Component
 public class RestContextInterceptor implements HandlerInterceptor {
 
+    private RestPropertiesConfig restPropertiesConfig;
+    private ApplicationContext applicationContext;
+
+    public RestContextInterceptor(ApplicationContext applicationContext, RestPropertiesConfig restPropertiesConfig) {
+        this.applicationContext = applicationContext;
+        this.restPropertiesConfig = restPropertiesConfig;
+    }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -84,6 +94,13 @@ public class RestContextInterceptor implements HandlerInterceptor {
         if (Strings.isNullOrEmpty(requestId)) {
             throw new BaseException("requestId不能为空");
         }
+
+        //识别@LoginIgnore注解,如果没有，进行登录校验
+        final String loginCheckApiFullClassName = restPropertiesConfig.getLoginCheckApi();
+        LoginCheckApi loginCheckApi = applicationContext.getBean(loginCheckApiFullClassName, LoginCheckApi.class);
+        //识别@PowerCheck注解，如果没有,跳过，如果有，校验功能权限
+
+        //识别@PowerCheck注解是否需要获取数据权限SQL,如果没有，结束，如果有，则获取数据权限转换的sql语句
 
         return true;
     }
@@ -152,7 +169,7 @@ public class RestContextInterceptor implements HandlerInterceptor {
         headMap.put("Access-Control-Allow-Headers", "Origin, No-Cache, X-Requested-With, If-Modified-Since, Pragma, Last-Modified, Cache-Control, Expires, Content-Type");
         headMap.put("Access-Control-Allow-Credentials", "true");
         headMap.put("Access-Control-Allow-Origin", "*");
-        String refererUrl = parseRequestOrigin(request.getHeader("Referer"), request.getHeader("Origin"));
+        String refererUrl = RequestUtil.parseRequestOrigin(request.getHeader("Referer"), request.getHeader("Origin"));
         if (!Strings.isNullOrEmpty(refererUrl)) {
             headMap.put("Access-Control-Allow-Origin", refererUrl);
         }
@@ -160,34 +177,6 @@ public class RestContextInterceptor implements HandlerInterceptor {
 
     }
 
-
-    public static String parseRequestOrigin(String... urls) {
-        if (urls == null || urls.length == 0) {
-            return null;
-        }
-        for (int i = 0; i < urls.length; i++) {
-            String referer = urls[i];
-            if (StringUtils.isEmpty(referer)) {
-                continue;
-            }
-            URL url;
-            try {
-                url = new URL(referer);
-            } catch (MalformedURLException e) {
-                continue;
-            }
-            String host = url.getHost();
-            String protocol = url.getProtocol();
-            if (StringUtils.startsWith(protocol, "http")) {
-                if (url.getPort() > 0 && url.getPort() != 80) {
-                    return protocol + "://" + host + ":" + url.getPort();
-                } else {
-                    return protocol + "://" + host;
-                }
-            }
-        }
-        return null;
-    }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {

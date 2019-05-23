@@ -1,5 +1,6 @@
 package com.springx.bootdubbo.starter.rest.config;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @Copyright (c) carterbrother
  */
 @ConfigurationProperties(prefix = "rest.config")
+@Data
 public class RestPropertiesConfig {
     /**
      * 登录校验的URL,url校验规范如下；

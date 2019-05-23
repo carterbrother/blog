@@ -7,34 +7,26 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.springx.bootdubbo.common.bean.RestContextBean;
 import com.springx.bootdubbo.common.bean.RestResponseBean;
 import com.springx.bootdubbo.common.enums.ErrorCodeMsgEnum;
-import com.springx.bootdubbo.common.exception.BaseException;
-import com.springx.bootdubbo.common.util.SystemUtil;
+import com.springx.bootdubbo.starter.rest.config.RestPropertiesConfig;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.ApplicationContext;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.http.server.ServletServerHttpResponse;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.method.support.ModelAndViewContainer;
-import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
-import java.util.Optional;
 import java.util.TimeZone;
 import java.util.stream.Collectors;
 
@@ -45,8 +37,6 @@ import java.util.stream.Collectors;
  * @Copyright (c) carterbrother
  */
 @Slf4j
-@Configuration
-@ControllerAdvice
 public class WebMvcConfig implements WebMvcConfigurer, InitializingBean {
     /**
      * 1.扫描路径 == 可不做，使用springboot默认的扫描路径即可
@@ -58,55 +48,28 @@ public class WebMvcConfig implements WebMvcConfigurer, InitializingBean {
      * 7.文件上传 == 可不做，直接使用7N或者阿里云的云存储解耦
      */
 
-    @Autowired
-    private RestContextInterceptor myInterceptor;
-    @Autowired
-    private MappingJackson2HttpMessageConverter messageConverter;
-    @Autowired
-    private RequestMappingHandlerAdapter requestMappingHandlerAdapter;
+    private ApplicationContext applicationContext;
+    private RestPropertiesConfig restPropertiesConfig;
 
-
-    @ExceptionHandler(value = Exception.class)
-    @ResponseBody
-    public RestResponseBean handleException(HttpServletRequest request, Exception e) {
-        Integer code = ErrorCodeMsgEnum.ERROR.code();
-        String msg = null;
-        String exceptionMsg = "";
-        if (e instanceof BaseException) {
-            BaseException baseException = (BaseException) e;
-            code = baseException.getCode();
-            msg = baseException.getMsg();
-            exceptionMsg = msg;
-        } else if (e instanceof NoHandlerFoundException) {
-            code = ErrorCodeMsgEnum.NOT_FOUND.code();
-            msg = ErrorCodeMsgEnum.NOT_FOUND.getMsg();
-        } else {
-            exceptionMsg = StringUtils.abbreviate(e.getLocalizedMessage(), 500);
-            msg = exceptionMsg;
-            if (SystemUtil.isOnlineEnv()) {
-                msg = "系统错误";
-            }
-        }
-        final RestContextBean restContext = RestContextBean.getInstance();
-        log.error("\n===param_exception===\n===requestId==={}===\n===Url==={},\n===Msg==={}\n===useTime==={}\n===error===",
-                restContext.getRequestId(),
-                request.getContextPath().concat(request.getRequestURL().toString()),
-                exceptionMsg,
-                Optional.ofNullable(restContext.getStopWatch()).isPresent() ? restContext.getStopWatch().getSplitTime() : 0,
-                e);
-        return RestResponseBean.builder().code(code).msg(msg).build();
+    public WebMvcConfig(ApplicationContext applicationContext, RestPropertiesConfig restPropertiesConfig) {
+        this.applicationContext = applicationContext;
+        this.restPropertiesConfig = restPropertiesConfig;
     }
+
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         log.info("===>注册拦截器");
         //增加拦截器
-        registry.addInterceptor(myInterceptor).addPathPatterns("/*");
+        registry.addInterceptor(new RestContextInterceptor(restPropertiesConfig)).addPathPatterns("/*");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
 
+
+        MappingJackson2HttpMessageConverter messageConverter = applicationContext.getBean(MappingJackson2HttpMessageConverter.class);
+        RequestMappingHandlerAdapter requestMappingHandlerAdapter = applicationContext.getBean(RequestMappingHandlerAdapter.class);
 
         //配置json的格式
         messageConverter.getObjectMapper().setSerializationInclusion(JsonInclude.Include.NON_NULL)
@@ -144,8 +107,8 @@ public class WebMvcConfig implements WebMvcConfigurer, InitializingBean {
 
             return item;
         }).collect(Collectors.toList());
-
-
         requestMappingHandlerAdapter.setReturnValueHandlers(handlers2);
     }
+
+
 }

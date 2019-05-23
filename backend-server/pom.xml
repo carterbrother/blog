@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.springx.bootdubbo</groupId>
+    <artifactId>root-dependency</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <groupId>com.springx.bootdubbo</groupId>
+  <artifactId>backend-server</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>api</module>
+    <module>service</module>
+  </modules>
+  <name>backend-server</name>
+ <description>后端提供的服务,api为内部互相暴露的接口,service为Rest接口</description>
+</project>
