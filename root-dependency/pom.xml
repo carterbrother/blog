@@ -91,7 +91,7 @@
             </dependency>
             <dependency>
                 <groupId>redis.clients</groupId>
-                <artifactId>Jedis</artifactId>
+                <artifactId>jedis</artifactId>
                 <version>${jedis.version}</version>
             </dependency>
             <dependency>
@@ -104,12 +104,12 @@
     </dependencyManagement>
 
     <!--仓库管理-->
-    <distributionManagement>
-        <repository>
-            <id>work</id>
-            <url>http://maven.lifesense.com/nexus/content/repositories/releases</url>
-        </repository>
-    </distributionManagement>
+    <!--<distributionManagement>-->
+        <!--<repository>-->
+            <!--<id>work</id>-->
+            <!--<url>http://maven.lifesense.com/nexus/content/repositories/releases</url>-->
+        <!--</repository>-->
+    <!--</distributionManagement>-->
 
     <!--插件管理-->
     <build>

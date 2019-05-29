@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/api/api.iml" filepath="$PROJECT_DIR$/api/api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend-server.iml" filepath="$PROJECT_DIR$/backend-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api/demo-api/demo-api.iml" filepath="$PROJECT_DIR$/api/demo-api/demo-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service/demo-service/demo-service.iml" filepath="$PROJECT_DIR$/service/demo-service/demo-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/service/service.iml" filepath="$PROJECT_DIR$/service/service.iml" />
     </modules>
   </component>

@@ -48,7 +48,7 @@ public class RestAutoConfig implements ApplicationContextAware {
     @ConditionalOnProperty(prefix = "rest.config", value = "enabled", havingValue = "true")
     public WebMvcConfig webMvcConfig() {
         Assert.notNull(restPropertiesConfig, "rest配置不能为空");
-        return new WebMvcConfig(applicationContext);
+        return new WebMvcConfig(applicationContext,restPropertiesConfig);
     }
 
     @ExceptionHandler(value = Exception.class)
