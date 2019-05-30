@@ -2,29 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb2a8766-5c36-49d4-8718-db2e8a94ac3f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/demo-api/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/demo-api/src/main/java/com/springx/backend/server/api/demo/provider/DemoAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend-server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/demo-service/src/main/java/com/springx/demoservice/web/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/service.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/LoginCheckApi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/LoginIgnore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/PowerCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/config/RestAutoConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/config/RestAutoConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/config/RestPropertiesConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/config/RestPropertiesConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/RestContextInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/RestContextInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/WebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/WebMvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -42,6 +20,7 @@
     <session id="-1188290305">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.9" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -259,7 +238,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558577649034" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558577925704" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.alibabacloud.intellij.config.EdasConfigurable" />
