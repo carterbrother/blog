@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * @author lifesense-szyf01
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.springx"})
 public class Application {
 
     public static void main(String[] args) {

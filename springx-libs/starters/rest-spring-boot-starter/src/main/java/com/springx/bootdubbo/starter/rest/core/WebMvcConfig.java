@@ -61,7 +61,7 @@ public class WebMvcConfig implements WebMvcConfigurer, InitializingBean {
     public void addInterceptors(InterceptorRegistry registry) {
         log.info("===>注册拦截器");
         //增加拦截器
-        registry.addInterceptor(new RestContextInterceptor(restPropertiesConfig)).addPathPatterns("/*");
+        registry.addInterceptor(new RestContextInterceptor(applicationContext,restPropertiesConfig)).addPathPatterns("/*");
     }
 
     @Override

@@ -22,6 +22,9 @@
         </dependency>
     </dependencies>
 
+    <modules>
+        <module>demo-service</module>
+    </modules>
     <build>
 
     </build>

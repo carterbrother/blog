@@ -12,7 +12,6 @@
   <groupId>com.springx.bootdubbo</groupId>
   <artifactId>backend-server</artifactId>
   <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
   <modules>
     <module>api</module>
     <module>service</module>
