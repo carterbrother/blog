@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.google.common.collect.Lists;
 import com.springx.bootdubbo.common.bean.RestContextBean;
 import com.springx.bootdubbo.common.bean.RestResponseBean;
 import com.springx.bootdubbo.common.enums.ErrorCodeMsgEnum;
@@ -14,7 +15,6 @@ import com.springx.bootdubbo.starter.rest.core.WebMvcConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeansException;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
@@ -27,12 +27,12 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.method.support.ModelAndViewContainer;
+import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -42,6 +42,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBody
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.TimeZone;
@@ -70,12 +71,45 @@ public class RestAutoConfig implements ApplicationContextAware {
         Assert.notNull(restPropertiesConfig, "rest配置不能为空");
         log.info("===>install interceptor ");
 
-        InterceptorRegistry interceptorRegistry = applicationContext.getBean(InterceptorRegistry.class);
+        System.setProperty("spring.mvc.throw-exception-if-no-handler-found","true");
+        System.setProperty("spring.resources.add-mappings","false");
+
+        WebMvcConfigurer webMvcConfigurer = applicationContext.getBean(WebMvcConfigurer.class);
+
+
+
+
+        InterceptorRegistry interceptorRegistry = new InterceptorRegistry();
         interceptorRegistry.addInterceptor(new RestContextInterceptor(applicationContext,restPropertiesConfig)).addPathPatterns("/*");
+
+        webMvcConfigurer.addInterceptors(interceptorRegistry);
+
+
+        List<HandlerExceptionResolver> exceptionResolverList = Lists.newLinkedList();
+
+
 
         log.info("===>install json converter");
         MappingJackson2HttpMessageConverter messageConverter = applicationContext.getBean(MappingJackson2HttpMessageConverter.class);
         RequestMappingHandlerAdapter requestMappingHandlerAdapter = applicationContext.getBean(RequestMappingHandlerAdapter.class);
+
+
+        HandlerExceptionResolver handlerExceptionResolver = (request, response, handler, ex) -> {
+
+
+            try {
+                final RestResponseBean restResponseBean = handleException(request, ex);
+                messageConverter.write(restResponseBean, MediaType.APPLICATION_JSON, new ServletServerHttpResponse(response));
+            } catch (IOException e) {
+                log.error("转换异常数据出现异常",e);
+            }
+
+            return null;
+        };
+
+        exceptionResolverList.add(handlerExceptionResolver);
+
+        webMvcConfigurer.extendHandlerExceptionResolvers(exceptionResolverList);
 
 
         //配置json的格式
@@ -119,9 +153,7 @@ public class RestAutoConfig implements ApplicationContextAware {
         return null;
     }
 
-    @ExceptionHandler(value = Exception.class)
-    @ResponseBody
-    public RestResponseBean handleException(HttpServletRequest request, Exception e) {
+    private RestResponseBean handleException(HttpServletRequest request, Exception e) {
         Integer code = ErrorCodeMsgEnum.ERROR.code();
         String msg = null;
         String exceptionMsg = "";

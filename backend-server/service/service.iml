@@ -11,6 +11,8 @@
     <orderEntry type="library" name="Maven: com.springx.bootdubbo:rest-spring-boot-starter:1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: com.springx.bootdubbo:springx-common:1.0-SNAPSHOT" level="project" />
     <orderEntry type="module" module-name="rest-spring-boot-starter" />
+    <orderEntry type="module" module-name="springx-common" />
+    <orderEntry type="module" module-name="rest-spring-boot-starter" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:2.1.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-json:2.1.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8" level="project" />

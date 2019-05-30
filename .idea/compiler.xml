@@ -17,7 +17,7 @@
       <module name="api" target="1.8" />
       <module name="backend-server" target="1.8" />
       <module name="cache-spring-boot-starter" target="1.8" />
-      <module name="demo-api" target="1.7" />
+      <module name="demo-api" target="1.8" />
       <module name="demo-service" target="1.8" />
       <module name="rest-spring-boot-starter" target="1.8" />
       <module name="root-dependency" target="1.8" />
