@@ -13,7 +13,9 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.annotation.Resource;
@@ -51,7 +53,27 @@ public class RestAutoConfig implements ApplicationContextAware {
         return new WebMvcConfigurer() {
             @Override
             public void addInterceptors(InterceptorRegistry registry) {
-                registry.addInterceptor(new RestContextInterceptorBean(restPropertiesConfig));
+                String[] excludePathPatterns = new String[]{"/**/fonts/*", "/**/*.css", "/**/*.js", "/**/*.png", "/**/*.gif", "/**/*.jpg", "/**/*.jpeg", "/error"};
+
+                registry.addInterceptor(new RestContextInterceptorBean(restPropertiesConfig))
+                        .addPathPatterns("/**")
+                        .excludePathPatterns(excludePathPatterns)
+                        .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");
+                ;
+            }
+            @Override
+            public void  addCorsMappings(CorsRegistry registry)
+            {
+                registry.addMapping("/**")
+                        .allowedOrigins("*")
+                        .allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE")
+                        .maxAge(3600)
+                        .allowCredentials(true);
+            }
+            @Override
+            public void addResourceHandlers(ResourceHandlerRegistry registry) {
+                registry.addResourceHandler("/swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
+                registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
             }
         };
     }
