@@ -9,6 +9,7 @@ import com.springx.bootdubbo.common.bean.RestResponseBean;
 import com.springx.bootdubbo.common.enums.ErrorCodeMsgEnum;
 import com.springx.bootdubbo.starter.rest.config.RestPropertiesConfig;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -19,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.method.support.ModelAndViewContainer;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;
 
@@ -35,10 +35,10 @@ import java.util.stream.Collectors;
  * @Copyright (c) carterbrother
  */
 @Slf4j
-public class WebMvcConfig /*implements WebMvcConfigurer, InitializingBean */{
+public class ResponseConfigBean implements InitializingBean {
     /**
      * 1.扫描路径 == 可不做，使用springboot默认的扫描路径即可
-     * 2.cors过滤
+     * 2.cros过滤
      * 3.json设置空值不返回 ==finish
      * 4.全局异常处理 ==finish
      * 5.全局过滤器，使用拦截器处理了 设置context参数，mdc, 设置跨域支持 ==finish
@@ -49,23 +49,15 @@ public class WebMvcConfig /*implements WebMvcConfigurer, InitializingBean */{
     private ApplicationContext applicationContext;
     private RestPropertiesConfig restPropertiesConfig;
 
-    public WebMvcConfig(ApplicationContext applicationContext, RestPropertiesConfig restPropertiesConfig) {
+    public ResponseConfigBean(ApplicationContext applicationContext, RestPropertiesConfig restPropertiesConfig) {
         this.applicationContext = applicationContext;
         this.restPropertiesConfig = restPropertiesConfig;
     }
 
-
-//    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        log.info("===>注册拦截器");
-        //增加拦截器
-        registry.addInterceptor(new RestContextInterceptor(applicationContext,restPropertiesConfig)).addPathPatterns("/*");
-    }
-
-//    @Override
+    @Override
     public void afterPropertiesSet() throws Exception {
 
-
+        log.info("===>install response wrapper ");
         MappingJackson2HttpMessageConverter messageConverter = applicationContext.getBean(MappingJackson2HttpMessageConverter.class);
         RequestMappingHandlerAdapter requestMappingHandlerAdapter = applicationContext.getBean(RequestMappingHandlerAdapter.class);
 
@@ -107,6 +99,5 @@ public class WebMvcConfig /*implements WebMvcConfigurer, InitializingBean */{
         }).collect(Collectors.toList());
         requestMappingHandlerAdapter.setReturnValueHandlers(handlers2);
     }
-
 
 }

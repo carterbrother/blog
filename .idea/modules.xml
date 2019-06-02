@@ -6,18 +6,13 @@
       <module fileurl="file://$PROJECT_DIR$/backend-server/backend-server.iml" filepath="$PROJECT_DIR$/backend-server/backend-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/bootdubbo.iml" filepath="$PROJECT_DIR$/.idea/bootdubbo.iml" />
       <module fileurl="file://$PROJECT_DIR$/springx-libs/starters/cache-spring-boot-starter/cache-spring-boot-starter.iml" filepath="$PROJECT_DIR$/springx-libs/starters/cache-spring-boot-starter/cache-spring-boot-starter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springx-libs/starters/cache-spring-boot-starter/cache-spring-boot-starter.iml" filepath="$PROJECT_DIR$/springx-libs/starters/cache-spring-boot-starter/cache-spring-boot-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend-server/api/demo-api/demo-api.iml" filepath="$PROJECT_DIR$/backend-server/api/demo-api/demo-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend-server/service/demo-service/demo-service.iml" filepath="$PROJECT_DIR$/backend-server/service/demo-service/demo-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/backend-server/service/demo-service/demo-service.iml" filepath="$PROJECT_DIR$/backend-server/service/demo-service/demo-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/rest-spring-boot-starter.iml" filepath="$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/rest-spring-boot-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/rest-spring-boot-starter.iml" filepath="$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/rest-spring-boot-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/root-dependency/root-dependency.iml" filepath="$PROJECT_DIR$/root-dependency/root-dependency.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend-server/service/service.iml" filepath="$PROJECT_DIR$/backend-server/service/service.iml" />
       <module fileurl="file://$PROJECT_DIR$/springx-libs/springx-common/springx-common.iml" filepath="$PROJECT_DIR$/springx-libs/springx-common/springx-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springx-libs/springx-common/springx-common.iml" filepath="$PROJECT_DIR$/springx-libs/springx-common/springx-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/springx-libs/springx-libs.iml" filepath="$PROJECT_DIR$/springx-libs/springx-libs.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springx-libs/starters/starters.iml" filepath="$PROJECT_DIR$/springx-libs/starters/starters.iml" />
       <module fileurl="file://$PROJECT_DIR$/springx-libs/starters/starters.iml" filepath="$PROJECT_DIR$/springx-libs/starters/starters.iml" />
     </modules>
   </component>

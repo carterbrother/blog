@@ -11,7 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.StopWatch;
 import org.slf4j.MDC;
+import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.util.Assert;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,15 +33,20 @@ import java.util.*;
  * @Copyright (c) carterbrother
  */
 @Slf4j
-public class RestContextInterceptor implements HandlerInterceptor {
+public class RestContextInterceptorBean implements HandlerInterceptor, ApplicationContextAware {
 
-    private RestPropertiesConfig restPropertiesConfig;
+    private  RestPropertiesConfig restPropertiesConfig;
     private ApplicationContext applicationContext;
 
-    public RestContextInterceptor(ApplicationContext applicationContext, RestPropertiesConfig restPropertiesConfig) {
-        this.applicationContext = applicationContext;
-        this.restPropertiesConfig = restPropertiesConfig;
+    public RestContextInterceptorBean( RestPropertiesConfig restPropertiesConfig) {
+        this.restPropertiesConfig =   restPropertiesConfig;
+        log.info("===>init RestContextInterceptorBean");
+        if (Objects.isNull(restPropertiesConfig)){
+            this.restPropertiesConfig = applicationContext.getBean(RestPropertiesConfig.class);
+        }
     }
+
+
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -97,7 +104,7 @@ public class RestContextInterceptor implements HandlerInterceptor {
 
         //识别@LoginIgnore注解,如果没有，进行登录校验
         final String loginCheckApiFullClassName = restPropertiesConfig.getLoginCheckApi();
-        LoginCheckApi loginCheckApi = applicationContext.getBean(loginCheckApiFullClassName, LoginCheckApi.class);
+//        LoginCheckApi loginCheckApi = applicationContext.getBean(loginCheckApiFullClassName, LoginCheckApi.class);
         //识别@PowerCheck注解，如果没有,跳过，如果有，校验功能权限
 
         //识别@PowerCheck注解是否需要获取数据权限SQL,如果没有，结束，如果有，则获取数据权限转换的sql语句
@@ -184,12 +191,17 @@ public class RestContextInterceptor implements HandlerInterceptor {
         log.info("invoke afterCompletion method ");
 
         final StopWatch stopWatch = RestContextBean.getInstance().getStopWatch();
-        log.info("\n===param_complete===\n===requestId==={}\n===method==={}\n===useTime==={}\n===exception==={}", RestContextBean.getInstance().getRequestId(), handler, stopWatch.getTime(), ex);
+        log.info("\n===param_complete===\n===requestId==={}\n===method==={}\n===useTime==={}", RestContextBean.getInstance().getRequestId(), handler, stopWatch.getTime());
 
         stopWatch.stop();
         RestContextBean.clear();
         MDC.clear();
 
 
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext =applicationContext ;
     }
 }

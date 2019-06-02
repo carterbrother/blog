@@ -24,5 +24,12 @@ public class UserController {
         data.put("hello", UUIDUtil.uuid());
         return data;
     }
+    @GetMapping(path = "/ex")
+    public Object ex(){
+
+        throw new IllegalArgumentException("ex");
+    }
+
+
 
 }
