@@ -93,7 +93,12 @@ public class ResponseBodyAndExceptionHandleBean implements ResponseBodyAdvice {
         }
 
         if (body instanceof RestResponseBean){
-            return (RestResponseBean) body;
+            RestResponseBean restResponseBean = (RestResponseBean) body;
+            String msg = I18nUtils.getMessage(restResponseBean.getCode() + "", restResponseBean.getMsg());
+            return RestResponseBean.builder().code(restResponseBean.getCode())
+                    .msg(msg)
+                    .data(restResponseBean.getData())
+                    .build();
         }
 
         if (body instanceof LinkedHashMap) {

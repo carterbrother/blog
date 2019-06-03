@@ -29,6 +29,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.1.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.1.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.1.7.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-loader:2.1.5.RELEASE" level="project" />
     <orderEntry type="module" module-name="springx-common" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:27.0.1-jre" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:failureaccess:1.0.1" level="project" />

@@ -51,8 +51,6 @@ public class RestContextInterceptorBean implements HandlerInterceptor, Applicati
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        log.info("invoke preHandle method ");
-
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
 
@@ -169,7 +167,6 @@ public class RestContextInterceptorBean implements HandlerInterceptor, Applicati
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 
-        log.info("invoke postHandle method ");
 
         Map<String, String> headMap = new HashMap<>(4);
         headMap.put("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
@@ -187,8 +184,6 @@ public class RestContextInterceptorBean implements HandlerInterceptor, Applicati
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-
-        log.info("invoke afterCompletion method ");
 
         final StopWatch stopWatch = RestContextBean.getInstance().getStopWatch();
         log.info("\n===param_complete===\n===requestId==={}\n===method==={}\n===useTime==={}", RestContextBean.getInstance().getRequestId(), handler, stopWatch.getTime());
