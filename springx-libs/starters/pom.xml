@@ -17,6 +17,9 @@
     <modules>
         <module>cache-spring-boot-starter</module>
         <module>rest-spring-boot-starter</module>
+        <module>job-spring-boot-starter</module>
+        <module>kafka-spring-boot-starter</module>
+        <module>file-spring-boot-starter</module>
     </modules>
 
     <dependencies>

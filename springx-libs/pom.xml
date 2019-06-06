@@ -6,6 +6,7 @@
     <modules>
         <module>springx-common</module>
         <module>starters</module>
+        <module>admins</module>
     </modules>
     <parent>
         <groupId>com.springx.bootdubbo</groupId>

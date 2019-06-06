@@ -12,7 +12,7 @@
     <artifactId>rest-spring-boot-starter</artifactId>
 
     <name>rest-spring-boot-starter</name>
-
+    <description>对REST做了统一的封装</description>
 
     <dependencies>
         <dependency>
