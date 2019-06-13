@@ -5,7 +5,7 @@
 maven + springboot + dubbo 
 
 ## 分布式组价
-定时任务 elastic-job
+定时任务 elastic-job 待测试
 缓存     redis
 消息队列  kafka
 持久化操作  XMyBatis
@@ -14,7 +14,7 @@ maven + springboot + dubbo
 分布式配置中心   disconf 
 ## 功能增强
 service-support  健康检查等
-rest-support    rest接口增强
+rest-support    rest接口增强   完成
 dubbo-support   dubbo增强
 conf-support    分布式配置中心增强
 auth-support    登录封装，单点登录
@@ -29,7 +29,7 @@ log4j2
 jekins + docker + elk 
 
 ## 完成排期
-|版本|内容|时间规划|
+
 V1     commons组件,Rest组件,dubbo组件，文档swagger组件      0522
 V2     redis组件，kafka组件，log组件               
 V3     定时任务组件，持久化组件，配置中心组件
