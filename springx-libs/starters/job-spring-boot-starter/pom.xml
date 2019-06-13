@@ -15,7 +15,12 @@
     <url>http://www.example.com</url>
     <description>定时任务封装,采用elastic-job-lite做了一定的定制</description>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.dangdang</groupId>
+            <artifactId>elastic-job-lite-spring</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
        <finalName>job-spring-boot-starter</finalName>

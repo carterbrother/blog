@@ -2,23 +2,31 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cache-spring-boot-starter" />
-        <module name="demo-api" />
-        <module name="demo-service" />
-        <module name="rest-spring-boot-starter" />
         <module name="springx-common" />
+        <module name="demo-api" />
+        <module name="job-spring-boot-starter" />
+        <module name="cache-spring-boot-starter" />
+        <module name="rest-spring-boot-starter" />
+        <module name="demo-service" />
+        <module name="kafka-spring-boot-starter" />
+        <module name="file-spring-boot-starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="admins" target="1.8" />
       <module name="api" target="1.8" />
       <module name="backend-server" target="1.8" />
       <module name="cache-spring-boot-starter" target="1.8" />
-      <module name="demo-api" target="1.7" />
+      <module name="demo-api" target="1.8" />
       <module name="demo-service" target="1.8" />
+      <module name="file-spring-boot-starter" target="1.8" />
+      <module name="job-spring-boot-starter" target="1.8" />
+      <module name="kafka-spring-boot-starter" target="1.8" />
       <module name="rest-spring-boot-starter" target="1.8" />
       <module name="root-dependency" target="1.8" />
       <module name="service" target="1.8" />

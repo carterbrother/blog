@@ -2,13 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf801d58-30b1-4e7a-a1d8-3dee7697a433" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_loader_2_1_5_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/I18nUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_dangdang_elastic_job_common_core_2_1_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_dangdang_elastic_job_lite_core_2_1_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_dangdang_elastic_job_lite_spring_2_1_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_mchange_mchange_commons_java_0_2_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_exec_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_curator_curator_client_2_10_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_curator_curator_framework_2_10_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_curator_curator_recipes_2_10_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_quartz_scheduler_quartz_2_3_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/JobAutoConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/JobListProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/SingleJobProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/AbstractDataFlowJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/AbstractJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/AbstractSimpleJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/ConfigJobEventConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/ConfigJobEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/ConfigJobExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/DoMyJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/JobConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/SimpleJobListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/bootdubbo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bootdubbo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend-server/service/service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/backend-server/service/service.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/ResponseBodyAndExceptionHandleBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/ResponseBodyAndExceptionHandleBean.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/RestContextInterceptorBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/RestContextInterceptorBean.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root-dependency/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/root-dependency/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/App.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/springx-libs/target/" />
     <ignored path="$PROJECT_DIR$/springx-libs/starters/target/" />
@@ -21,163 +47,142 @@
     <ignored path="$PROJECT_DIR$/backend-server/service/target/" />
     <ignored path="$PROJECT_DIR$/backend-server/api/target/" />
     <ignored path="$PROJECT_DIR$/backend-server/service/demo-service/target/" />
+    <ignored path="$PROJECT_DIR$/springx-libs/starters/file-spring-boot-starter/target/" />
+    <ignored path="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/target/" />
+    <ignored path="$PROJECT_DIR$/springx-libs/starters/kafka-spring-boot-starter/target/" />
+    <ignored path="$PROJECT_DIR$/springx-libs/admins/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="1755133310">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.22" value="1" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="5" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="ServletContainerInitializer" value="1" />
-          <entry key="class" value="12" />
-          <entry key="factories" value="4" />
-          <entry key="java" value="79" />
-          <entry key="pom" value="1" />
-          <entry key="properties" value="2" />
-          <entry key="xml" value="11" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CLASS" value="12" />
-          <entry key="JAVA" value="79" />
-          <entry key="Properties" value="2" />
-          <entry key="SPI" value="1" />
-          <entry key="XML" value="12" />
-          <entry key="spring.factories" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="59" />
-          <entry key="factories" value="9" />
-          <entry key="java" value="2167" />
-          <entry key="properties" value="33" />
-          <entry key="txt" value="38" />
-          <entry key="xml" value="21" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="2167" />
-          <entry key="PLAIN_TEXT" value="97" />
-          <entry key="Properties" value="33" />
-          <entry key="XML" value="21" />
-          <entry key="spring.factories" value="9" />
-        </counts>
-      </usages-collector>
-    </session>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+    <option name="PARALLEL_COMPILATION" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/AbstractJob.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="870">
+              <caret line="76" column="15" selection-start-line="76" selection-start-column="15" selection-end-line="76" selection-end-column="15" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/ConfigJobEventConfiguration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#719#720#0" expanded="true" />
+                <element signature="e#770#771#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/ConfigJobEventListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="47" column="133" selection-start-line="47" selection-start-column="133" selection-end-line="47" selection-end-column="133" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/ConfigJobExceptionHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/dangdang/elastic-job-lite-core/2.1.5/elastic-job-lite-core-2.1.5.jar!/com/dangdang/ddframe/job/lite/api/listener/ElasticJobListener.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/pom.xml">
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/RestContextInterceptorBean.java">
+        <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/JobAutoConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="197" column="5" lean-forward="true" selection-start-line="186" selection-start-column="3" selection-end-line="197" selection-end-column="5" />
+            <state relative-caret-position="114">
+              <caret line="6" column="69" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/JobConstant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/root-dependency/pom.xml">
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/SimpleJobListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/config/RestAutoConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="45" column="5" lean-forward="true" selection-start-line="38" selection-end-line="45" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/ResponseConfigBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="37" column="31" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="31" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/ResponseBodyAndExceptionHandleBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springx-libs/springx-common/src/main/java/com/springx/bootdubbo/common/bean/RestResponseBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="18" column="18" lean-forward="true" selection-end-line="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/springx-libs/starters/pom.xml">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.7.RELEASE/spring-webmvc-5.1.7.RELEASE-sources.jar!/org/springframework/web/servlet/config/annotation/WebMvcConfigurerComposite.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="88" selection-start-line="88" selection-end-line="88" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend-server/service/demo-service/src/main/java/com/springx/demoservice/Application.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE-sources.jar!/org/springframework/web/context/request/WebRequestInterceptor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="48" column="38" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -215,7 +220,6 @@
         <option value="$PROJECT_DIR$/backend-server/pom.xml" />
         <option value="$PROJECT_DIR$/backend-server/api/pom.xml" />
         <option value="$PROJECT_DIR$/backend-server/api/demo-api/pom.xml" />
-        <option value="$PROJECT_DIR$/root-dependency/pom.xml" />
         <option value="$PROJECT_DIR$/springx-libs/starters/cache-spring-boot-starter/pom.xml" />
         <option value="$PROJECT_DIR$/springx-libs/starters/pom.xml" />
         <option value="$PROJECT_DIR$/backend-server/service/demo-service/src/main/java/com/springx/demoservice/web/UserController.java" />
@@ -235,14 +239,33 @@
         <option value="$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/pom.xml" />
         <option value="$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/ResponseBodyAndExceptionHandleBean.java" />
         <option value="$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/RestContextInterceptorBean.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/config/JobConstant.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/JobConfigProperty.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/JobConstant.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/SingleJobConfigProperty.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/SingleJobConfig.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/JobConfig.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/JobAutoConfiger.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/SingleJobProperties.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/DoMyJob.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/AbstractSimpleJob.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/DataFlowJob.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/AbstractDataFlowJob.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/JobListProperties.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/AbstractJob.java" />
+        <option value="$PROJECT_DIR$/root-dependency/pom.xml" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/LxJobExceptionHandler.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/ConfigJobExceptionHandler.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/JobConstant.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/LxJobEventListener.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/LxJobEventConfiguration.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/ConfigJobEventConfiguration.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/ConfigJobEventListener.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/SimpleJobListener.java" />
+        <option value="$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/JobAutoConfig.java" />
       </list>
     </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -261,11 +284,24 @@
       <expand>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="rest-spring-boot-starter" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="job-spring-boot-starter" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="rest-spring-boot-starter" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="springx-common" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="springx-common" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="springx-libs" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="springx-libs" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
       </expand>
@@ -275,9 +311,9 @@
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -287,89 +323,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
               <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
-              <item name="backend-server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
-              <item name="backend-server" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
-              <item name="backend-server" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="demo-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
-              <item name="backend-server" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="demo-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
-              <item name="backend-server" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="demo-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
-              <item name="backend-server" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="demo-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
-              <item name="backend-server" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="demo-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="demoservice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
-              <item name="backend-server" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="demo-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
-              <item name="backend-server" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="demo-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
@@ -392,14 +352,14 @@
               <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
               <item name="springx-libs" type="462c0819:PsiDirectoryNode" />
               <item name="starters" type="462c0819:PsiDirectoryNode" />
-              <item name="rest-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
+              <item name="job-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
               <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
               <item name="springx-libs" type="462c0819:PsiDirectoryNode" />
               <item name="starters" type="462c0819:PsiDirectoryNode" />
-              <item name="rest-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
+              <item name="job-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -407,40 +367,98 @@
               <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
               <item name="springx-libs" type="462c0819:PsiDirectoryNode" />
               <item name="starters" type="462c0819:PsiDirectoryNode" />
-              <item name="rest-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
-              <item name="springx-libs" type="462c0819:PsiDirectoryNode" />
-              <item name="starters" type="462c0819:PsiDirectoryNode" />
-              <item name="rest-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
+              <item name="job-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
               <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
               <item name="springx-libs" type="462c0819:PsiDirectoryNode" />
               <item name="starters" type="462c0819:PsiDirectoryNode" />
-              <item name="rest-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
+              <item name="job-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
               <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
               <item name="springx-libs" type="462c0819:PsiDirectoryNode" />
               <item name="starters" type="462c0819:PsiDirectoryNode" />
-              <item name="rest-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
+              <item name="job-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
+              <item name="springx-libs" type="462c0819:PsiDirectoryNode" />
+              <item name="starters" type="462c0819:PsiDirectoryNode" />
+              <item name="job-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="springx" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
+              <item name="springx-libs" type="462c0819:PsiDirectoryNode" />
+              <item name="starters" type="462c0819:PsiDirectoryNode" />
+              <item name="job-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="springx" type="462c0819:PsiDirectoryNode" />
+              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
+              <item name="springx-libs" type="462c0819:PsiDirectoryNode" />
+              <item name="starters" type="462c0819:PsiDirectoryNode" />
+              <item name="job-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="springx" type="462c0819:PsiDirectoryNode" />
+              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
+              <item name="job" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
+              <item name="springx-libs" type="462c0819:PsiDirectoryNode" />
+              <item name="starters" type="462c0819:PsiDirectoryNode" />
+              <item name="job-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="springx" type="462c0819:PsiDirectoryNode" />
+              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
+              <item name="job" type="462c0819:PsiDirectoryNode" />
+              <item name="autoconfig" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
+              <item name="springx-libs" type="462c0819:PsiDirectoryNode" />
+              <item name="starters" type="462c0819:PsiDirectoryNode" />
+              <item name="job-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="springx" type="462c0819:PsiDirectoryNode" />
+              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
+              <item name="job" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -448,27 +466,47 @@
               <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
               <item name="springx-libs" type="462c0819:PsiDirectoryNode" />
               <item name="starters" type="462c0819:PsiDirectoryNode" />
-              <item name="rest-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
+              <item name="job-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
               <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
               <item name="springx-libs" type="462c0819:PsiDirectoryNode" />
               <item name="starters" type="462c0819:PsiDirectoryNode" />
-              <item name="rest-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
+              <item name="job-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
+              <item name="springx-libs" type="462c0819:PsiDirectoryNode" />
+              <item name="starters" type="462c0819:PsiDirectoryNode" />
+              <item name="job-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bootdubbo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bootdubbo" type="462c0819:PsiDirectoryNode" />
+              <item name="springx-libs" type="462c0819:PsiDirectoryNode" />
+              <item name="starters" type="462c0819:PsiDirectoryNode" />
+              <item name="job-spring-boot-starter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="springx" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -477,16 +515,18 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -514,6 +554,9 @@
       </method>
     </configuration>
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="cf801d58-30b1-4e7a-a1d8-3dee7697a433" name="Default Changelist" comment="" />
@@ -526,6 +569,8 @@
       <workItem from="1559443159429" duration="4086000" />
       <workItem from="1559485040164" duration="1531000" />
       <workItem from="1559572042912" duration="749000" />
+      <workItem from="1560413324196" duration="1306000" />
+      <workItem from="1560414699512" duration="8566000" />
     </task>
     <task id="LOCAL-00001" summary="修复变异错误">
       <created>1559172124067</created>
@@ -552,13 +597,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25508000" />
+    <option name="totallyTimeSpent" value="35380000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25895765" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.26495728" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -566,9 +610,11 @@
       <window_info id="Learn" order="5" weight="0.32980457" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info id="Alibaba Cloud Explorer" order="7" />
+      <window_info id="Image Layers" order="8" />
+      <window_info id="Capture Tool" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32991204" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6656892" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32984293" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4816754" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.414956" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -583,18 +629,27 @@
       <window_info anchor="bottom" id="Tail" order="14" />
       <window_info anchor="bottom" id="Alibaba Cloud View" order="15" />
       <window_info anchor="bottom" id="Messages" order="16" weight="0.32844576" />
+      <window_info anchor="bottom" id="MyBatis Sql Log" order="17" />
+      <window_info anchor="bottom" id="Docker" order="18" show_stripe_button="false" />
+      <window_info anchor="bottom" id="CheckStyle" order="19" />
+      <window_info anchor="bottom" id="Problems" order="20" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Maven Projects" order="4" weight="0.32980457" />
-      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Database" order="5" weight="0.32967034" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Bean Validation" order="7" />
+      <window_info anchor="right" id="Bean Validation" order="7" weight="0.32967034" />
       <window_info anchor="right" id="Mybatis Helper" order="8" />
+      <window_info anchor="right" id="Maven" order="9" visible="true" weight="0.32967034" />
+      <window_info anchor="right" id="PlantUML" order="10" />
+      <window_info anchor="right" id="Mybatis datasource" order="11" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="12" />
+      <window_info anchor="right" id="Theme Preview" order="13" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25895765" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26495728" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -602,9 +657,11 @@
       <window_info id="Learn" order="5" weight="0.32980457" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info id="Alibaba Cloud Explorer" order="7" />
+      <window_info id="Image Layers" order="8" />
+      <window_info id="Capture Tool" order="9" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32991204" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6656892" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32984293" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4816754" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.414956" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -619,22 +676,28 @@
       <window_info anchor="bottom" id="Tail" order="14" />
       <window_info anchor="bottom" id="Alibaba Cloud View" order="15" />
       <window_info anchor="bottom" id="Messages" order="16" weight="0.32844576" />
+      <window_info anchor="bottom" id="MyBatis Sql Log" order="17" />
+      <window_info anchor="bottom" id="Docker" order="18" show_stripe_button="false" />
+      <window_info anchor="bottom" id="CheckStyle" order="19" />
+      <window_info anchor="bottom" id="Problems" order="20" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Maven Projects" order="4" weight="0.32980457" />
-      <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="right" id="Database" order="5" weight="0.32967034" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Bean Validation" order="7" />
+      <window_info anchor="right" id="Bean Validation" order="7" weight="0.32967034" />
       <window_info anchor="right" id="Mybatis Helper" order="8" />
+      <window_info anchor="right" id="Maven" order="9" weight="0.32967034" />
+      <window_info anchor="right" id="PlantUML" order="10" />
+      <window_info anchor="right" id="Mybatis datasource" order="11" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="12" />
+      <window_info anchor="right" id="Theme Preview" order="13" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -672,310 +735,61 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE-sources.jar!/org/springframework/web/filter/RelativeRedirectResponseWrapper.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.7.RELEASE/spring-webmvc-5.1.7.RELEASE-sources.jar!/org/springframework/web/servlet/config/annotation/WebMvcConfigurerComposite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="54" column="30" lean-forward="true" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+        <state relative-caret-position="1197">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE-sources.jar!/org/springframework/web/filter/OncePerRequestFilter.java">
+    <entry file="file://$PROJECT_DIR$/springx-libs/springx-common/src/main/java/com/springx/bootdubbo/common/bean/RestResponseBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
+        <state relative-caret-position="180">
+          <caret line="18" column="18" selection-end-line="44" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE-sources.jar!/org/springframework/web/filter/HttpPutFormContentFilter.java">
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/App.java" />
+    <entry file="file://$PROJECT_DIR$/backend-server/service/demo-service/src/main/java/com/springx/demoservice/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-24">
-          <caret line="64" column="13" selection-start-line="64" selection-start-column="13" selection-end-line="64" selection-end-column="13" />
+        <state relative-caret-position="171">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE-sources.jar!/org/springframework/web/filter/CorsFilter.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.1.5.RELEASE/spring-boot-2.1.5.RELEASE.jar!/org/springframework/boot/context/properties/ConfigurationProperties.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="52" column="13" selection-start-line="52" selection-start-column="13" selection-end-line="52" selection-end-column="13" />
+        <state relative-caret-position="171">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE-sources.jar!/META-INF/services/javax.servlet.ServletContainerInitializer">
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="57" selection-start-column="24" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE-sources.jar!/org/springframework/web/util/IntrospectorCleanupListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8">
-          <caret line="61" column="78" selection-start-line="61" selection-start-column="78" selection-end-line="61" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE-sources.jar!/org/springframework/web/util/ServletContextPropertyUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE-sources.jar!/org/springframework/web/util/WebAppRootListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="55" column="35" lean-forward="true" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/9.0.19/tomcat-embed-core-9.0.19.jar!/javax/servlet/ServletContext.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="57" column="9" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE-sources.jar!/org/springframework/web/util/WebUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="235" column="23" selection-start-line="235" selection-start-column="23" selection-end-line="235" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE-sources.jar!/org/springframework/web/HttpRequestHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="76" column="17" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE-sources.jar!/org/springframework/web/filter/CommonsRequestLoggingFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE-sources.jar!/org/springframework/web/WebApplicationInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="176" column="17" selection-start-line="176" selection-start-column="17" selection-end-line="176" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE-sources.jar!/org/springframework/web/SpringServletContainerInitializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-47">
-          <caret line="146" column="22" selection-start-line="146" selection-start-column="17" selection-end-line="146" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.1.5.RELEASE/spring-boot-2.1.5.RELEASE.jar!/org/springframework/boot/SpringBootConfiguration.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.1.5.RELEASE/spring-boot-2.1.5.RELEASE.jar!/org/springframework/boot/CommandLineRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.1.5.RELEASE/spring-boot-2.1.5.RELEASE-sources.jar!/org/springframework/boot/ApplicationRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.5.RELEASE/spring-boot-autoconfigure-2.1.5.RELEASE.jar!/org/springframework/boot/autoconfigure/web/servlet/WebMvcProperties.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="95" column="16" selection-start-line="95" selection-start-column="16" selection-end-line="95" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.1.5.RELEASE/spring-boot-2.1.5.RELEASE-sources.jar!/org/springframework/boot/CommandLineRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.5.RELEASE/spring-boot-autoconfigure-2.1.5.RELEASE-sources.jar!/org/springframework/boot/autoconfigure/web/ResourceProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="76" column="24" lean-forward="true" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.5.RELEASE/spring-boot-autoconfigure-2.1.5.RELEASE-sources.jar!/org/springframework/boot/autoconfigure/web/reactive/WebFluxAutoConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="104" column="41" selection-start-line="104" selection-start-column="41" selection-end-line="104" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.5.RELEASE/spring-boot-autoconfigure-2.1.5.RELEASE-sources.jar!/org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="177" column="28" lean-forward="true" selection-start-line="177" selection-start-column="28" selection-end-line="177" selection-end-column="28" />
+        <state relative-caret-position="95">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/config/RestPropertiesConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
+        <state relative-caret-position="190">
           <caret line="11" column="46" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/InterceptorBean.java" />
-    <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/config/InterceptorAutoConfig.java" />
-    <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/resources/META-INF/spring.factories">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="110" lean-forward="true" selection-start-column="110" selection-end-column="110" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.7.RELEASE/spring-webmvc-5.1.7.RELEASE-sources.jar!/org/springframework/web/servlet/config/annotation/WebMvcConfigurerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="40" column="67" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.7.RELEASE/spring-webmvc-5.1.7.RELEASE-sources.jar!/org/springframework/web/servlet/config/annotation/WebMvcConfigurer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="100" column="33" selection-start-line="100" selection-start-column="7" selection-end-line="100" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.7.RELEASE/spring-webmvc-5.1.7.RELEASE-sources.jar!/org/springframework/web/servlet/handler/AbstractHandlerMapping.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="196" column="16" selection-start-line="196" selection-start-column="16" selection-end-line="196" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.7.RELEASE/spring-webmvc-5.1.7.RELEASE-sources.jar!/org/springframework/web/servlet/config/annotation/WebMvcConfigurationSupport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2610">
-          <caret line="274" column="36" selection-start-line="274" selection-start-column="8" selection-end-line="274" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.7.RELEASE/spring-webmvc-5.1.7.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/ResponseBodyAdvice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="45" column="55" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.7.RELEASE/spring-webmvc-5.1.7.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerMapping.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.7.RELEASE/spring-webmvc-5.1.7.RELEASE-sources.jar!/org/springframework/web/servlet/HandlerInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="75" column="17" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend-server/service/demo-service/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.5.RELEASE/spring-boot-autoconfigure-2.1.5.RELEASE-sources.jar!/org/springframework/boot/autoconfigure/web/servlet/WebMvcProperties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="146" column="30" lean-forward="true" selection-start-line="146" selection-start-column="19" selection-end-line="146" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.5.RELEASE/spring-boot-autoconfigure-2.1.5.RELEASE-sources.jar!/org/springframework/boot/autoconfigure/web/servlet/DispatcherServletAutoConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="104" column="63" selection-start-line="104" selection-start-column="30" selection-end-line="104" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/config/RestInterceptorAutoConfig.java" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.7.RELEASE/spring-webmvc-5.1.7.RELEASE-sources.jar!/org/springframework/web/servlet/DispatcherServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14715">
-          <caret line="1047" selection-start-line="1047" selection-end-line="1047" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.5.RELEASE/spring-boot-autoconfigure-2.1.5.RELEASE-sources.jar!/org/springframework/boot/autoconfigure/AutoConfigureBefore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="33" column="18" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend-server/service/demo-service/src/main/java/com/springx/demoservice/web/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/I18nUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/springx-libs/starters/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.7.RELEASE/spring-webmvc-5.1.7.RELEASE-sources.jar!/org/springframework/web/servlet/config/annotation/WebMvcConfigurerComposite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="88" selection-start-line="88" selection-end-line="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend-server/service/demo-service/src/main/java/com/springx/demoservice/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.7.RELEASE/spring-web-5.1.7.RELEASE-sources.jar!/org/springframework/web/context/request/WebRequestInterceptor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
+        <state relative-caret-position="627">
           <caret line="48" column="38" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/ResponseConfigBean.java">
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/SingleJobProperties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="37" column="31" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="31" />
+        <state relative-caret-position="380">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -984,44 +798,342 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/config/RestAutoConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="45" column="5" lean-forward="true" selection-start-line="38" selection-end-line="45" selection-end-column="5" />
+        <state relative-caret-position="397">
+          <caret line="40" column="23" selection-start-line="40" selection-end-line="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/ResponseBodyAndExceptionHandleBean.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/dangdang/elastic-job-common-core/2.1.5/elastic-job-common-core-2.1.5-sources.jar!/com/dangdang/ddframe/job/reg/zookeeper/ZookeeperConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+        <state relative-caret-position="843">
+          <caret line="74" column="16" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/dangdang/elastic-job-common-core/2.1.5/elastic-job-common-core-2.1.5.jar!/com/dangdang/ddframe/job/reg/zookeeper/ZookeeperConfiguration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="67" column="16" selection-start-line="67" selection-start-column="16" selection-end-line="67" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.7.RELEASE/spring-context-5.1.7.RELEASE-sources.jar!/org/springframework/context/annotation/Bean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="759">
+          <caret line="301" column="11" selection-start-line="301" selection-start-column="11" selection-end-line="301" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/dangdang/elastic-job-common-core/2.1.5/elastic-job-common-core-2.1.5-sources.jar!/com/dangdang/ddframe/job/reg/base/RegistryCenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="34" column="9" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/dangdang/elastic-job-common-core/2.1.5/elastic-job-common-core-2.1.5-sources.jar!/com/dangdang/ddframe/job/reg/zookeeper/ZookeeperRegistryCenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="64" column="11" selection-start-line="64" selection-start-column="11" selection-end-line="64" selection-end-column="11" />
+          <folding>
+            <element signature="e#2232#2233#0" expanded="true" />
+            <element signature="e#2272#2273#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/springx-common/src/main/java/com/springx/bootdubbo/common/util/SystemUtil.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib/plugin.jar!/sun/plugin2/util/SystemUtil.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/springx-common/src/main/java/com/springx/bootdubbo/common/util/StringUtil.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/springx-common/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/job-spring-boot-starter.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/springx-common/target/classes/com/springx/bootdubbo/common/util/GrayUtil.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#3530#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/dangdang/elastic-job-common-core/2.1.5/elastic-job-common-core-2.1.5-sources.jar!/com/dangdang/ddframe/job/reg/base/CoordinatorRegistryCenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="26" column="42" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/springx-common/src/main/java/com/springx/bootdubbo/common/util/AssertUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/springx-common/src/main/java/com/springx/bootdubbo/common/util/Base64Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="73" column="13" selection-start-line="73" selection-start-column="13" selection-end-line="73" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/springx-common/src/main/java/com/springx/bootdubbo/common/util/DigestUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/springx-common/src/main/java/com/springx/bootdubbo/common/util/IdWorkerUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/springx-common/src/main/java/com/springx/bootdubbo/common/util/NumberUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/springx-common/src/main/java/com/springx/bootdubbo/common/util/ValidateUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springx-libs/springx-common/src/main/java/com/springx/bootdubbo/common/bean/RestResponseBean.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.9/commons-lang3-3.9.jar!/org/apache/commons/lang3/Validate.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="18" column="18" lean-forward="true" selection-end-line="44" />
+        <state relative-caret-position="310">
+          <caret line="229" column="75" lean-forward="true" selection-start-line="229" selection-start-column="75" selection-end-line="229" selection-end-column="75" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/springx-libs/starters/rest-spring-boot-starter/src/main/java/com/springx/bootdubbo/starter/rest/core/RestContextInterceptorBean.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/27.0.1-jre/guava-27.0.1-jre-sources.jar!/com/google/common/util/concurrent/FakeTimeLimiter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="197" column="5" lean-forward="true" selection-start-line="186" selection-start-column="3" selection-end-line="197" selection-end-column="5" />
+        <state relative-caret-position="310">
+          <caret line="38" column="52" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/27.0.1-jre/guava-27.0.1-jre-sources.jar!/com/google/common/util/concurrent/TimeLimiter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/DoMyJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/guava/guava/27.0.1-jre/guava-27.0.1-jre-sources.jar!/com/google/common/util/concurrent/SimpleTimeLimiter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="116" column="8" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="8" />
+          <folding>
+            <element signature="e#1946#1947#0" expanded="true" />
+            <element signature="e#1994#1995#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/AbstractSimpleJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/dangdang/elastic-job-common-core/2.1.5/elastic-job-common-core-2.1.5-sources.jar!/com/dangdang/ddframe/job/api/dataflow/DataflowJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="31" column="17" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/AbstractDataFlowJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.1.7.RELEASE/spring-beans-5.1.7.RELEASE-sources.jar!/org/springframework/beans/factory/ListableBeanFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="142" column="7" selection-start-line="142" selection-start-column="7" selection-end-line="142" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.1.7.RELEASE/spring-beans-5.1.7.RELEASE-sources.jar!/org/springframework/beans/factory/support/DefaultListableBeanFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="471" column="20" selection-start-line="471" selection-start-column="20" selection-end-line="471" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.1.7.RELEASE/spring-beans-5.1.7.RELEASE.jar!/org/springframework/beans/factory/support/DefaultListableBeanFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="294" column="20" selection-start-line="294" selection-start-column="20" selection-end-line="294" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/JobListProperties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/AbstractJob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="76" column="15" selection-start-line="76" selection-start-column="15" selection-end-line="76" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/root-dependency/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" column="15" selection-start-line="28" selection-start-column="15" selection-end-line="28" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/ConfigJobExceptionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/JobConstant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/ConfigJobEventConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#719#720#0" expanded="true" />
+            <element signature="e#770#771#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/ConfigJobEventListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="47" column="133" selection-start-line="47" selection-start-column="133" selection-end-line="47" selection-end-column="133" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/core/SimpleJobListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/dangdang/elastic-job-lite-core/2.1.5/elastic-job-lite-core-2.1.5.jar!/com/dangdang/ddframe/job/lite/api/listener/ElasticJobListener.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springx-libs/starters/job-spring-boot-starter/src/main/java/com/springx/bootdubbo/job/autoconfig/JobAutoConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="69" selection-start-line="6" selection-start-column="69" selection-end-line="6" selection-end-column="69" />
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArquillianSettingsConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
@@ -1076,7 +1188,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
