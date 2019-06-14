@@ -1,6 +1,7 @@
 package com.springx.bootdubbo.starter.rest.config;
 
 import com.springx.bootdubbo.starter.rest.core.ResponseBodyAndExceptionHandleBean;
+import com.springx.bootdubbo.starter.rest.core.ResponseConfigBean;
 import com.springx.bootdubbo.starter.rest.core.RestContextInterceptorBean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
@@ -31,6 +32,7 @@ import javax.annotation.Resource;
 @EnableConfigurationProperties(RestPropertiesConfig.class)
 @Slf4j
 @AutoConfigureBefore(WebMvcAutoConfiguration.class)
+@ConditionalOnProperty(prefix = "rest.config", value = "enabled", havingValue = "true")
 public class RestAutoConfig implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
@@ -38,16 +40,19 @@ public class RestAutoConfig implements ApplicationContextAware {
     private RestPropertiesConfig restPropertiesConfig;
 
     @Bean
-    @ConditionalOnProperty(prefix = "rest.config", value = "enabled", havingValue = "true")
     public ResponseBodyAndExceptionHandleBean exceptionHandlerBean(){
         log.info("===>install exception handler AND response wrapper ");
         applicationContext.getBean(DispatcherServlet.class).setThrowExceptionIfNoHandlerFound(true);
         return new ResponseBodyAndExceptionHandleBean();
     }
 
+    @Bean
+    public ResponseConfigBean responseConfigBean(){
+        log.info("===>install httpMessage converter ");
+        return new ResponseConfigBean(applicationContext,restPropertiesConfig);
+    }
 
     @Bean
-    @ConditionalOnProperty(prefix = "rest.config", value = "enabled", havingValue = "true")
     public WebMvcConfigurer webMvcConfigurer(){
         log.info("===>install interceptor");
         return new WebMvcConfigurer() {

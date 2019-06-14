@@ -28,6 +28,7 @@ import java.util.Objects;
  * 作者:     carter
  * 创建日期:  2019/6/1 上午10:23
  * 描述:     统一返回格式，正常情况或者出现异常的时候
+ * @author lifesense-szyf01
  */
 @RestControllerAdvice
 @Slf4j

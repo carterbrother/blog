@@ -24,6 +24,12 @@ public class UserController {
         data.put("hello", UUIDUtil.uuid());
         return data;
     }
+
+    @GetMapping(path = "/hello2")
+    public Object hello2(){
+        return "hello world";
+    }
+
     @GetMapping(path = "/ex")
     public Object ex(){
 
