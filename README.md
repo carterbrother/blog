@@ -40,3 +40,6 @@ V7     微服务架构图，开发流程，团队沟通等
 
 
 
+# 测试
+demo-service  测试rest
+demo-job      测试job封装
