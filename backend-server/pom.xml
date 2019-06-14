@@ -16,6 +16,6 @@
     <module>api</module>
     <module>service</module>
   </modules>
-  <name>backend-server</name>
+  <name>backend-server【后端服务实例】</name>
  <description>后端提供的服务,api为内部互相暴露的接口,service为Rest接口</description>
 </project>

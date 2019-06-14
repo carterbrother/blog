@@ -6,7 +6,7 @@
     <artifactId>root-dependency</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>root-dependency</name>
+    <name>root-dependency【依赖管理BOM】</name>
     <url>https://github.com/carterbrother/bootdubbo</url>
     <description>开发骨架统一的版本管理,依赖管理，插件管理，参考springboot的bom依赖管理方式</description>
     <licenses>

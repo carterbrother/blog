@@ -18,7 +18,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <description>公共组件封装</description>
-    <name>springx-libs</name>
+    <name>springx-libs【公共组件封装】</name>
     <url>https://github.com/carterbrother/bootdubbo</url>
 
     <build>
