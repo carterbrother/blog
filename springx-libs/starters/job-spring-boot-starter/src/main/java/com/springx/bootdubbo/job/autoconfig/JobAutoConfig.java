@@ -98,9 +98,10 @@ public class JobAutoConfig implements ApplicationContextAware {
             factory.setLazyInit(false);
             factory.setInitMethodName("init");
 
-            String scheduleBeanName = NAMESPACE + "/_" + jobListProperties.getAppNameSpace() + "_" + setting.getJobName() + SCHEDULE_SUB_FIX;
+            String scheduleBeanName = NAMESPACE + "_" + jobListProperties.getAppNameSpace() + "_" + setting.getJobName() + SCHEDULE_SUB_FIX;
             defaultListableBeanFactory.registerBeanDefinition(scheduleBeanName, factory.getBeanDefinition());
-            defaultListableBeanFactory.getBean(scheduleBeanName, SpringJobScheduler.class);
+            final SpringJobScheduler springJobScheduler = defaultListableBeanFactory.getBean(scheduleBeanName, SpringJobScheduler.class);
+            springJobScheduler.init();
 
             log.info("===>注册完成job jobName:{} : config: {}",scheduleBeanName,  JsonUtil.toJson(setting));
 
