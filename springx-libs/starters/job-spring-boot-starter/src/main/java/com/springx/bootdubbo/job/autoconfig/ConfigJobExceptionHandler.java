@@ -1,4 +1,4 @@
-package com.springx.bootdubbo.job.core;
+package com.springx.bootdubbo.job.autoconfig;
 
 import com.dangdang.ddframe.job.exception.JobSystemException;
 import com.dangdang.ddframe.job.executor.handler.JobExceptionHandler;
@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
  * @date 2019年01月15日 10:12 AM
  * @Copyright (c) 2018, lifesense.com
  */
-public class ConfigJobExceptionHandler implements JobExceptionHandler{
+ class ConfigJobExceptionHandler implements JobExceptionHandler{
     private static final Logger logger = LoggerFactory.getLogger(ConfigJobExceptionHandler.class);
     /**
      * 处理作业异常.

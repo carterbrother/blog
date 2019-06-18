@@ -1,4 +1,4 @@
-package com.springx.bootdubbo.job.core;
+package com.springx.bootdubbo.job.autoconfig;
 
 import com.dangdang.ddframe.job.event.JobEventConfiguration;
 import com.dangdang.ddframe.job.event.JobEventListener;
@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @date 2019年01月15日 11:22 AM
  * @Copyright (c) 2018, lifesense.com
  */
-public class ConfigJobEventConfiguration implements JobEventConfiguration, Serializable {
+ class ConfigJobEventConfiguration implements JobEventConfiguration, Serializable {
 
     public static final String LX_JOB_EVENT_IDENTITY = "lx_log";
 

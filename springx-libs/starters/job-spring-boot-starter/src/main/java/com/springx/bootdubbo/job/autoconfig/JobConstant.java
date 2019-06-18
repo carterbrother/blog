@@ -1,4 +1,4 @@
-package com.springx.bootdubbo.job.core;
+package com.springx.bootdubbo.job.autoconfig;
 
 /**
  * @author <a href="mailto:505847426@qq.com">carterbrother</a>
@@ -6,7 +6,7 @@ package com.springx.bootdubbo.job.core;
  * @date 2019年06月13日 16:21
  * @Copyright (c) carterbrother
  */
-public class JobConstant {
+class JobConstant {
 
     private JobConstant(){}
 
@@ -21,7 +21,7 @@ public class JobConstant {
     /**
      * 命名空间
      */
-    public static final String NAMESPACE="_job/";
+    public static final String NAMESPACE="_job";
     /**
      * job异常处理的配置key
      */

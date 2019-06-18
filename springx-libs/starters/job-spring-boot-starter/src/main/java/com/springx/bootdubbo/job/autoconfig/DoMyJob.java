@@ -1,4 +1,4 @@
-package com.springx.bootdubbo.job.core;
+package com.springx.bootdubbo.job.autoconfig;
 
 import com.dangdang.ddframe.job.api.ShardingContext;
 
@@ -11,7 +11,7 @@ import java.util.List;
  * @Copyright (c) 2018, lifesense.com
  */
 @FunctionalInterface
-public interface DoMyJob {
+ interface DoMyJob {
     /**
      * 传入分片，数据，返回执行结果
      * @param jobContext 分片上下文

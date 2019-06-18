@@ -1,4 +1,4 @@
-package com.springx.bootdubbo.job.core;
+package com.springx.bootdubbo.job.autoconfig;
 
 import com.dangdang.ddframe.job.api.ShardingContext;
 import com.dangdang.ddframe.job.api.dataflow.DataflowJob;

@@ -18,12 +18,16 @@
         <dependency>
             <groupId>com.springx.bootdubbo</groupId>
             <artifactId>rest-spring-boot-starter</artifactId>
-            <version>${dev.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.springx.bootdubbo</groupId>
+            <artifactId>springx-common</artifactId>
         </dependency>
     </dependencies>
 
     <modules>
         <module>demo-service</module>
+        <module>demo-job</module>
     </modules>
     <build>
 

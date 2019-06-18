@@ -1,4 +1,4 @@
-package com.springx.bootdubbo.job.core;
+package com.springx.bootdubbo.job.autoconfig;
 
 import com.dangdang.ddframe.job.event.JobEventListener;
 import com.dangdang.ddframe.job.event.type.JobExecutionEvent;
@@ -15,7 +15,7 @@ import java.util.Objects;
  * @date 2019年01月15日 11:06 AM
  * @Copyright (c) 2018, lifesense.com
  */
-public class ConfigJobEventListener implements JobEventListener {
+ class ConfigJobEventListener implements JobEventListener {
 
 
     private static final Logger logger = LoggerFactory.getLogger(ConfigJobEventListener.class);

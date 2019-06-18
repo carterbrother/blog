@@ -1,6 +1,5 @@
 package com.springx.bootdubbo.job.autoconfig;
 
-import com.springx.bootdubbo.job.core.JobConstant;
 import lombok.Data;
 import org.quartz.JobListener;
 

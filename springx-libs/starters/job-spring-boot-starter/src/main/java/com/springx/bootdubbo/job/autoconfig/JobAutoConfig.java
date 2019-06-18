@@ -12,8 +12,8 @@ import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperConfiguration;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
 import com.google.common.base.Strings;
 import com.springx.bootdubbo.common.util.GrayUtil;
+import com.springx.bootdubbo.common.util.JsonUtil;
 import com.springx.bootdubbo.common.util.SystemUtil;
-import com.springx.bootdubbo.job.core.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
@@ -21,7 +21,6 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
@@ -38,7 +37,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import static com.springx.bootdubbo.job.core.JobConstant.*;
+import static com.springx.bootdubbo.job.autoconfig.JobConstant.*;
 
 /**
  * @author <a href="mailto:505847426@qq.com">carterbrother</a>
@@ -62,8 +61,8 @@ public class JobAutoConfig implements ApplicationContextAware {
      *
      * @return
      */
-    @Bean(initMethod = "init", destroyMethod = "close")
-    @ConditionalOnMissingBean(CoordinatorRegistryCenter.class)
+    @Bean(destroyMethod = "close")
+//    @ConditionalOnMissingBean(CoordinatorRegistryCenter.class)
     public CoordinatorRegistryCenter coordinatorRegistryCenter() {
         if (StringUtils.isNoneEmpty(GrayUtil.getGrayEnvVar())) {
             log.warn("current env[{}] is gray , don't start job!", GrayUtil.getGrayEnvVar());
@@ -81,6 +80,9 @@ public class JobAutoConfig implements ApplicationContextAware {
         zookeeperConfiguration.setBaseSleepTimeMilliseconds(jobListProperties.getBaseSleepTimeMilliseconds());
         zookeeperConfiguration.setMaxSleepTimeMilliseconds(jobListProperties.getBaseSleepTimeMilliseconds());
         CoordinatorRegistryCenter regCenter = new ZookeeperRegistryCenter(zookeeperConfiguration);
+        regCenter.init();
+
+        log.info("===job的zookeeper注册中心启动成功");
 
 
         final DefaultListableBeanFactory defaultListableBeanFactory = (DefaultListableBeanFactory) applicationContext.getAutowireCapableBeanFactory();
@@ -96,10 +98,11 @@ public class JobAutoConfig implements ApplicationContextAware {
             factory.setLazyInit(false);
             factory.setInitMethodName("init");
 
-            String scheduleBeanName = NAMESPACE + "_" + jobListProperties.getAppNameSpace() + "_" + setting.getJobName() + SCHEDULE_SUB_FIX;
+            String scheduleBeanName = NAMESPACE + "/_" + jobListProperties.getAppNameSpace() + "_" + setting.getJobName() + SCHEDULE_SUB_FIX;
             defaultListableBeanFactory.registerBeanDefinition(scheduleBeanName, factory.getBeanDefinition());
             defaultListableBeanFactory.getBean(scheduleBeanName, SpringJobScheduler.class);
 
+            log.info("===>注册完成job jobName:{} : config: {}",scheduleBeanName,  JsonUtil.toJson(setting));
 
         });
 
@@ -152,7 +155,7 @@ public class JobAutoConfig implements ApplicationContextAware {
         } else {
             BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.rootBeanDefinition(jobClass)
                     .setLazyInit(false).setScope(BeanDefinition.SCOPE_SINGLETON);
-            String jobBeanName = JobConstant.NAMESPACE.concat("_").concat(appNameSpace).concat("_").concat(setting.getJobName());
+            String jobBeanName = appNameSpace.concat("_").concat(setting.getJobName());
             defaultListableBeanFactory.registerBeanDefinition(jobBeanName, beanDefinitionBuilder.getBeanDefinition());
 
             jobBean = defaultListableBeanFactory.getBean(jobBeanName, jobClass);
@@ -180,9 +183,11 @@ public class JobAutoConfig implements ApplicationContextAware {
         switch (jobType) {
             case TYPE_SIMPLE: {
                 Assert.isAssignable(AbstractSimpleJob.class, jobClass);
+                break;
             }
             case TYPE_DATA_FLOW: {
                 Assert.isAssignable(AbstractDataFlowJob.class, jobClass);
+                break;
             }
             default:
                 throw new RuntimeException(String.format("unknow job type:%s", jobType));

@@ -1,10 +1,13 @@
-package com.springx.bootdubbo.job.core;
+package com.springx.bootdubbo.job.autoconfig;
 
 import com.dangdang.ddframe.job.api.ShardingContext;
 import com.dangdang.ddframe.job.api.simple.SimpleJob;
 
 import java.util.Collections;
 
+/**
+ * @author carter
+ */
 public abstract class AbstractSimpleJob extends AbstractJob implements SimpleJob {
 
 	/**

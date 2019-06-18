@@ -1,4 +1,4 @@
-package com.springx.bootdubbo.job.core;
+package com.springx.bootdubbo.job.autoconfig;
 
 import com.dangdang.ddframe.job.api.ShardingContext;
 import com.google.common.base.Throwables;
@@ -7,7 +7,6 @@ import com.google.common.util.concurrent.SimpleTimeLimiter;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.springx.bootdubbo.common.util.JsonUtil;
 import com.springx.bootdubbo.common.util.UUIDUtil;
-import com.springx.bootdubbo.job.autoconfig.SingleJobProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.util.Assert;
@@ -27,7 +26,7 @@ import java.util.concurrent.TimeUnit;
  * @Copyright (c) 2018, lifesense.com
  */
 @Slf4j
-public abstract   class AbstractJob  implements DisposableBean {
+ abstract   class AbstractJob  implements DisposableBean {
 
     /**
      * 线程池
@@ -64,7 +63,7 @@ public abstract   class AbstractJob  implements DisposableBean {
                     new ThreadPoolExecutor.AbortPolicy());
         }
 
-        SimpleTimeLimiter simpleTimeLimiter =  SimpleTimeLimiter.create(singlePool);
+        SimpleTimeLimiter simpleTimeLimiter = new SimpleTimeLimiter(singlePool);
         final String appName = System.getProperty("serviceName", "unknown");
         StopWatch stopWatch = new StopWatch(UUIDUtil.uuid());
         stopWatch.start(appName.concat(":"+jobName));
@@ -72,7 +71,7 @@ public abstract   class AbstractJob  implements DisposableBean {
             simpleTimeLimiter.callWithTimeout(() -> {
                 myJobFunction.execute(shardingContext,list);
                 return jobName;
-            }, timeoutSecond, TimeUnit.SECONDS);
+            }, timeoutSecond, TimeUnit.SECONDS,false);
 
         } catch (Exception ex) {
             log.error("lx_elastic_job_execute_trace:{}:{}:{}:\n{}:\n{}", stopWatch.getId(), appName, jobName, JsonUtil.toJson(setting), Throwables.getStackTraceAsString(ex));

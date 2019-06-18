@@ -1,4 +1,4 @@
-package com.springx.bootdubbo.job.core;
+package com.springx.bootdubbo.job.autoconfig;
 
 import com.dangdang.ddframe.job.executor.ShardingContexts;
 import com.dangdang.ddframe.job.lite.api.listener.ElasticJobListener;
@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
  * @Copyright (c) carterbrother
  */
 @Slf4j
-public class SimpleJobListener implements ElasticJobListener {
+ class SimpleJobListener implements ElasticJobListener {
     @Override
     public void beforeJobExecuted(ShardingContexts shardingContexts) {
 
