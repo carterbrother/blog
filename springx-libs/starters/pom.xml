@@ -20,6 +20,7 @@
         <module>job-spring-boot-starter</module>
         <module>kafka-spring-boot-starter</module>
         <module>file-spring-boot-starter</module>
+        <module>zookeeper-spring-boot-starter</module>
     </modules>
 
     <dependencies>
