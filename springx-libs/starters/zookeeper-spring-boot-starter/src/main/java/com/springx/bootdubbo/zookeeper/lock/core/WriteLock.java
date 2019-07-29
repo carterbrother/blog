@@ -106,7 +106,6 @@ public class WriteLock extends ProtocolSupport {
     }
 
 
-
     private class InnerZop implements ILockZooKeeperOperation {
 
         /**
@@ -156,8 +155,7 @@ public class WriteLock extends ProtocolSupport {
                     // in the middle of creating the znode
                     findPrefixInChildren(prefix, zooKeeper, dir);
                     idName = new ZNodeName(id);
-                }
-                if (id != null) {
+                } else {
                     List<String> names = zooKeeper.getChildren(dir, false);
                     if (names.isEmpty()) {
                         log.warn("No children in: " + dir + " when we've just " +
@@ -178,9 +176,9 @@ public class WriteLock extends ProtocolSupport {
                             if (log.isDebugEnabled()) {
                                 log.debug("watching less than me node: " + lastChildId);
                             }
-                            Stat stat = zooKeeper.exists(lastChildId, new Watcher(){
+                            Stat stat = zooKeeper.exists(lastChildId, new Watcher() {
                                 @Override
-                                public void process (WatchedEvent event){
+                                public void process(WatchedEvent event) {
                                     // lets either become the leader or watch the new/updated node
                                     log.debug("Watcher fired on path: " + event.getPath() + " state: " +
                                             event.getState() + " type " + event.getType());
