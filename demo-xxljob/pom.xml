@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.jun.before.blog</groupId>
 	<artifactId>demo-xxljob</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<name>demo-xxljob</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
