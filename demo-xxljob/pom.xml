@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>com.jun.before.blog</groupId>
 	<artifactId>demo-xxljob</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>demo-xxljob</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -38,9 +38,9 @@
 	</dependencies>
 
 	<scm>
-		<developerConnection>scm:git:git://github.com/carterbrother/blog.git</developerConnection>
-		<connection>scm:git:git://github.com/carterbrother/blog.git</connection>
-		<url>git://github.com/carterbrother/blog.git</url>
+		<developerConnection>scm:git:https://github.com/carterbrother/blog</developerConnection>
+		<connection>scm:git:https://github.com/carterbrother/blog</connection>
+		<url>https://github.com/carterbrother/blog</url>
 		<tag>demo-xxljob-0.0.1</tag>
 	</scm>
 
@@ -63,7 +63,7 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<version>3.0.0-M5</version>
 				<configuration>
-					<tagBase>git://github.com/carterbrother/blog.git/tags</tagBase>
+					<tagBase>https://github.com/carterbrother/blog/tags</tagBase>
 				</configuration>
 			</plugin>
 		</plugins>
