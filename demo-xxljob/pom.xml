@@ -39,6 +39,8 @@
 
 	<scm>
 		<developerConnection>scm:git:git://github.com/carterbrother/blog.git</developerConnection>
+		<connection>scm:git:git://github.com/carterbrother/blog.git</connection>
+		<url>git://github.com/carterbrother/blog.git</url>
 		<tag>0.0.1</tag>
 	</scm>
 
