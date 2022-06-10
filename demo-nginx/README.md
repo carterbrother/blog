@@ -26,6 +26,13 @@ l --with-mail_ssl_module --with-stream --with-stream_realip_module --with-stream
 
 
 
+# 实验
+
+```shell
+ docker run --name nginx2 -p 8000:80 -d nginx:mainline-perl
+```
+
+进入里面去增加配置，进行实验。
 
 
 
@@ -33,5 +40,5 @@ l --with-mail_ssl_module --with-stream --with-stream_realip_module --with-stream
 # 参考资料
 
 [nginx的rewrite使用举例](https://blog.csdn.net/tojinzi/article/details/119837993)
-
+[nginx的rewrite配置比较全的举例](https://blog.csdn.net/weixin_50344814/article/details/110459900)
 [nginx官方rewrite介绍](https://nginx.org/en/docs/http/converting_rewrite_rules.html)
