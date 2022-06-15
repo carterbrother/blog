@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    config:
+      name: ${spring.application.name}
+      label: master
+      profile: ${spring.profiles.active}
+      uri: http://localhost:7001/
+  application:
+    name: configapp1

@@ -1,0 +1,9 @@
+spring:
+    cloud:
+        nacos:
+            config:
+                namespace: ${spring.cloud.nacos.discovery.namespace}
+                server-addr: ${spring.cloud.nacos.discovery.server-addr}
+            discovery:
+                namespace: dev
+                server-addr: 47.115.58.236:8848

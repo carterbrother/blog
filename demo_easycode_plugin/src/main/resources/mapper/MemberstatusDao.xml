@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springbootpractice.demo.easycode.plugin.dao.MemberstatusDao">
+
+    <resultMap type="com.springbootpractice.demo.easycode.plugin.entity.Memberstatus" id="MemberstatusMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="memberid" column="memberid" jdbcType="VARCHAR"/>
+        <result property="lastestdata" column="lastestdata" jdbcType="VARCHAR"/>
+        <result property="userid" column="userid" jdbcType="INTEGER"/>
+        <result property="usercreated" column="usercreated" jdbcType="VARCHAR"/>
+        <result property="flag" column="flag" jdbcType="OTHER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="MemberstatusMap">
+        select
+          id, memberid, lastestdata, userid, usercreated, flag
+        from rpmaccount.memberstatus
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="MemberstatusMap">
+        select
+          id, memberid, lastestdata, userid, usercreated, flag
+        from rpmaccount.memberstatus
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="MemberstatusMap">
+        select
+          id, memberid, lastestdata, userid, usercreated, flag
+        from rpmaccount.memberstatus
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="memberid != null and memberid != ''">
+                and memberid = #{memberid}
+            </if>
+            <if test="lastestdata != null and lastestdata != ''">
+                and lastestdata = #{lastestdata}
+            </if>
+            <if test="userid != null">
+                and userid = #{userid}
+            </if>
+            <if test="usercreated != null and usercreated != ''">
+                and usercreated = #{usercreated}
+            </if>
+            <if test="flag != null">
+                and flag = #{flag}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into rpmaccount.memberstatus(memberid, lastestdata, userid, usercreated, flag)
+        values (#{memberid}, #{lastestdata}, #{userid}, #{usercreated}, #{flag})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update rpmaccount.memberstatus
+        <set>
+            <if test="memberid != null and memberid != ''">
+                memberid = #{memberid},
+            </if>
+            <if test="lastestdata != null and lastestdata != ''">
+                lastestdata = #{lastestdata},
+            </if>
+            <if test="userid != null">
+                userid = #{userid},
+            </if>
+            <if test="usercreated != null and usercreated != ''">
+                usercreated = #{usercreated},
+            </if>
+            <if test="flag != null">
+                flag = #{flag},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from rpmaccount.memberstatus where id = #{id}
+    </delete>
+
+</mapper>

@@ -1,0 +1,13 @@
+@startuml
+(*)  --> "before"
+--> "after"
+--> "原有方法"
+If "throw Exception" then
+--> [Yes] "afterThrowning"
+else
+--> "afterReturn"
+
+Endif
+
+-->(*)
+@enduml

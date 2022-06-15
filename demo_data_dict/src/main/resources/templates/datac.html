@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>数据比较页面</title>
+
+    <link href="https://cdn.bootcdn.net/ajax/libs/layer/2.3/skin/layer.css" rel="stylesheet">
+</head>
+<style type="text/css">
+    .table-b .table .td  {border: 1px;solid-color: cornflowerblue}
+</style>
+<body>
+<table>
+    <thead>
+    <tr>
+        <td>数据库类型</td>
+        <td>jdbcUrl</td>
+        <td>username</td>
+        <td>password</td>
+        <td>数据库名</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+    <tr>
+        <td><span id="mysqlMsg">mysql</span></td>
+        <td><input type="text" name="connectionUrl" value="jdbc:mysql://127.0.0.1:3306/cloudpivot_ynjt" style="width:300px;"></td>
+        <td><input type="text" name="username" value="root"></td>
+        <td><input type="password" name="password" value="test123456"></td>
+        <td><input type="text" name="databaseName" value="cloudpivot_ynjt"></td>
+        <td><input type="button" value="初始化数据源" id="initMysqlConnection"></td>
+    </tr>
+
+    <tr>
+        <td><span id="oracleMsg">oracle</span></td>
+        <td><input type="text" name="oracleConnectionUrl" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl" style="width:300px;"></td>
+        <td><input type="text" name="oracleUsername" value="DEV3"></td>
+        <td><input type="password" name="oraclePassword" value="H3password"></td>
+        <td><input type="text" name="oracleDatabaseName" value="DEV3"></td>
+        <td><input type="button" value="初始化比较结果" id="initCompare"><input type="button" value="整体比较" id="totalCompare"></td>
+    </tr>
+</table>
+
+<hr>
+<div id="tableCountMsg"></div>
+<table class="table-b">
+    <thead>
+    <tr>
+        <td>mysql的表名</td>
+        <td>oralce的表名</td>
+        <td>单表比较操作</td>
+    </tr>
+    </thead>
+    <tbody id="dataC">
+    <tr>
+        <td>base_security_client</td>
+        <td>BASE_SECURITY_CLIENT</td>
+        <td>
+            <input type="button" value="比较单表的总数" >
+            <input type="button" value="比较单表的数据" >
+            <input type="button" value="比较单表的定义" >
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+<script src="https://lib.baomitu.com/jquery/3.4.1/jquery.min.js" ></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/layer/2.3/layer.js"></script>
+<script th:inline="javascript">
+
+    $("#initMysqlConnection").click(function () {
+        let databaseName = $("input[name='databaseName']").val();
+        let oracleDatabaseName = $("input[name='oracleDatabaseName']").val();
+
+        let connectionUrl = $("input[name='connectionUrl']").val();
+        let username = $("input[name='username']").val();
+        let password = $("input[name='password']").val();
+
+        let oracleConnectionUrl = $("input[name='oracleConnectionUrl']").val();
+        let oracleUsername = $("input[name='oracleUsername']").val();
+        let oraclePassword = $("input[name='oraclePassword']").val();
+
+        $.post("/data/datac/compare/init_datasource",
+            {
+                databaseType: "mysql",
+                connectionUrl: connectionUrl,
+                username: username,
+                password: password,
+
+            },
+            function (data) {
+                var content = data.msg;
+                $("#mysqlMsg").empty().html(content);
+            }, "json");
+
+        $.post("/data/datac/compare/init_datasource",
+            {
+                databaseType: "oracle",
+                connectionUrl: oracleConnectionUrl,
+                username: oracleUsername,
+                password: oraclePassword,
+
+            },
+            function (data) {
+                var content = data.msg;
+                $("#oracleMsg").empty().html(content);
+            }, "json");
+
+
+
+    });
+
+    function a(mySqlTableName,oracleTableName) {
+        let databaseName = $("input[name='databaseName']").val();
+        let oracleDatabaseName = $("input[name='oracleDatabaseName']").val();
+        $.post("/data/datac/compare/table_data_count",
+            {
+                mysqlDatabase: databaseName,
+                oracleDatabase: oracleDatabaseName,
+                mysqlTableName:mySqlTableName,
+                oracleTableName:oracleTableName,
+            },
+            function (data) {
+                var content = "<h1>mysql:"+data.data.mysqlTableName + "的数据条数："+data.data.mysqlTableDataCount+"</h1><br><h1>oracle: "+data.data.oracleTableName
+                    + "的数据条数："+data.data.oracleTableDataCount+"</h1>";
+
+
+
+                layer.open({
+                    type: 1,
+                    title:'对比表的数据行数：'+data.data.msg,
+                    area: ['1500px', '900px'],
+                    shadeClose: true, //点击遮罩关闭
+                    content: '\<\div style="padding:20px;">'+content+'\<\/div>'
+                });
+            }, "json");
+
+
+    }
+
+    function b(mySqlTableName,oracleTableName) {
+        let databaseName = $("input[name='databaseName']").val();
+        let oracleDatabaseName = $("input[name='oracleDatabaseName']").val();
+        $.post("/data/datac/compare/table_first_last_row",
+            {
+                mysqlDatabase: databaseName,
+                oracleDatabase: oracleDatabaseName,
+                mysqlTableName:mySqlTableName,
+                oracleTableName:oracleTableName,
+            },
+            function (data) {
+                let content = "<table><thead><tr>" +
+                    "<td>mysql的列名</td>" +
+                    "<td>mysql的第一列数据</td>" +
+                    "<td>oracle的第一列数据</td>" +
+                    "<td>oralce的列名</td>" +
+                    "</tr></thead>" +
+                    "<tbody>";
+
+
+                $.each(data.data.firstRow,function (i,ro) {
+                    content=(content+"<tr>" +
+                    "<td>"+ro.mkey+"</td>" +
+                    "<td>"+ro.mvalue+"</td>" +
+                    "<td>"+ro.ovalue+"</td>" +
+                    "<td>"+ro.okey+"</td>" +
+                    "</tr>");
+                });
+
+                    content+="</tbody></table>";
+
+                    content+="<table><thead><tr>" +
+                        "<td>mysql的列名</td>" +
+                        "<td>mysql的最后一列数据</td>" +
+                        "<td>oracle的最后一列数据</td>" +
+                        "<td>oralce的列名</td>" +
+                        "</tr></thead>" +
+                        "<tbody";
+
+                $.each(data.data.lastRow,function (i,r) {
+                    content=content+("<tr>" +
+                        "<td>"+r.mkey+"</td>" +
+                        "<td>"+r.mvalue+"</td>" +
+                        "<td>"+r.ovalue+"</td>" +
+                        "<td>"+r.okey+"</td>" +
+                        "</tr>");
+                });
+
+                content+="</tbody></table>";
+
+
+                layer.open({
+                    type: 1,
+                    title:'对比表的第一行和最后一行数据：'+data.data.msg,
+                    area: ['1500px', '900px'],
+                    shadeClose: true, //点击遮罩关闭
+                    content: '\<\div style="padding:20px;">'+content+'\<\/div>'
+                });
+
+            }, "json");
+    }
+
+    function c(mySqlTableName,oracleTableName) {
+        let databaseName = $("input[name='databaseName']").val();
+        let oracleDatabaseName = $("input[name='oracleDatabaseName']").val();
+        $.post("/data/datac/compare/table_definition",
+            {
+                mysqlDatabase: databaseName,
+                oracleDatabase: oracleDatabaseName,
+                mysqlTableName:mySqlTableName,
+                oracleTableName:oracleTableName,
+            },
+            function (data) {
+
+                let content = "<table><thead><tr>" +
+                    "<td>mysql的列定义</td>" +
+                    "<td>oracle的列定义</td>" +
+                    "</tr></thead>" +
+                    "<tbody>";
+
+
+                $.each(data.data.tableDefinitionBoList,function (i,ro) {
+                    content=(content+"<tr>" +
+                        "<td>"+ro.mysqlFieldType+"</td>" +
+                        "<td>"+ro.oracleFieldType+"</td>" +
+                        "</tr>");
+                });
+
+                content+="<tr>" +
+                    "<td>mysql的索引</td>" +
+                    "<td>oralce的索引</td>" +
+                    "</tr><tr><td>";
+
+                $.each(data.data.mindexList,function (i,r) {
+                    content=content+r+"<br>";
+                });
+
+                content+="</td><td>";
+                $.each(data.data.oindexList,function (i,r) {
+                    content=content+r+"<br>";
+                });
+
+                content+="</td></tr></tbody></table>";
+
+                layer.open({
+                    type: 1,
+                    title:'对比表定义:'+data.data.msg,
+                    area: ['1500px', '900px'],
+                    shadeClose: true, //点击遮罩关闭
+                    content: '\<\div style="padding:20px;">'+content+'\<\/div>'
+                });
+            }, "json");
+    }
+
+    $("#totalCompare").click(function () {
+        let databaseName = $("input[name='databaseName']").val();
+        let oracleDatabaseName = $("input[name='oracleDatabaseName']").val();
+
+        $.post("/data/datac/compare/total",
+            {
+                mysqlDatabaseName: databaseName,
+                oracleDatabaseName: oracleDatabaseName,
+            },
+            function (data) {
+                var content = data.data.totalMsg + "<h1>比较表的总数量，单表的数据总数，表字段数，表索引数</h1>";
+                layer.open({
+                    type: 1,
+                    title:'总体比较结果:'+data.data.totalMsg,
+                    area: ['1500px', '900px'],
+                    shadeClose: true, //点击遮罩关闭
+                    content: '\<\div style="padding:20px;">'+content+'\<\/div>'
+                });
+            }, "json");
+    });
+
+    $("#initCompare").click(function () {
+        let databaseName = $("input[name='databaseName']").val();
+        let oracleDatabaseName = $("input[name='oracleDatabaseName']").val();
+
+        $.post("/data/datac/compare/init",
+            {
+                mysqlDatabaseName: databaseName,
+                oracleDatabaseName: oracleDatabaseName,
+
+            },
+            function (data) {
+                var content = data.data.countMsg;
+                $("#tableCountMsg").empty().html(content);
+
+                //初始化表格
+                $("#dataC").empty();
+                $.each(data.data.tableCompareBos,function (i,v) {
+
+                    var transformStream = "<tr>" +
+                        "<td>"+v.mysqlTableName+"</td>" +
+                        "<td>"+v.oracleTableName+"</td>" +
+                        "<td>" +
+                        "<input type=\"button\" value=\"比较单表的总数\" onclick=\"a('"+v.mysqlTableName+"','"+v.oracleTableName+"')\" >" +
+                        "<input type=\"button\" value=\"比较单表的第一条和最后一条数据\" onclick=\"b('"+v.mysqlTableName+"','"+v.oracleTableName+"')\" >" +
+                        "<input type=\"button\" value=\"比较单表的定义\" onclick=\"c('"+v.mysqlTableName+"','"+v.oracleTableName+"')\" >" +
+                        "</td></tr>";
+                    $("#dataC").append(transformStream);
+                });
+
+
+            }, "json");
+    });
+
+</script>
+</html>

@@ -1,0 +1,14 @@
+@startuml
+title 前台中台后台分层
+participant "大前台\n（客户终端销售）" as bigFront  #gold
+participant "微前端" as microFront  #green
+participant "中台\n（运营人员）" as centerPlat  #grey
+participant "后台\n（企业管理）" as backendPlat #gold
+
+
+bigFront -> microFront: 编排业务流程\n聚合微前端
+microFront --> centerPlat: 对接对应的中台的微服务\n按照领域模型划分微服务
+centerPlat --> backendPlat: 数据聚合到数据中台\n基于前台流程萃取数据\n基于数据业务创新
+
+
+@enduml

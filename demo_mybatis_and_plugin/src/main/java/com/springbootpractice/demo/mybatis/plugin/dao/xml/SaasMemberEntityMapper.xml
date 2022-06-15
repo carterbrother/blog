@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springbootpractice.demo.mybatis.plugin.dao.mapper.SaasMemberEntityMapper">
+  <resultMap id="BaseResultMap" type="com.springbootpractice.demo.mybatis.plugin.dao.entity.SaasMemberEntity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="saas_user_id" jdbcType="INTEGER" property="saasUserId" />
+    <result column="app_id" jdbcType="CHAR" property="appId" />
+    <result column="merchant_user_id" jdbcType="VARCHAR" property="merchantUserId" />
+    <result column="become_desc" jdbcType="VARCHAR" property="becomeDesc" />
+    <result column="expire_at" jdbcType="TIMESTAMP" property="expireAt" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="updated" jdbcType="TIMESTAMP" property="updated" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, saas_user_id, app_id, merchant_user_id, become_desc, expire_at, created, updated, 
+    deleted
+  </sql>
+  <select id="selectByExample" parameterType="com.springbootpractice.demo.mybatis.plugin.dao.example.SaasMemberEntityExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from saas_member
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="rows != null">
+      <if test="offset != null">
+        limit ${offset}, ${rows}
+      </if>
+      <if test="offset == null">
+        limit ${rows}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from saas_member
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByPrimaryKeyWithLogicalDelete" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from saas_member
+    where id = #{id,jdbcType=INTEGER}
+      and deleted = 
+    <choose>
+      <when test="andLogicalDeleted">
+        1
+      </when>
+      <otherwise>
+        0
+      </otherwise>
+    </choose>
+  </select>
+  <insert id="insert" parameterType="com.springbootpractice.demo.mybatis.plugin.dao.entity.SaasMemberEntity">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into saas_member (saas_user_id, app_id, merchant_user_id, 
+      become_desc, expire_at, created, 
+      updated, deleted)
+    values (#{saasUserId,jdbcType=INTEGER}, #{appId,jdbcType=CHAR}, #{merchantUserId,jdbcType=VARCHAR}, 
+      #{becomeDesc,jdbcType=VARCHAR}, #{expireAt,jdbcType=TIMESTAMP}, #{created,jdbcType=TIMESTAMP}, 
+      #{updated,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.springbootpractice.demo.mybatis.plugin.dao.entity.SaasMemberEntity">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into saas_member
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="saasUserId != null">
+        saas_user_id,
+      </if>
+      <if test="appId != null">
+        app_id,
+      </if>
+      <if test="merchantUserId != null">
+        merchant_user_id,
+      </if>
+      <if test="becomeDesc != null">
+        become_desc,
+      </if>
+      <if test="expireAt != null">
+        expire_at,
+      </if>
+      <if test="created != null">
+        created,
+      </if>
+      <if test="updated != null">
+        updated,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="saasUserId != null">
+        #{saasUserId,jdbcType=INTEGER},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=CHAR},
+      </if>
+      <if test="merchantUserId != null">
+        #{merchantUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="becomeDesc != null">
+        #{becomeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="expireAt != null">
+        #{expireAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null">
+        #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.springbootpractice.demo.mybatis.plugin.dao.example.SaasMemberEntityExample" resultType="java.lang.Long">
+    select count(*) from saas_member
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update saas_member
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.saasUserId != null">
+        saas_user_id = #{record.saasUserId,jdbcType=INTEGER},
+      </if>
+      <if test="record.appId != null">
+        app_id = #{record.appId,jdbcType=CHAR},
+      </if>
+      <if test="record.merchantUserId != null">
+        merchant_user_id = #{record.merchantUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.becomeDesc != null">
+        become_desc = #{record.becomeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.expireAt != null">
+        expire_at = #{record.expireAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.created != null">
+        created = #{record.created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updated != null">
+        updated = #{record.updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deleted != null">
+        deleted = #{record.deleted,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update saas_member
+    set id = #{record.id,jdbcType=INTEGER},
+      saas_user_id = #{record.saasUserId,jdbcType=INTEGER},
+      app_id = #{record.appId,jdbcType=CHAR},
+      merchant_user_id = #{record.merchantUserId,jdbcType=VARCHAR},
+      become_desc = #{record.becomeDesc,jdbcType=VARCHAR},
+      expire_at = #{record.expireAt,jdbcType=TIMESTAMP},
+      created = #{record.created,jdbcType=TIMESTAMP},
+      updated = #{record.updated,jdbcType=TIMESTAMP},
+      deleted = #{record.deleted,jdbcType=BIT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springbootpractice.demo.mybatis.plugin.dao.entity.SaasMemberEntity">
+    update saas_member
+    <set>
+      <if test="saasUserId != null">
+        saas_user_id = #{saasUserId,jdbcType=INTEGER},
+      </if>
+      <if test="appId != null">
+        app_id = #{appId,jdbcType=CHAR},
+      </if>
+      <if test="merchantUserId != null">
+        merchant_user_id = #{merchantUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="becomeDesc != null">
+        become_desc = #{becomeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="expireAt != null">
+        expire_at = #{expireAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="created != null">
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null">
+        updated = #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springbootpractice.demo.mybatis.plugin.dao.entity.SaasMemberEntity">
+    update saas_member
+    set saas_user_id = #{saasUserId,jdbcType=INTEGER},
+      app_id = #{appId,jdbcType=CHAR},
+      merchant_user_id = #{merchantUserId,jdbcType=VARCHAR},
+      become_desc = #{becomeDesc,jdbcType=VARCHAR},
+      expire_at = #{expireAt,jdbcType=TIMESTAMP},
+      created = #{created,jdbcType=TIMESTAMP},
+      updated = #{updated,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="logicalDeleteByExample" parameterType="map">
+    update saas_member set deleted = 1
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="logicalDeleteByPrimaryKey" parameterType="java.lang.Integer">
+    update saas_member set deleted = 1
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

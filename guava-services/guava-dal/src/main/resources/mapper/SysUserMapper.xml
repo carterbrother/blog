@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.demo.dal.mapper.SysUserMapper">
+  <resultMap id="BaseResultMap" type="com.xxx.demo.dal.model.SysUser">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="valid" jdbcType="CHAR" property="valid" />
+    <result column="limited_ip" jdbcType="VARCHAR" property="limitedIp" />
+    <result column="expired_time" jdbcType="TIMESTAMP" property="expiredTime" />
+    <result column="last_change_pwd_time" jdbcType="TIMESTAMP" property="lastChangePwdTime" />
+    <result column="limit_multi_login" jdbcType="CHAR" property="limitMultiLogin" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springbootpractice.demo.easycode.plugin.dao.UserDao">
+
+    <resultMap type="com.springbootpractice.demo.easycode.plugin.entity.User" id="UserMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="carrierCode" column="carrier_code" jdbcType="VARCHAR"/>
+        <result property="lifesenseId" column="lifesense_id" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="headImg" column="head_img" jdbcType="VARCHAR"/>
+        <result property="sex" column="sex" jdbcType="OTHER"/>
+        <result property="birthday" column="birthday" jdbcType="OTHER"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="idcard" column="idcard" jdbcType="VARCHAR"/>
+        <result property="insuranceId" column="insurance_id" jdbcType="VARCHAR"/>
+        <result property="height" column="height" jdbcType="OTHER"/>
+        <result property="waist" column="waist" jdbcType="OTHER"/>
+        <result property="wechatUnionId" column="wechat_union_id" jdbcType="VARCHAR"/>
+        <result property="updated" column="updated" jdbcType="INTEGER"/>
+        <result property="created" column="created" jdbcType="TIMESTAMP"/>
+        <result property="clientId" column="client_id" jdbcType="VARCHAR"/>
+        <result property="deleted" column="deleted" jdbcType="OTHER"/>
+        <result property="appVersion" column="app_version" jdbcType="VARCHAR"/>
+        <result property="country" column="country" jdbcType="VARCHAR"/>
+        <result property="province" column="province" jdbcType="VARCHAR"/>
+        <result property="city" column="city" jdbcType="VARCHAR"/>
+        <result property="weightUnit" column="weight_unit" jdbcType="OTHER"/>
+        <result property="lengthUnit" column="length_unit" jdbcType="OTHER"/>
+        <result property="invitationCode" column="invitation_code" jdbcType="VARCHAR"/>
+        <result property="urgentLinkRealName" column="urgent_link_real_name" jdbcType="VARCHAR"/>
+        <result property="urgentLinkMobile" column="urgent_link_mobile" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="UserMap">
+        select
+          id, carrier_code, lifesense_id, name, head_img, sex, birthday, email, idcard, insurance_id, height, waist, wechat_union_id, updated, created, client_id, deleted, app_version, country, province, city, weight_unit, length_unit, invitation_code, urgent_link_real_name, urgent_link_mobile
+        from rpmaccount.user
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="UserMap">
+        select
+          id, carrier_code, lifesense_id, name, head_img, sex, birthday, email, idcard, insurance_id, height, waist, wechat_union_id, updated, created, client_id, deleted, app_version, country, province, city, weight_unit, length_unit, invitation_code, urgent_link_real_name, urgent_link_mobile
+        from rpmaccount.user
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="UserMap">
+        select
+          id, carrier_code, lifesense_id, name, head_img, sex, birthday, email, idcard, insurance_id, height, waist, wechat_union_id, updated, created, client_id, deleted, app_version, country, province, city, weight_unit, length_unit, invitation_code, urgent_link_real_name, urgent_link_mobile
+        from rpmaccount.user
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="carrierCode != null and carrierCode != ''">
+                and carrier_code = #{carrierCode}
+            </if>
+            <if test="lifesenseId != null and lifesenseId != ''">
+                and lifesense_id = #{lifesenseId}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="headImg != null and headImg != ''">
+                and head_img = #{headImg}
+            </if>
+            <if test="sex != null">
+                and sex = #{sex}
+            </if>
+            <if test="birthday != null">
+                and birthday = #{birthday}
+            </if>
+            <if test="email != null and email != ''">
+                and email = #{email}
+            </if>
+            <if test="idcard != null and idcard != ''">
+                and idcard = #{idcard}
+            </if>
+            <if test="insuranceId != null and insuranceId != ''">
+                and insurance_id = #{insuranceId}
+            </if>
+            <if test="height != null">
+                and height = #{height}
+            </if>
+            <if test="waist != null">
+                and waist = #{waist}
+            </if>
+            <if test="wechatUnionId != null and wechatUnionId != ''">
+                and wechat_union_id = #{wechatUnionId}
+            </if>
+            <if test="updated != null">
+                and updated = #{updated}
+            </if>
+            <if test="created != null">
+                and created = #{created}
+            </if>
+            <if test="clientId != null and clientId != ''">
+                and client_id = #{clientId}
+            </if>
+            <if test="deleted != null">
+                and deleted = #{deleted}
+            </if>
+            <if test="appVersion != null and appVersion != ''">
+                and app_version = #{appVersion}
+            </if>
+            <if test="country != null and country != ''">
+                and country = #{country}
+            </if>
+            <if test="province != null and province != ''">
+                and province = #{province}
+            </if>
+            <if test="city != null and city != ''">
+                and city = #{city}
+            </if>
+            <if test="weightUnit != null">
+                and weight_unit = #{weightUnit}
+            </if>
+            <if test="lengthUnit != null">
+                and length_unit = #{lengthUnit}
+            </if>
+            <if test="invitationCode != null and invitationCode != ''">
+                and invitation_code = #{invitationCode}
+            </if>
+            <if test="urgentLinkRealName != null and urgentLinkRealName != ''">
+                and urgent_link_real_name = #{urgentLinkRealName}
+            </if>
+            <if test="urgentLinkMobile != null and urgentLinkMobile != ''">
+                and urgent_link_mobile = #{urgentLinkMobile}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into rpmaccount.user(carrier_code, lifesense_id, name, head_img, sex, birthday, email, idcard, insurance_id, height, waist, wechat_union_id, updated, created, client_id, deleted, app_version, country, province, city, weight_unit, length_unit, invitation_code, urgent_link_real_name, urgent_link_mobile)
+        values (#{carrierCode}, #{lifesenseId}, #{name}, #{headImg}, #{sex}, #{birthday}, #{email}, #{idcard}, #{insuranceId}, #{height}, #{waist}, #{wechatUnionId}, #{updated}, #{created}, #{clientId}, #{deleted}, #{appVersion}, #{country}, #{province}, #{city}, #{weightUnit}, #{lengthUnit}, #{invitationCode}, #{urgentLinkRealName}, #{urgentLinkMobile})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update rpmaccount.user
+        <set>
+            <if test="carrierCode != null and carrierCode != ''">
+                carrier_code = #{carrierCode},
+            </if>
+            <if test="lifesenseId != null and lifesenseId != ''">
+                lifesense_id = #{lifesenseId},
+            </if>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="headImg != null and headImg != ''">
+                head_img = #{headImg},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="birthday != null">
+                birthday = #{birthday},
+            </if>
+            <if test="email != null and email != ''">
+                email = #{email},
+            </if>
+            <if test="idcard != null and idcard != ''">
+                idcard = #{idcard},
+            </if>
+            <if test="insuranceId != null and insuranceId != ''">
+                insurance_id = #{insuranceId},
+            </if>
+            <if test="height != null">
+                height = #{height},
+            </if>
+            <if test="waist != null">
+                waist = #{waist},
+            </if>
+            <if test="wechatUnionId != null and wechatUnionId != ''">
+                wechat_union_id = #{wechatUnionId},
+            </if>
+            <if test="updated != null">
+                updated = #{updated},
+            </if>
+            <if test="created != null">
+                created = #{created},
+            </if>
+            <if test="clientId != null and clientId != ''">
+                client_id = #{clientId},
+            </if>
+            <if test="deleted != null">
+                deleted = #{deleted},
+            </if>
+            <if test="appVersion != null and appVersion != ''">
+                app_version = #{appVersion},
+            </if>
+            <if test="country != null and country != ''">
+                country = #{country},
+            </if>
+            <if test="province != null and province != ''">
+                province = #{province},
+            </if>
+            <if test="city != null and city != ''">
+                city = #{city},
+            </if>
+            <if test="weightUnit != null">
+                weight_unit = #{weightUnit},
+            </if>
+            <if test="lengthUnit != null">
+                length_unit = #{lengthUnit},
+            </if>
+            <if test="invitationCode != null and invitationCode != ''">
+                invitation_code = #{invitationCode},
+            </if>
+            <if test="urgentLinkRealName != null and urgentLinkRealName != ''">
+                urgent_link_real_name = #{urgentLinkRealName},
+            </if>
+            <if test="urgentLinkMobile != null and urgentLinkMobile != ''">
+                urgent_link_mobile = #{urgentLinkMobile},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from rpmaccount.user where id = #{id}
+    </delete>
+
+</mapper>

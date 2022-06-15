@@ -1,0 +1,19 @@
+#spring:
+#  security:
+#    user:
+#      name: carter
+#      password: 2018
+#      roles: admin
+
+
+spring:
+  datasource:
+      username: root
+      password: 123456789
+      url: jdbc:mysql://127.0.0.1:3306/db_securitydemo
+  resources:
+    static-locations: classpath:/static/
+#      connection-timeout: 1000
+#      maximum-pool-size: 5
+#      minimum-idle: 1
+#      driver-class-name: com.mysql.jdbc.Driver

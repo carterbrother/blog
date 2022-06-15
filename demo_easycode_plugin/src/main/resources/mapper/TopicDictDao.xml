@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springbootpractice.demo.easycode.plugin.dao.TopicDictDao">
+
+    <resultMap type="com.springbootpractice.demo.easycode.plugin.entity.TopicDict" id="TopicDictMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="topicName" column="topic_name" jdbcType="VARCHAR"/>
+        <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
+        <result property="orderIntValue" column="order_int_value" jdbcType="INTEGER"/>
+        <result property="created" column="created" jdbcType="TIMESTAMP"/>
+        <result property="updated" column="updated" jdbcType="TIMESTAMP"/>
+        <result property="deleted" column="deleted" jdbcType="OTHER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="TopicDictMap">
+        select
+          id, topic_name, parent_id, order_int_value, created, updated, deleted
+        from rpmaccount.topic_dict
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="TopicDictMap">
+        select
+          id, topic_name, parent_id, order_int_value, created, updated, deleted
+        from rpmaccount.topic_dict
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="TopicDictMap">
+        select
+          id, topic_name, parent_id, order_int_value, created, updated, deleted
+        from rpmaccount.topic_dict
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="topicName != null and topicName != ''">
+                and topic_name = #{topicName}
+            </if>
+            <if test="parentId != null">
+                and parent_id = #{parentId}
+            </if>
+            <if test="orderIntValue != null">
+                and order_int_value = #{orderIntValue}
+            </if>
+            <if test="created != null">
+                and created = #{created}
+            </if>
+            <if test="updated != null">
+                and updated = #{updated}
+            </if>
+            <if test="deleted != null">
+                and deleted = #{deleted}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into rpmaccount.topic_dict(topic_name, parent_id, order_int_value, created, updated, deleted)
+        values (#{topicName}, #{parentId}, #{orderIntValue}, #{created}, #{updated}, #{deleted})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update rpmaccount.topic_dict
+        <set>
+            <if test="topicName != null and topicName != ''">
+                topic_name = #{topicName},
+            </if>
+            <if test="parentId != null">
+                parent_id = #{parentId},
+            </if>
+            <if test="orderIntValue != null">
+                order_int_value = #{orderIntValue},
+            </if>
+            <if test="created != null">
+                created = #{created},
+            </if>
+            <if test="updated != null">
+                updated = #{updated},
+            </if>
+            <if test="deleted != null">
+                deleted = #{deleted},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from rpmaccount.topic_dict where id = #{id}
+    </delete>
+
+</mapper>

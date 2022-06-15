@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.demo.dal.mapper.SysAuthorityMapper">
+  <resultMap id="BaseResultMap" type="com.xxx.demo.dal.model.SysAuthority">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="authority_id" jdbcType="VARCHAR" property="authorityId" />
+    <result column="authority_name" jdbcType="VARCHAR" property="authorityName" />
+    <result column="authority_remark" jdbcType="VARCHAR" property="authorityRemark" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="authority_content" jdbcType="VARCHAR" property="authorityContent" />
+  </resultMap>
+</mapper>

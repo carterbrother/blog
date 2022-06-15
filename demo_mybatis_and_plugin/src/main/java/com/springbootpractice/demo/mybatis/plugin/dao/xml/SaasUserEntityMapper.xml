@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springbootpractice.demo.mybatis.plugin.dao.mapper.SaasUserEntityMapper">
+  <resultMap id="BaseResultMap" type="com.springbootpractice.demo.mybatis.plugin.dao.entity.SaasUserEntity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="login_id" jdbcType="CHAR" property="loginId" />
+    <result column="app_id" jdbcType="CHAR" property="appId" />
+    <result column="mechant_user_id" jdbcType="VARCHAR" property="mechantUserId" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="access_token" jdbcType="CHAR" property="accessToken" />
+    <result column="expire_at" jdbcType="BIGINT" property="expireAt" />
+    <result column="created" jdbcType="TIMESTAMP" property="created" />
+    <result column="updated" jdbcType="TIMESTAMP" property="updated" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="head_url" jdbcType="VARCHAR" property="headUrl" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, login_id, app_id, mechant_user_id, login_name, access_token, expire_at, created, 
+    updated, deleted, head_url
+  </sql>
+  <select id="selectByExample" parameterType="com.springbootpractice.demo.mybatis.plugin.dao.example.SaasUserEntityExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from saas_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="rows != null">
+      <if test="offset != null">
+        limit ${offset}, ${rows}
+      </if>
+      <if test="offset == null">
+        limit ${rows}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from saas_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByPrimaryKeyWithLogicalDelete" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from saas_user
+    where id = #{id,jdbcType=INTEGER}
+      and deleted = 
+    <choose>
+      <when test="andLogicalDeleted">
+        1
+      </when>
+      <otherwise>
+        0
+      </otherwise>
+    </choose>
+  </select>
+  <insert id="insert" parameterType="com.springbootpractice.demo.mybatis.plugin.dao.entity.SaasUserEntity">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into saas_user (login_id, app_id, mechant_user_id, 
+      login_name, access_token, expire_at, 
+      created, updated, deleted, 
+      head_url)
+    values (#{loginId,jdbcType=CHAR}, #{appId,jdbcType=CHAR}, #{mechantUserId,jdbcType=VARCHAR}, 
+      #{loginName,jdbcType=VARCHAR}, #{accessToken,jdbcType=CHAR}, #{expireAt,jdbcType=BIGINT}, 
+      #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, 
+      #{headUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.springbootpractice.demo.mybatis.plugin.dao.entity.SaasUserEntity">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into saas_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loginId != null">
+        login_id,
+      </if>
+      <if test="appId != null">
+        app_id,
+      </if>
+      <if test="mechantUserId != null">
+        mechant_user_id,
+      </if>
+      <if test="loginName != null">
+        login_name,
+      </if>
+      <if test="accessToken != null">
+        access_token,
+      </if>
+      <if test="expireAt != null">
+        expire_at,
+      </if>
+      <if test="created != null">
+        created,
+      </if>
+      <if test="updated != null">
+        updated,
+      </if>
+      <if test="deleted != null">
+        deleted,
+      </if>
+      <if test="headUrl != null">
+        head_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loginId != null">
+        #{loginId,jdbcType=CHAR},
+      </if>
+      <if test="appId != null">
+        #{appId,jdbcType=CHAR},
+      </if>
+      <if test="mechantUserId != null">
+        #{mechantUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="accessToken != null">
+        #{accessToken,jdbcType=CHAR},
+      </if>
+      <if test="expireAt != null">
+        #{expireAt,jdbcType=BIGINT},
+      </if>
+      <if test="created != null">
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null">
+        #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        #{deleted,jdbcType=BIT},
+      </if>
+      <if test="headUrl != null">
+        #{headUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.springbootpractice.demo.mybatis.plugin.dao.example.SaasUserEntityExample" resultType="java.lang.Long">
+    select count(*) from saas_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update saas_user
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.loginId != null">
+        login_id = #{record.loginId,jdbcType=CHAR},
+      </if>
+      <if test="record.appId != null">
+        app_id = #{record.appId,jdbcType=CHAR},
+      </if>
+      <if test="record.mechantUserId != null">
+        mechant_user_id = #{record.mechantUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginName != null">
+        login_name = #{record.loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accessToken != null">
+        access_token = #{record.accessToken,jdbcType=CHAR},
+      </if>
+      <if test="record.expireAt != null">
+        expire_at = #{record.expireAt,jdbcType=BIGINT},
+      </if>
+      <if test="record.created != null">
+        created = #{record.created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updated != null">
+        updated = #{record.updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deleted != null">
+        deleted = #{record.deleted,jdbcType=BIT},
+      </if>
+      <if test="record.headUrl != null">
+        head_url = #{record.headUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update saas_user
+    set id = #{record.id,jdbcType=INTEGER},
+      login_id = #{record.loginId,jdbcType=CHAR},
+      app_id = #{record.appId,jdbcType=CHAR},
+      mechant_user_id = #{record.mechantUserId,jdbcType=VARCHAR},
+      login_name = #{record.loginName,jdbcType=VARCHAR},
+      access_token = #{record.accessToken,jdbcType=CHAR},
+      expire_at = #{record.expireAt,jdbcType=BIGINT},
+      created = #{record.created,jdbcType=TIMESTAMP},
+      updated = #{record.updated,jdbcType=TIMESTAMP},
+      deleted = #{record.deleted,jdbcType=BIT},
+      head_url = #{record.headUrl,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springbootpractice.demo.mybatis.plugin.dao.entity.SaasUserEntity">
+    update saas_user
+    <set>
+      <if test="loginId != null">
+        login_id = #{loginId,jdbcType=CHAR},
+      </if>
+      <if test="appId != null">
+        app_id = #{appId,jdbcType=CHAR},
+      </if>
+      <if test="mechantUserId != null">
+        mechant_user_id = #{mechantUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="loginName != null">
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="accessToken != null">
+        access_token = #{accessToken,jdbcType=CHAR},
+      </if>
+      <if test="expireAt != null">
+        expire_at = #{expireAt,jdbcType=BIGINT},
+      </if>
+      <if test="created != null">
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null">
+        updated = #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null">
+        deleted = #{deleted,jdbcType=BIT},
+      </if>
+      <if test="headUrl != null">
+        head_url = #{headUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springbootpractice.demo.mybatis.plugin.dao.entity.SaasUserEntity">
+    update saas_user
+    set login_id = #{loginId,jdbcType=CHAR},
+      app_id = #{appId,jdbcType=CHAR},
+      mechant_user_id = #{mechantUserId,jdbcType=VARCHAR},
+      login_name = #{loginName,jdbcType=VARCHAR},
+      access_token = #{accessToken,jdbcType=CHAR},
+      expire_at = #{expireAt,jdbcType=BIGINT},
+      created = #{created,jdbcType=TIMESTAMP},
+      updated = #{updated,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=BIT},
+      head_url = #{headUrl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="logicalDeleteByExample" parameterType="map">
+    update saas_user set deleted = 1
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="logicalDeleteByPrimaryKey" parameterType="java.lang.Integer">
+    update saas_user set deleted = 1
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

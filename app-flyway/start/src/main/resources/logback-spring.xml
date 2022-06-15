@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--定义参数,后面可以通过${APP_NAME}使用-->
+    <property name="APP_NAME" value="${spring.application.name}"/>
+    <property name="LOG_PATH" value="${user.home}/${APP_NAME}/logs"/>
+    <property name="LOG_FILE" value="${LOG_PATH}/application.log"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss} %-5level [%thread] %logger{0}-%M-%L: %msg %n</pattern>
+            <charset>utf8</charset>
+        </encoder>
+    </appender>
+
+    <!--    <property name="SLS_SOURCE" value="" />-->
+    <root level="debug">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <logger name="com.authine" level="debug" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+</configuration>
+

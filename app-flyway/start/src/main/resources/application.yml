@@ -1,0 +1,48 @@
+logging:
+  level:
+    root: debug
+server:
+  port: 8080
+spring:
+  application:
+    name: app-flyway
+  flyway:
+    enabled: true
+    baselineOnMigrate: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    default-property-inclusion: non_null
+    time-zone: Asia/Shanghai
+  mvc:
+    format:
+      date-time: yyyy-MM-dd HH:mm:ss
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+swagger:
+  base-package: com.authine
+  base-path: /**
+  contact:
+    email: lifc@authine.com
+    name: authine
+    url: http://cloudpivot.com
+  description: app-flyway service
+  enabled: true
+  exclude-path: /error,/ops/**
+  license: cloudpivot hermes
+  licenseUrl: http://www.authin.com
+  termsOfServiceUrl: http://gitlab.h3yun.com/hermes/app-flyway
+  title: app-flyway interface
+  version: 1.0.0-SNAPSHOT
+
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: shutdown
+        include: "*"
+  metrics:
+    export:
+      prometheus:
+        pushgateway:
+          enabled: true

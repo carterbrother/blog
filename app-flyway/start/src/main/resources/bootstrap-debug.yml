@@ -1,0 +1,11 @@
+spring:
+    cloud:
+        nacos:
+            config:
+                enabled: false
+            discovery:
+                ip: 10.10.9.10
+                metadata:
+                    debug_request_id: 100086111
+                namespace: beta-biz
+                server-addr: 172.31.13.8:30681

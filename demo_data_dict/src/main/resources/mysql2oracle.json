@@ -1,0 +1,78 @@
+{
+  "job": {
+    "setting": {
+      "speed": {
+        "channel":2
+      }
+    },
+    "content": [
+      {
+        "reader": {
+          "name": "mysqlreader",
+          "parameter": {
+            "username": "root",
+            "password": "test123456",
+            "connection": [
+              {
+                "querySql": [
+                  "select id, createdTime, creater, if(deleted=true,1,0) deleted, extend1, extend2, extend3, extend4, extend5, modifiedTime, modifier, remarks, accessTokenValiditySeconds, additionInformation, authorities, authorizedGrantTypes, autoApproveScopes, clientId, clientSecret, refreshTokenValiditySeconds, registeredRedirectUris, resourceIds, scopes, type from base_security_client;"
+                ],
+                "jdbcUrl": [
+                  "jdbc:mysql://120.77.242.238:3306/cloudpivot"
+                ]
+              }
+            ]
+          }
+        },
+        "writer": {
+          "name": "oraclewriter",
+          "parameter": {
+            "username": "DEV3",
+            "password": "H3password",
+            "truncate": "true",
+            "batchSize": "128",
+            "column": [
+              "id",
+              "createdTime",
+              "creater",
+              "deleted",
+              "extend1",
+              "extend2",
+              "extend3",
+              "extend4",
+              "extend5",
+              "modifiedTime",
+              "modifier",
+              "remarks",
+              "accessTokenValiditySeconds",
+              "additionInformation",
+              "authorities",
+              "authorizedGrantTypes",
+              "autoApproveScopes",
+              "clientId",
+              "clientSecret",
+              "refreshTokenValiditySeconds",
+              "registeredRedirectUris",
+              "resourceIds",
+              "scopes",
+              "type"
+            ],
+            "preSql": [
+              "create table base_security_client1(    id                          varchar2(120)  not null        primary key,    createdTime                 date           null,    creater                     varchar2(120)  null,    deleted                     number(1, 0)   null,    extend1                     varchar2(255)  null,    extend2                     varchar2(255)  null,    extend3                     varchar2(255)  null,    extend4                     int            null,    extend5                     int            null,    modifiedTime                date           null,    modifier                    varchar2(120)  null,    remarks                     varchar2(200)  null,    accessTokenValiditySeconds  int            not null,    additionInformation         varchar2(255)  null,    authorities                 varchar2(255)  null,    authorizedGrantTypes        varchar2(255)  null,    autoApproveScopes           varchar2(255)  null,    clientId                    varchar2(100)  null,    clientSecret                varchar2(100)  null,    refreshTokenValiditySeconds int            not null,    registeredRedirectUris      varchar2(2000) null,    resourceIds                 varchar2(255)  null,    scopes                      varchar2(255)  null,    type                        varchar2(10)   null)"
+            ],
+            "connection": [
+              {
+                "jdbcUrl": "jdbc:oracle:thin:@127.0.0.1:1521:orcl",
+                "table": [
+                  "base_security_client1"
+                ]
+
+
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

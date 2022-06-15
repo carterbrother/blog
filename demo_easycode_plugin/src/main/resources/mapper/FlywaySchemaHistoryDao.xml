@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springbootpractice.demo.easycode.plugin.dao.FlywaySchemaHistoryDao">
+
+    <resultMap type="com.springbootpractice.demo.easycode.plugin.entity.FlywaySchemaHistory" id="FlywaySchemaHistoryMap">
+        <result property="installedRank" column="installed_rank" jdbcType="INTEGER"/>
+        <result property="version" column="version" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="VARCHAR"/>
+        <result property="script" column="script" jdbcType="VARCHAR"/>
+        <result property="checksum" column="checksum" jdbcType="INTEGER"/>
+        <result property="installedBy" column="installed_by" jdbcType="VARCHAR"/>
+        <result property="installedOn" column="installed_on" jdbcType="TIMESTAMP"/>
+        <result property="executionTime" column="execution_time" jdbcType="INTEGER"/>
+        <result property="success" column="success" jdbcType="OTHER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="FlywaySchemaHistoryMap">
+        select
+          installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+        from rpmaccount.flyway_schema_history
+        where installed_rank = #{installedRank}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="FlywaySchemaHistoryMap">
+        select
+          installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+        from rpmaccount.flyway_schema_history
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="FlywaySchemaHistoryMap">
+        select
+          installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success
+        from rpmaccount.flyway_schema_history
+        <where>
+            <if test="installedRank != null">
+                and installed_rank = #{installedRank}
+            </if>
+            <if test="version != null and version != ''">
+                and version = #{version}
+            </if>
+            <if test="description != null and description != ''">
+                and description = #{description}
+            </if>
+            <if test="type != null and type != ''">
+                and type = #{type}
+            </if>
+            <if test="script != null and script != ''">
+                and script = #{script}
+            </if>
+            <if test="checksum != null">
+                and checksum = #{checksum}
+            </if>
+            <if test="installedBy != null and installedBy != ''">
+                and installed_by = #{installedBy}
+            </if>
+            <if test="installedOn != null">
+                and installed_on = #{installedOn}
+            </if>
+            <if test="executionTime != null">
+                and execution_time = #{executionTime}
+            </if>
+            <if test="success != null">
+                and success = #{success}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="installedRank" useGeneratedKeys="true">
+        insert into rpmaccount.flyway_schema_history(version, description, type, script, checksum, installed_by, installed_on, execution_time, success)
+        values (#{version}, #{description}, #{type}, #{script}, #{checksum}, #{installedBy}, #{installedOn}, #{executionTime}, #{success})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update rpmaccount.flyway_schema_history
+        <set>
+            <if test="version != null and version != ''">
+                version = #{version},
+            </if>
+            <if test="description != null and description != ''">
+                description = #{description},
+            </if>
+            <if test="type != null and type != ''">
+                type = #{type},
+            </if>
+            <if test="script != null and script != ''">
+                script = #{script},
+            </if>
+            <if test="checksum != null">
+                checksum = #{checksum},
+            </if>
+            <if test="installedBy != null and installedBy != ''">
+                installed_by = #{installedBy},
+            </if>
+            <if test="installedOn != null">
+                installed_on = #{installedOn},
+            </if>
+            <if test="executionTime != null">
+                execution_time = #{executionTime},
+            </if>
+            <if test="success != null">
+                success = #{success},
+            </if>
+        </set>
+        where installed_rank = #{installedRank}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from rpmaccount.flyway_schema_history where installed_rank = #{installedRank}
+    </delete>
+
+</mapper>

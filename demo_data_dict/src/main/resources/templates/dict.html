@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据字典生成页面</title>
+    <script src="https://lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<table>
+    <tr>
+        <td>连接url</td>
+        <td><input type="text" name="connectionUrl" value="jdbc:mysql://127.0.0.1:3306/cloudpivot_ynjt" style="width:300px;"></td>
+        <td>username</td>
+        <td><input type="text" name="username" value="root"></td>
+        <td>password</td>
+        <td><input type="password" name="password" value="test123456"></td>
+        <td><input type="button" value="连接数据库服务器" id="testConnection"></td>
+        <td><input type="button" value="重置输入参数" id="resetInput"></td>
+        <td><input type="button" value="生成选定数据库的数据字典" id="generateDataDict"></td>
+        <td><input type="button" value="生成选定数据库的数据字典仅仅表名" id="generateDataDictOnlyTable"></td>
+    </tr>
+</table>
+<h4>选择数据库</h4>
+<div id="databaseSel"></div>
+<hr>
+<div>
+    <textarea id="markdownContent" rows="30" cols="200">
+    </textarea>
+</div>
+</body>
+<script type="text/javascript">
+    $("#resetInput").click(function () {
+        $("input[name='connectionUrl']").val("");
+        $("input[name='username']").val("");
+        $("input[name='password']").val("");
+    });
+    $("#testConnection").click(function () {
+        let connectionUrl = $("input[name='connectionUrl']").val();
+        let username = $("input[name='username']").val();
+        let password = $("input[name='password']").val();
+        $.post("/data/testConnection",
+            {connectionUrl: connectionUrl, username: username, password: password},
+            function (data) {
+                var selectHtml = "";
+                $.each(data.data.databaseList,function (i,databaseName) {
+                    selectHtml += '<input  name="databaseName" type="checkbox" value="' + databaseName + '">' + databaseName;
+                    if (i%12==0 && i>0){
+                        selectHtml +='<br>';
+                    }
+                })
+                $("#databaseSel").empty().append(selectHtml);
+            }, "json");
+    });
+    $("#generateDataDict").click(function () {
+        let databaseName = "";
+        $.each($('input:checkbox:checked'), function () {
+            databaseName += $(this).val() + ",";
+        });
+        $.post("/data/generateDataDict",
+            {databaseName: databaseName},
+            function (data) {
+                var content = data.data.markdownContent;
+                $("#markdownContent").empty().val(content);
+            }, "json");
+    });
+
+    $("#generateDataDictOnlyTable").click(function () {
+        let databaseName = "";
+        $.each($('input:checkbox:checked'), function () {
+            databaseName += $(this).val() + ",";
+        });
+        $.post("/data/generateDataDictOnlyTable",
+            {databaseName: databaseName},
+            function (data) {
+                var content = data.data.markdownContent;
+                $("#markdownContent").empty().val(content);
+            }, "json");
+    });
+
+</script>
+</html>

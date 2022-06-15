@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springbootpractice.demo.easycode.plugin.dao.UserDoctorInfoDao">
+
+    <resultMap type="com.springbootpractice.demo.easycode.plugin.entity.UserDoctorInfo" id="UserDoctorInfoMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="jobTitle" column="job_title" jdbcType="VARCHAR"/>
+        <result property="orgName" column="org_name" jdbcType="VARCHAR"/>
+        <result property="departmentName" column="department_name" jdbcType="VARCHAR"/>
+        <result property="orgAddress" column="org_address" jdbcType="VARCHAR"/>
+        <result property="topicJson" column="topic_json" jdbcType="VARCHAR"/>
+        <result property="skillDesc" column="skill_desc" jdbcType="VARCHAR"/>
+        <result property="created" column="created" jdbcType="TIMESTAMP"/>
+        <result property="updated" column="updated" jdbcType="TIMESTAMP"/>
+        <result property="deleted" column="deleted" jdbcType="OTHER"/>
+        <result property="urlZy1" column="url_zy1" jdbcType="VARCHAR"/>
+        <result property="urlZy2" column="url_zy2" jdbcType="VARCHAR"/>
+        <result property="urlZg1" column="url_zg1" jdbcType="VARCHAR"/>
+        <result property="urlZg2" column="url_zg2" jdbcType="VARCHAR"/>
+        <result property="selfDesc" column="self_desc" jdbcType="VARCHAR"/>
+        <result property="confirmStatus" column="confirm_status" jdbcType="OTHER"/>
+        <result property="idcardUrl" column="idcard_url" jdbcType="VARCHAR"/>
+        <result property="startWorkDate" column="start_work_date" jdbcType="OTHER"/>
+        <result property="idcardBackUrl" column="idcard_back_url" jdbcType="VARCHAR"/>
+        <result property="memo" column="memo" jdbcType="VARCHAR"/>
+        <result property="applyTime" column="apply_time" jdbcType="TIMESTAMP"/>
+        <result property="departmentId" column="department_id" jdbcType="VARCHAR"/>
+        <result property="hospitalId" column="hospital_id" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="UserDoctorInfoMap">
+        select
+          id, job_title, org_name, department_name, org_address, topic_json, skill_desc, created, updated, deleted, url_zy1, url_zy2, url_zg1, url_zg2, self_desc, confirm_status, idcard_url, start_work_date, idcard_back_url, memo, apply_time, department_id, hospital_id
+        from rpmaccount.user_doctor_info
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="UserDoctorInfoMap">
+        select
+          id, job_title, org_name, department_name, org_address, topic_json, skill_desc, created, updated, deleted, url_zy1, url_zy2, url_zg1, url_zg2, self_desc, confirm_status, idcard_url, start_work_date, idcard_back_url, memo, apply_time, department_id, hospital_id
+        from rpmaccount.user_doctor_info
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="UserDoctorInfoMap">
+        select
+          id, job_title, org_name, department_name, org_address, topic_json, skill_desc, created, updated, deleted, url_zy1, url_zy2, url_zg1, url_zg2, self_desc, confirm_status, idcard_url, start_work_date, idcard_back_url, memo, apply_time, department_id, hospital_id
+        from rpmaccount.user_doctor_info
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="jobTitle != null and jobTitle != ''">
+                and job_title = #{jobTitle}
+            </if>
+            <if test="orgName != null and orgName != ''">
+                and org_name = #{orgName}
+            </if>
+            <if test="departmentName != null and departmentName != ''">
+                and department_name = #{departmentName}
+            </if>
+            <if test="orgAddress != null and orgAddress != ''">
+                and org_address = #{orgAddress}
+            </if>
+            <if test="topicJson != null and topicJson != ''">
+                and topic_json = #{topicJson}
+            </if>
+            <if test="skillDesc != null and skillDesc != ''">
+                and skill_desc = #{skillDesc}
+            </if>
+            <if test="created != null">
+                and created = #{created}
+            </if>
+            <if test="updated != null">
+                and updated = #{updated}
+            </if>
+            <if test="deleted != null">
+                and deleted = #{deleted}
+            </if>
+            <if test="urlZy1 != null and urlZy1 != ''">
+                and url_zy1 = #{urlZy1}
+            </if>
+            <if test="urlZy2 != null and urlZy2 != ''">
+                and url_zy2 = #{urlZy2}
+            </if>
+            <if test="urlZg1 != null and urlZg1 != ''">
+                and url_zg1 = #{urlZg1}
+            </if>
+            <if test="urlZg2 != null and urlZg2 != ''">
+                and url_zg2 = #{urlZg2}
+            </if>
+            <if test="selfDesc != null and selfDesc != ''">
+                and self_desc = #{selfDesc}
+            </if>
+            <if test="confirmStatus != null">
+                and confirm_status = #{confirmStatus}
+            </if>
+            <if test="idcardUrl != null and idcardUrl != ''">
+                and idcard_url = #{idcardUrl}
+            </if>
+            <if test="startWorkDate != null">
+                and start_work_date = #{startWorkDate}
+            </if>
+            <if test="idcardBackUrl != null and idcardBackUrl != ''">
+                and idcard_back_url = #{idcardBackUrl}
+            </if>
+            <if test="memo != null and memo != ''">
+                and memo = #{memo}
+            </if>
+            <if test="applyTime != null">
+                and apply_time = #{applyTime}
+            </if>
+            <if test="departmentId != null and departmentId != ''">
+                and department_id = #{departmentId}
+            </if>
+            <if test="hospitalId != null and hospitalId != ''">
+                and hospital_id = #{hospitalId}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into rpmaccount.user_doctor_info(job_title, org_name, department_name, org_address, topic_json, skill_desc, created, updated, deleted, url_zy1, url_zy2, url_zg1, url_zg2, self_desc, confirm_status, idcard_url, start_work_date, idcard_back_url, memo, apply_time, department_id, hospital_id)
+        values (#{jobTitle}, #{orgName}, #{departmentName}, #{orgAddress}, #{topicJson}, #{skillDesc}, #{created}, #{updated}, #{deleted}, #{urlZy1}, #{urlZy2}, #{urlZg1}, #{urlZg2}, #{selfDesc}, #{confirmStatus}, #{idcardUrl}, #{startWorkDate}, #{idcardBackUrl}, #{memo}, #{applyTime}, #{departmentId}, #{hospitalId})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update rpmaccount.user_doctor_info
+        <set>
+            <if test="jobTitle != null and jobTitle != ''">
+                job_title = #{jobTitle},
+            </if>
+            <if test="orgName != null and orgName != ''">
+                org_name = #{orgName},
+            </if>
+            <if test="departmentName != null and departmentName != ''">
+                department_name = #{departmentName},
+            </if>
+            <if test="orgAddress != null and orgAddress != ''">
+                org_address = #{orgAddress},
+            </if>
+            <if test="topicJson != null and topicJson != ''">
+                topic_json = #{topicJson},
+            </if>
+            <if test="skillDesc != null and skillDesc != ''">
+                skill_desc = #{skillDesc},
+            </if>
+            <if test="created != null">
+                created = #{created},
+            </if>
+            <if test="updated != null">
+                updated = #{updated},
+            </if>
+            <if test="deleted != null">
+                deleted = #{deleted},
+            </if>
+            <if test="urlZy1 != null and urlZy1 != ''">
+                url_zy1 = #{urlZy1},
+            </if>
+            <if test="urlZy2 != null and urlZy2 != ''">
+                url_zy2 = #{urlZy2},
+            </if>
+            <if test="urlZg1 != null and urlZg1 != ''">
+                url_zg1 = #{urlZg1},
+            </if>
+            <if test="urlZg2 != null and urlZg2 != ''">
+                url_zg2 = #{urlZg2},
+            </if>
+            <if test="selfDesc != null and selfDesc != ''">
+                self_desc = #{selfDesc},
+            </if>
+            <if test="confirmStatus != null">
+                confirm_status = #{confirmStatus},
+            </if>
+            <if test="idcardUrl != null and idcardUrl != ''">
+                idcard_url = #{idcardUrl},
+            </if>
+            <if test="startWorkDate != null">
+                start_work_date = #{startWorkDate},
+            </if>
+            <if test="idcardBackUrl != null and idcardBackUrl != ''">
+                idcard_back_url = #{idcardBackUrl},
+            </if>
+            <if test="memo != null and memo != ''">
+                memo = #{memo},
+            </if>
+            <if test="applyTime != null">
+                apply_time = #{applyTime},
+            </if>
+            <if test="departmentId != null and departmentId != ''">
+                department_id = #{departmentId},
+            </if>
+            <if test="hospitalId != null and hospitalId != ''">
+                hospital_id = #{hospitalId},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from rpmaccount.user_doctor_info where id = #{id}
+    </delete>
+
+</mapper>

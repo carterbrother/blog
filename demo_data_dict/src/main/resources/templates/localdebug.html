@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ci</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/layer/2.3/skin/layer.css" rel="stylesheet">
+</head>
+<style type="text/css">
+    .table-b .table .td  {border: 1px;solid-color: cornflowerblue}
+
+
+</style>
+<body>
+
+应用名字： <input type="text" name="appName" value=""> <br>
+应用镜像： <input type="text" name="imageName" value=""> <br>
+应用部署的环境： <input type="text" name="evnName" value=""> <br>
+操作： <input type="button" name="deploy" value="部署">
+
+</body>
+<script src="https://lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/layer/2.3/layer.js"></script>
+<script th:inline="javascript">
+
+    $("#deploy").click(function () {
+        let appName = $("input[name='appName']").val();
+        let imageName = $("input[name='imageName']").val();
+        let envName = $("input[name='envName']").val();
+
+        $.post("/data/local_debug/deploy",
+            {
+                appName: appName,
+                imageName: imageName,
+                envName: envName,
+            },
+            function (data) {
+                alert("正在部署，请查看日志");
+            }, "json");
+    });
+</script>
+</html>

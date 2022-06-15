@@ -1,0 +1,17 @@
+server:
+  port: 7001
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          # 配置git仓库地址
+          uri: https://gitee.com/spring_cloudcarter/springcloudconfig/
+          # 仓库路径下的相对搜索位置
+          search-paths: demo_config_server/config_repo/configapp1
+          # git 仓库的用户名
+          username: 583391571@qq.com
+          # git 仓库的密码
+          password: abc123456!

@@ -1,0 +1,176 @@
+server:
+  port: 8080
+  address: 0.0.0.0
+  compression:
+    enabled: true
+  tomcat:
+    max-swallow-size: -1
+    remote-ip-header: x-forwarded-for
+    protocol-header: x-forwarded-proto
+  servlet:
+    context-path: /api
+
+#info:
+#  blog-url: https://www.cloudpivot.cn/
+#  author: Authine
+#  version: @project.version@
+spring:
+  application:
+    name: cloudpivot-web-api
+#  boot:
+#    admin:
+#      client:
+#        url: http://127.0.0.1:9999
+  main:
+    allow-bean-definition-overriding: true
+  
+    
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+
+  cache:
+    type: redis
+
+  #redis
+  redis:
+    host: h3_redis
+    database: 1         #集群模式下不指定数据库，注释此选项
+    password: H3yuncom
+    port: 6379
+    ## 集群模式
+    #cluster:
+    #  nodes:   # cluster节点地址
+    #    - "127.0.0.1:6379"
+    #    - "127.0.0.1:6389"
+    #    - "127.0.0.1:6399"
+    ## 哨兵模式
+    #sentinel:
+    #  nodes:   # 哨兵节点地址
+    #    - "127.0.0.1:26379"
+    #    - "127.0.0.1:26389"
+    #    - "127.0.0.1:26399"
+    #  master: mymaster    # 主服务器的名称
+
+  #spring session
+  session:
+    store-type: redis   #存储类型
+
+  mvc:
+    locale: zh_CN
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  thymeleaf:
+    cache: false
+    check-template: false
+
+  security:
+    oauth:
+      sso_uri: http://127.0.0.1:8080
+
+  servlet:
+    multipart:
+      enabled: true                #默认支持文件上传
+      max-file-size: 200MB         #上传单个文件大小限制
+      max-request-size: 200MB      #多个同时上传总大小限制
+
+logging:
+  config: classpath:logback-spring.xml  #logback日志配置文件
+  level:
+    org.springframework.boot: error
+    org.springframework.security.oauth2: error
+    com.alibaba.dubbo: error
+    com.authine.cloudpivot: info   # 云枢产品日志输出级别
+
+# logback日志配置
+log:
+  path: logs           #日志文件输出路径，默认为应用所在目录的logs目录
+  maxFileSize: 50MB    #单个日志文件大小，默认50MB
+  maxHistory: 45       #默认保存45天的记录
+  totalLogSizeCap: 20GB #总日志文件上限大小，默认20GB，当日志大小超过这个值，删除旧的日志
+  errorLogSizeCap: 5GB  #错误日志文件上限大小，默认5GB，当日志大小超过这个值，删除旧的日志
+
+dubbo:
+  application:
+    name: cloudpivot-web-api-consumer
+    qos-enable: false
+    parameters:
+      protocol: dubbo
+  registry:
+    protocol: zookeeper
+    address: h3_zk
+    port: 2181          #端口
+    timeout: 3000       #超时时间
+    check: true
+  consumer:
+    check: false
+    retries: 0          #重试次数
+  provider:
+    token: h3bpmtoken
+
+cloudpivot:
+  engine-webapi-allinone: false
+  report:
+    datasourceurl: http://127.0.0.1:6060  #报表integrate-webapi项目的访问地址，如果是同服务器部署并且报表使用默认的6060端口  可直接使用http://127.0.0.1:6060
+    supportoralce: true       #是否支持oracle    报表后台版本20200318-2.3.0.4 以后默认打开
+  system:
+    update:
+      log:
+        url: http://help.cloudpivot.cn/channels/7.html  #产品更新日志地址
+  export:
+    data:
+      pageable: 3000
+  import:
+    data:
+      size: 501
+  login:
+    dingtalk: true #钉钉方式登录
+    accountpassword: true #账号密码登录
+    dingtalk&accountpassword: true #钉钉扫码和账号密码方式登录
+  switch:
+    multi_language_toggle_switch: false  #多语言开关 默认关
+  attachment:   # 文件存储方式
+    oss:
+      enabled: true     #是否启用
+    sftp:
+      enabled: false      #是否启用
+  convert:
+      html2pdf: flyingsaucer #HTML转PDF，两种方式phantomjs 和 flyingsaucer
+  api:
+    oauth:
+      enabled: true   # 是否开启权限校验
+      test:
+        userid:       # 模拟测试用户ID，不能用于生产环境
+  webmvc:
+    corsmappings: false          #配置是否允许跨域，详细参考 云枢帮助中心-开发者手册-解决跨域安全问题
+    corsAllowedOrigins: '*'      #跨域请求白名单,多个地址以逗号分割
+  dingtalk:
+    client:
+      aes_key: e6e18d0a42dd027cade89c213c75f477e6e18d0a42d
+      aes_token: 2cc69a199b644f9ca0d21360f242d98d
+      #钉钉组织机构同步事件
+      callback_tag:
+        user_add_org,
+        user_modify_org,
+        user_leave_org,
+        org_admin_add,
+        org_admin_remove,
+        org_dept_create,
+        org_dept_modify,
+        org_dept_remove,
+        org_remove,
+        org_change,
+        label_user_change,
+        label_conf_add,
+        label_conf_del,
+        label_conf_modify
+      callback_url: /public/dingtalk/notify #增量同步回到地址
+  bizlog:
+    endpoint:          #地域节点 如：oss-cn-shenzhen.aliyuncs.com
+    accessKeyId:       #用户AccessKey
+    accessKeySecret:   #Access Key Secret
+    project:                #SLS项目名称
+    logStore: webapi_log    #web-sso日志库
+  organization:
+    related: false    #关联组织机构

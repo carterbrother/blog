@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <properties>
+        <!--定义LOG存储位置-->
+        <property name="LOG_HOME">/app/logs</property>
+        <!--定义应用名称-->
+        <property name="APP_NAME">hello-world</property>
+    </properties>
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="${APP_NAME} %-d{yyyy-MM-dd HH:mm:ss} [%-5p] (%c{1}:%L) %m%n"/>
+        </Console>
+        <RollingRandomAccessFile name="ROLLFILE"
+                                 fileName="${LOG_HOME}/${APP_NAME}.log"
+                                 filePattern="${LOG_HOME}/${APP_NAME}.%d{yyyy-MM-dd-HH}.log">
+            <PatternLayout pattern="${APP_NAME} %-d{yyyy-MM-dd HH:mm:ss} [%-5p] (%c{1}:%L) %m%n"/>
+            <Policies>
+                <!--每隔1小时分割,modulate为true表示以0分为边界-->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingRandomAccessFile>
+
+        <!--async appender-->
+        <Async name="Async">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="ROLLFILE"/>
+        </Async>
+    </Appenders>
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Async"/>
+        </Root>
+    </Loggers>
+</Configuration>

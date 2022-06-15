@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springbootpractice.demo.easycode.plugin.dao.UserLastLogininfoDao">
+
+    <resultMap type="com.springbootpractice.demo.easycode.plugin.entity.UserLastLogininfo" id="UserLastLogininfoMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="lastClientId" column="last_client_id" jdbcType="VARCHAR"/>
+        <result property="lastLoginTime" column="last_login_time" jdbcType="TIMESTAMP"/>
+        <result property="created" column="created" jdbcType="TIMESTAMP"/>
+        <result property="updated" column="updated" jdbcType="TIMESTAMP"/>
+        <result property="deleted" column="deleted" jdbcType="OTHER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="UserLastLogininfoMap">
+        select
+          id, last_client_id, last_login_time, created, updated, deleted
+        from rpmaccount.user_last_logininfo
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="UserLastLogininfoMap">
+        select
+          id, last_client_id, last_login_time, created, updated, deleted
+        from rpmaccount.user_last_logininfo
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="UserLastLogininfoMap">
+        select
+          id, last_client_id, last_login_time, created, updated, deleted
+        from rpmaccount.user_last_logininfo
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="lastClientId != null and lastClientId != ''">
+                and last_client_id = #{lastClientId}
+            </if>
+            <if test="lastLoginTime != null">
+                and last_login_time = #{lastLoginTime}
+            </if>
+            <if test="created != null">
+                and created = #{created}
+            </if>
+            <if test="updated != null">
+                and updated = #{updated}
+            </if>
+            <if test="deleted != null">
+                and deleted = #{deleted}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into rpmaccount.user_last_logininfo(last_client_id, last_login_time, created, updated, deleted)
+        values (#{lastClientId}, #{lastLoginTime}, #{created}, #{updated}, #{deleted})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update rpmaccount.user_last_logininfo
+        <set>
+            <if test="lastClientId != null and lastClientId != ''">
+                last_client_id = #{lastClientId},
+            </if>
+            <if test="lastLoginTime != null">
+                last_login_time = #{lastLoginTime},
+            </if>
+            <if test="created != null">
+                created = #{created},
+            </if>
+            <if test="updated != null">
+                updated = #{updated},
+            </if>
+            <if test="deleted != null">
+                deleted = #{deleted},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from rpmaccount.user_last_logininfo where id = #{id}
+    </delete>
+
+</mapper>

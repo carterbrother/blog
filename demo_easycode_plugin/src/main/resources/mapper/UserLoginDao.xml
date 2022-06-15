@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springbootpractice.demo.easycode.plugin.dao.UserLoginDao">
+
+    <resultMap type="com.springbootpractice.demo.easycode.plugin.entity.UserLogin" id="UserLoginMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="mobile" column="mobile" jdbcType="VARCHAR"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="realName" column="real_name" jdbcType="VARCHAR"/>
+        <result property="nickName" column="nick_name" jdbcType="VARCHAR"/>
+        <result property="clientId" column="client_id" jdbcType="VARCHAR"/>
+        <result property="lockedFlag" column="locked_flag" jdbcType="OTHER"/>
+        <result property="imUserId" column="im_user_id" jdbcType="VARCHAR"/>
+        <result property="sportUserId" column="sport_user_id" jdbcType="INTEGER"/>
+        <result property="systemType" column="system_type" jdbcType="INTEGER"/>
+        <result property="departId" column="depart_id" jdbcType="INTEGER"/>
+        <result property="created" column="created" jdbcType="TIMESTAMP"/>
+        <result property="updated" column="updated" jdbcType="TIMESTAMP"/>
+        <result property="deleted" column="deleted" jdbcType="OTHER"/>
+        <result property="endLoginDate" column="end_login_date" jdbcType="TIMESTAMP"/>
+        <result property="realNamePinyin" column="real_name_pinyin" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="UserLoginMap">
+        select
+          id, user_id, user_name, password, mobile, email, real_name, nick_name, client_id, locked_flag, im_user_id, sport_user_id, system_type, depart_id, created, updated, deleted, end_login_date, real_name_pinyin
+        from rpmaccount.user_login
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="UserLoginMap">
+        select
+          id, user_id, user_name, password, mobile, email, real_name, nick_name, client_id, locked_flag, im_user_id, sport_user_id, system_type, depart_id, created, updated, deleted, end_login_date, real_name_pinyin
+        from rpmaccount.user_login
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="UserLoginMap">
+        select
+          id, user_id, user_name, password, mobile, email, real_name, nick_name, client_id, locked_flag, im_user_id, sport_user_id, system_type, depart_id, created, updated, deleted, end_login_date, real_name_pinyin
+        from rpmaccount.user_login
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="userName != null and userName != ''">
+                and user_name = #{userName}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="mobile != null and mobile != ''">
+                and mobile = #{mobile}
+            </if>
+            <if test="email != null and email != ''">
+                and email = #{email}
+            </if>
+            <if test="realName != null and realName != ''">
+                and real_name = #{realName}
+            </if>
+            <if test="nickName != null and nickName != ''">
+                and nick_name = #{nickName}
+            </if>
+            <if test="clientId != null and clientId != ''">
+                and client_id = #{clientId}
+            </if>
+            <if test="lockedFlag != null">
+                and locked_flag = #{lockedFlag}
+            </if>
+            <if test="imUserId != null and imUserId != ''">
+                and im_user_id = #{imUserId}
+            </if>
+            <if test="sportUserId != null">
+                and sport_user_id = #{sportUserId}
+            </if>
+            <if test="systemType != null">
+                and system_type = #{systemType}
+            </if>
+            <if test="departId != null">
+                and depart_id = #{departId}
+            </if>
+            <if test="created != null">
+                and created = #{created}
+            </if>
+            <if test="updated != null">
+                and updated = #{updated}
+            </if>
+            <if test="deleted != null">
+                and deleted = #{deleted}
+            </if>
+            <if test="endLoginDate != null">
+                and end_login_date = #{endLoginDate}
+            </if>
+            <if test="realNamePinyin != null and realNamePinyin != ''">
+                and real_name_pinyin = #{realNamePinyin}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into rpmaccount.user_login(user_id, user_name, password, mobile, email, real_name, nick_name, client_id, locked_flag, im_user_id, sport_user_id, system_type, depart_id, created, updated, deleted, end_login_date, real_name_pinyin)
+        values (#{userId}, #{userName}, #{password}, #{mobile}, #{email}, #{realName}, #{nickName}, #{clientId}, #{lockedFlag}, #{imUserId}, #{sportUserId}, #{systemType}, #{departId}, #{created}, #{updated}, #{deleted}, #{endLoginDate}, #{realNamePinyin})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update rpmaccount.user_login
+        <set>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="userName != null and userName != ''">
+                user_name = #{userName},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="mobile != null and mobile != ''">
+                mobile = #{mobile},
+            </if>
+            <if test="email != null and email != ''">
+                email = #{email},
+            </if>
+            <if test="realName != null and realName != ''">
+                real_name = #{realName},
+            </if>
+            <if test="nickName != null and nickName != ''">
+                nick_name = #{nickName},
+            </if>
+            <if test="clientId != null and clientId != ''">
+                client_id = #{clientId},
+            </if>
+            <if test="lockedFlag != null">
+                locked_flag = #{lockedFlag},
+            </if>
+            <if test="imUserId != null and imUserId != ''">
+                im_user_id = #{imUserId},
+            </if>
+            <if test="sportUserId != null">
+                sport_user_id = #{sportUserId},
+            </if>
+            <if test="systemType != null">
+                system_type = #{systemType},
+            </if>
+            <if test="departId != null">
+                depart_id = #{departId},
+            </if>
+            <if test="created != null">
+                created = #{created},
+            </if>
+            <if test="updated != null">
+                updated = #{updated},
+            </if>
+            <if test="deleted != null">
+                deleted = #{deleted},
+            </if>
+            <if test="endLoginDate != null">
+                end_login_date = #{endLoginDate},
+            </if>
+            <if test="realNamePinyin != null and realNamePinyin != ''">
+                real_name_pinyin = #{realNamePinyin},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from rpmaccount.user_login where id = #{id}
+    </delete>
+
+</mapper>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springbootpractice.demo.easycode.plugin.dao.PageDictDao">
+
+    <resultMap type="com.springbootpractice.demo.easycode.plugin.entity.PageDict" id="PageDictMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="systemKey" column="system_key" jdbcType="VARCHAR"/>
+        <result property="parentPageId" column="parent_page_id" jdbcType="INTEGER"/>
+        <result property="pageCode" column="page_code" jdbcType="VARCHAR"/>
+        <result property="pageName" column="page_name" jdbcType="VARCHAR"/>
+        <result property="pageUrl" column="page_url" jdbcType="VARCHAR"/>
+        <result property="pageLevel" column="page_level" jdbcType="OTHER"/>
+        <result property="menuFlag" column="menu_flag" jdbcType="OTHER"/>
+        <result property="lockedFlag" column="locked_flag" jdbcType="OTHER"/>
+        <result property="orderIntValue" column="order_int_value" jdbcType="INTEGER"/>
+        <result property="created" column="created" jdbcType="TIMESTAMP"/>
+        <result property="updated" column="updated" jdbcType="TIMESTAMP"/>
+        <result property="deleted" column="deleted" jdbcType="OTHER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="PageDictMap">
+        select
+          id, system_key, parent_page_id, page_code, page_name, page_url, page_level, menu_flag, locked_flag, order_int_value, created, updated, deleted
+        from rpmaccount.page_dict
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="PageDictMap">
+        select
+          id, system_key, parent_page_id, page_code, page_name, page_url, page_level, menu_flag, locked_flag, order_int_value, created, updated, deleted
+        from rpmaccount.page_dict
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="PageDictMap">
+        select
+          id, system_key, parent_page_id, page_code, page_name, page_url, page_level, menu_flag, locked_flag, order_int_value, created, updated, deleted
+        from rpmaccount.page_dict
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="systemKey != null and systemKey != ''">
+                and system_key = #{systemKey}
+            </if>
+            <if test="parentPageId != null">
+                and parent_page_id = #{parentPageId}
+            </if>
+            <if test="pageCode != null and pageCode != ''">
+                and page_code = #{pageCode}
+            </if>
+            <if test="pageName != null and pageName != ''">
+                and page_name = #{pageName}
+            </if>
+            <if test="pageUrl != null and pageUrl != ''">
+                and page_url = #{pageUrl}
+            </if>
+            <if test="pageLevel != null">
+                and page_level = #{pageLevel}
+            </if>
+            <if test="menuFlag != null">
+                and menu_flag = #{menuFlag}
+            </if>
+            <if test="lockedFlag != null">
+                and locked_flag = #{lockedFlag}
+            </if>
+            <if test="orderIntValue != null">
+                and order_int_value = #{orderIntValue}
+            </if>
+            <if test="created != null">
+                and created = #{created}
+            </if>
+            <if test="updated != null">
+                and updated = #{updated}
+            </if>
+            <if test="deleted != null">
+                and deleted = #{deleted}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into rpmaccount.page_dict(system_key, parent_page_id, page_code, page_name, page_url, page_level, menu_flag, locked_flag, order_int_value, created, updated, deleted)
+        values (#{systemKey}, #{parentPageId}, #{pageCode}, #{pageName}, #{pageUrl}, #{pageLevel}, #{menuFlag}, #{lockedFlag}, #{orderIntValue}, #{created}, #{updated}, #{deleted})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update rpmaccount.page_dict
+        <set>
+            <if test="systemKey != null and systemKey != ''">
+                system_key = #{systemKey},
+            </if>
+            <if test="parentPageId != null">
+                parent_page_id = #{parentPageId},
+            </if>
+            <if test="pageCode != null and pageCode != ''">
+                page_code = #{pageCode},
+            </if>
+            <if test="pageName != null and pageName != ''">
+                page_name = #{pageName},
+            </if>
+            <if test="pageUrl != null and pageUrl != ''">
+                page_url = #{pageUrl},
+            </if>
+            <if test="pageLevel != null">
+                page_level = #{pageLevel},
+            </if>
+            <if test="menuFlag != null">
+                menu_flag = #{menuFlag},
+            </if>
+            <if test="lockedFlag != null">
+                locked_flag = #{lockedFlag},
+            </if>
+            <if test="orderIntValue != null">
+                order_int_value = #{orderIntValue},
+            </if>
+            <if test="created != null">
+                created = #{created},
+            </if>
+            <if test="updated != null">
+                updated = #{updated},
+            </if>
+            <if test="deleted != null">
+                deleted = #{deleted},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from rpmaccount.page_dict where id = #{id}
+    </delete>
+
+</mapper>

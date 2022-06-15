@@ -1,0 +1,46 @@
+server:
+    port: 8080
+logging:
+    level:
+        root: info
+file-system:
+    type: MINIO
+    config:
+        accessKeyId: AKIAIOSFODNN7EXAMPLE
+        accessKeySecret: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+        bucketName: icbc
+        endPoint: http://47.107.114.97:9000
+redis:
+    config:
+        conn-timeout: 10000
+        enabled: true
+        key-prefix: ${spring.application.name}
+        mode: standard
+        password: ${spring.redis.password}
+        pool-max-idle: 2
+        pool-max-total: 10
+        pool-min-idle: 1
+        servers: ${spring.redis.host}:${spring.redis.port}
+spring:
+    flyway:
+        cleanDisabled: false
+        cleanOnValidationError: true
+    datasource:
+        password: root1234
+        url: jdbc:mysql://localhost:3306/app_flyway
+        username: root
+    rabbitmq:
+        host: 120.78.164.214
+        password: authine123
+        port: 5672
+        username: user
+        virtual-host: /beta-biz
+    redis:
+        host: 172.31.13.8
+        max-active: 100
+        max-idle: 20
+        max-wait: 30000
+        min-idle: 0
+        password: H3yuncom
+        port: 30069
+        timeout: 3000

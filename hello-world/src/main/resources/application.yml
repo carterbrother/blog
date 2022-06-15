@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: hello world application
+server:
+  port: ${random.int(8000,9000)}

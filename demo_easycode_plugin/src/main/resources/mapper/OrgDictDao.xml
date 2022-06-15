@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springbootpractice.demo.easycode.plugin.dao.OrgDictDao">
+
+    <resultMap type="com.springbootpractice.demo.easycode.plugin.entity.OrgDict" id="OrgDictMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="orgKey" column="org_key" jdbcType="VARCHAR"/>
+        <result property="orgValue" column="org_value" jdbcType="VARCHAR"/>
+        <result property="bizerMobile" column="bizer_mobile" jdbcType="VARCHAR"/>
+        <result property="bizerName" column="bizer_name" jdbcType="VARCHAR"/>
+        <result property="orgAddress" column="org_address" jdbcType="VARCHAR"/>
+        <result property="orgCode" column="org_code" jdbcType="VARCHAR"/>
+        <result property="created" column="created" jdbcType="TIMESTAMP"/>
+        <result property="updated" column="updated" jdbcType="TIMESTAMP"/>
+        <result property="deleted" column="deleted" jdbcType="OTHER"/>
+        <result property="systemType" column="system_type" jdbcType="INTEGER"/>
+        <result property="appId" column="app_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="OrgDictMap">
+        select
+          id, org_key, org_value, bizer_mobile, bizer_name, org_address, org_code, created, updated, deleted, system_type, app_id
+        from rpmaccount.org_dict
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="OrgDictMap">
+        select
+          id, org_key, org_value, bizer_mobile, bizer_name, org_address, org_code, created, updated, deleted, system_type, app_id
+        from rpmaccount.org_dict
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="OrgDictMap">
+        select
+          id, org_key, org_value, bizer_mobile, bizer_name, org_address, org_code, created, updated, deleted, system_type, app_id
+        from rpmaccount.org_dict
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="orgKey != null and orgKey != ''">
+                and org_key = #{orgKey}
+            </if>
+            <if test="orgValue != null and orgValue != ''">
+                and org_value = #{orgValue}
+            </if>
+            <if test="bizerMobile != null and bizerMobile != ''">
+                and bizer_mobile = #{bizerMobile}
+            </if>
+            <if test="bizerName != null and bizerName != ''">
+                and bizer_name = #{bizerName}
+            </if>
+            <if test="orgAddress != null and orgAddress != ''">
+                and org_address = #{orgAddress}
+            </if>
+            <if test="orgCode != null and orgCode != ''">
+                and org_code = #{orgCode}
+            </if>
+            <if test="created != null">
+                and created = #{created}
+            </if>
+            <if test="updated != null">
+                and updated = #{updated}
+            </if>
+            <if test="deleted != null">
+                and deleted = #{deleted}
+            </if>
+            <if test="systemType != null">
+                and system_type = #{systemType}
+            </if>
+            <if test="appId != null">
+                and app_id = #{appId}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into rpmaccount.org_dict(org_key, org_value, bizer_mobile, bizer_name, org_address, org_code, created, updated, deleted, system_type, app_id)
+        values (#{orgKey}, #{orgValue}, #{bizerMobile}, #{bizerName}, #{orgAddress}, #{orgCode}, #{created}, #{updated}, #{deleted}, #{systemType}, #{appId})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update rpmaccount.org_dict
+        <set>
+            <if test="orgKey != null and orgKey != ''">
+                org_key = #{orgKey},
+            </if>
+            <if test="orgValue != null and orgValue != ''">
+                org_value = #{orgValue},
+            </if>
+            <if test="bizerMobile != null and bizerMobile != ''">
+                bizer_mobile = #{bizerMobile},
+            </if>
+            <if test="bizerName != null and bizerName != ''">
+                bizer_name = #{bizerName},
+            </if>
+            <if test="orgAddress != null and orgAddress != ''">
+                org_address = #{orgAddress},
+            </if>
+            <if test="orgCode != null and orgCode != ''">
+                org_code = #{orgCode},
+            </if>
+            <if test="created != null">
+                created = #{created},
+            </if>
+            <if test="updated != null">
+                updated = #{updated},
+            </if>
+            <if test="deleted != null">
+                deleted = #{deleted},
+            </if>
+            <if test="systemType != null">
+                system_type = #{systemType},
+            </if>
+            <if test="appId != null">
+                app_id = #{appId},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from rpmaccount.org_dict where id = #{id}
+    </delete>
+
+</mapper>

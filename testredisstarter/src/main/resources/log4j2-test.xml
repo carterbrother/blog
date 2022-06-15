@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="INFO" monitorInterval="1800">
+	<appenders>
+		<Console name="Console" target="SYSTEM_OUT" follow="true">
+			<!--
+           %d{yyyy-MM-dd HH:mm:ss, SSS} : 日志生产时间,输出到毫秒的时间
+           %-5level : 输出日志级别，-5表示左对齐并且固定输出5个字符，如果不足在右边补0
+           %c : logger的名称(%logger)
+           %t : 输出当前线程名称
+           %p : 日志输出格式
+           %m : 日志内容，即 logger.info("message")
+           %n : 换行符
+           %C : Java类名(%F)
+           %L : 行号
+           %M : 方法名
+           %l : 输出语句所在的行数, 包括类名、方法名、文件名、行数
+           hostName : 本地机器名
+           hostAddress : 本地ip地址
+        -->
+			<PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%l]- %msg%n" />
+		</Console>
+	</appenders>
+	<loggers>
+
+		<!--request & response log-->
+		<logger name="org.springframework" level="DEBUG"></logger>
+		<logger name="com.carterbrotherr" level="INFO"></logger>
+		<root level="DEBUG">
+			<appender-ref ref="Console" />
+		</root>
+	</loggers>
+
+</configuration>

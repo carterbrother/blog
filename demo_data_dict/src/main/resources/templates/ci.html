@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>ci</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/layer/2.3/skin/layer.css" rel="stylesheet">
+</head>
+<style type="text/css">
+    .table-b .table .td  {border: 1px;solid-color: cornflowerblue}
+</style>
+<body>
+<table>
+    <thead>
+    <tr>
+        <td>类型</td>
+        <td>工程名</td>
+        <td>分支</td>
+        <td>包位置</td>
+        <td>镜像</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>类型</td>
+        <td>工程名</td>
+        <td>分支</td>
+        <td>包位置</td>
+        <td>镜像</td>
+        <td>操作</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+<script src="https://lib.baomitu.com/jquery/3.4.1/jquery.min.js" ></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/layer/2.3/layer.js"></script>
+<script th:inline="javascript">
+
+    $("#initCompare").click(function () {
+        let databaseName = $("input[name='databaseName']").val();
+        let oracleDatabaseName = $("input[name='oracleDatabaseName']").val();
+
+        $.post("/data/datac/compare/init",
+            {
+                mysqlDatabaseName: databaseName,
+                oracleDatabaseName: oracleDatabaseName,
+
+            },
+            function (data) {
+                var content = data.data.countMsg;
+                $("#tableCountMsg").empty().html(content);
+
+                //初始化表格
+                $("#dataC").empty();
+                $.each(data.data.tableCompareBos,function (i,v) {
+
+                    var transformStream = "<tr>" +
+                        "<td>"+v.mysqlTableName+"</td>" +
+                        "<td>"+v.oracleTableName+"</td>" +
+                        "<td>" +
+                        "<input type=\"button\" value=\"比较单表的总数\" onclick=\"a('"+v.mysqlTableName+"','"+v.oracleTableName+"')\" >" +
+                        "<input type=\"button\" value=\"比较单表的第一条和最后一条数据\" onclick=\"b('"+v.mysqlTableName+"','"+v.oracleTableName+"')\" >" +
+                        "<input type=\"button\" value=\"比较单表的定义\" onclick=\"c('"+v.mysqlTableName+"','"+v.oracleTableName+"')\" >" +
+                        "</td></tr>";
+                    $("#dataC").append(transformStream);
+                });
+
+
+            }, "json");
+    });
+
+</script>
+</html>

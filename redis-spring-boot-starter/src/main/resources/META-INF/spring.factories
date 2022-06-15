@@ -1,0 +1,1 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.lifesense.springboot.starter.redis.config.RedisAutoConfigure

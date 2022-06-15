@@ -1,0 +1,265 @@
+server:
+  port: 8099
+  address: 0.0.0.0
+  compression:
+    enabled: true
+
+#Spring相关配置
+spring:
+  application:
+    name: cloudpivot-engine-service
+  main:
+    allow-bean-definition-overriding: true
+  #数据源
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    #数据库驱动:
+    #ORACLE  oracle.jdbc.OracleDriver,
+    #MYSQL   com.mysql.jdbc.Driver, org.mariadb.jdbc.Driver
+    driver-class-name: oracle.jdbc.OracleDriver
+    #数据库连接：
+    #ORACLE   jdbc:oracle:thin:@127.0.0.1:1521:orcl,
+    #MYSQL    jdbc:mysql://127.0.0.1:3306/cloudpivot, jdbc:mariadb://127.0.0.1:3306/cloudpivot
+    url: jdbc:oracle:thin:@127.0.0.1:1521:orcl
+    username: DEV3
+    password: H3password
+    hikari:
+      maximum-pool-size: 30                #根据系统并发用户数
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 1024
+        prepStmtCacheSqlLimit: 4096
+        useServerPrepStmts: true
+  #jpa
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    #database-platform: org.hibernate.dialect.Oracle12cDialect       # MYSQL
+    #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect    # ORACLE
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+    database: ORACLE    # 支持 MYSQL  ORACLE
+    show-sql: true
+    properties:
+      hibernate.id.new_generator_mappings: true
+      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_query_cache: false
+      hibernate.generate_statistics: false
+      hibernate.enable_lazy_load_no_trans: false
+      javax.persistence.sharedCache.mode: NONE
+  #kafka消息
+  kafka:
+    enabled: false
+    bootstrapServers: 127.0.0.1:9092
+    consumer:
+      keyDeserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: latest
+      enable-auto-commit: true
+      auto-commit-interval: 100
+      group-id: cloudpivot-group
+    producer:
+      retries: 0
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      batch-size: 16384
+      buffer-memory: 33554432
+  # redis
+  redis:
+    host: h3_redis
+    port: 6379
+    database: 1         #集群模式下不指定数据库，注释此选项
+    password: H3yuncom  #密码
+    ## 集群模式
+    #cluster:
+    #  nodes:   # cluster节点地址
+    #    - "127.0.0.1:6379"
+    #    - "127.0.0.1:6389"
+    #    - "127.0.0.1:6399"
+    ## 哨兵模式
+    #sentinel:
+    #  nodes:   # 哨兵节点地址
+    #    - "127.0.0.1:26379"
+    #    - "127.0.0.1:26389"
+    #    - "127.0.0.1:26399"
+    #  master: mymaster    # 主服务器的名称
+  #flyway版本管理
+  flyway:
+    clean-disabled: false        #禁用清理
+    enabled: false               #正式环境不开启
+    locations: classpath:db/migration/{vendor}/dev
+    baseline-on-migrate: true
+    out-of-order: true
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  # quartz相关属性配置
+  quartz:
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: clusteredScheduler
+            instanceId: AUTO
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStore
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: QRTZ_
+            isClustered: true
+            clusterCheckinInterval: 10000
+            useProperties: false
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 10
+            threadPriority: 5
+            threadsInheritContextClassLoaderOfInitializingThread: true
+    #数据库方式
+    job-store-type: jdbc
+    #初始化表结构
+    #jdbc:
+    #initialize-schema: never
+
+#日志
+logging:
+  level:
+    com.authine.cloudpivot.engine: debug  #云枢产品日志级别
+
+# logback日志配置
+log:
+  path: engine-logs     #日志文件输出路径，默认为应用所在目录的logs目录
+  maxFileSize: 50MB     #单个日志文件大小，默认50MB
+  maxHistory: 45        #默认保存45天的记录
+  totalLogSizeCap: 20GB #总日志文件上限大小，默认20GB，当日志大小超过这个值，删除旧的日志
+  errorLogSizeCap: 5GB  #错误日志文件上限大小，默认5GB，当日志大小超过这个值，删除旧的日志
+
+#zookeeper
+zookeeper:
+  server: h3_zk:2181
+  namespace: cloudpivot-engine
+  sessionTimeoutMs: 6000     #会话超时时间
+  connectionTimeoutMs: 6000  #连接超时时间
+  maxRetries: 3              #最大重试次数
+  baseSleepTimeMs: 1000      #重试之间等待的初始时间
+
+#dubbo服务配置
+dubbo:
+  application:
+    name: cloudpivot-engine-service-provider
+    qos-enable: false
+    parameters:
+      token: h3bpmtoken
+    logger: slf4j
+  protocols:
+    dubbo:
+      name: dubbo
+      host: 127.0.0.1  #dubbo服务地址
+      port: 20880      #dubbo服务端口号
+      threads: 1000          #服务线程池大小
+      queues: 2000           #线程池队列大小
+      threadpool: fixed      #线程池类型  fixed 固定  cached 缓存  limited 可伸缩
+      dispatcher: execution  #消息派发方式
+      status: server
+      serialization: kryo    #序列化类型
+      accepts: 10000         #最大可接受连接数
+      timeout: 5000          #超时时间
+    rest:
+      server: servlet
+      name: rest
+      host: 127.0.0.1  #engine ip
+      port: 8099       #engine服务端口号
+      token: false
+      extension: com.authine.cloudpivot.engine.rest.RestContextFilter
+  registry:
+    protocol: zookeeper
+    address: h3_zk
+    port: 2181
+    timeout: 3000  #超时时间
+  scan:
+    basePackages: com.authine.cloudpivot.engine.api.facade.dubbo
+  provider:
+    retries: 0     #超时重试次数
+    serialization: kryo
+    protocol:
+      optimizer: com.authine.cloudpivot.engine.dubbo.SerializationOptimizerImpl
+    accesslog: false
+
+cloudpivot:
+  engine-webapi-allinone: false
+  isv:
+    host: https://isv.cloudpivot.cn
+    secret_key: 919c2591-f47a-4300-9191-163da079e8e2
+  
+    
+  bizobject:
+    bizmethod-invoke-timeout-seconds: 10  #业务集成默认超时时间，单位：秒
+    db:
+      type: mysql                   #数据库类型名称，支持 mysql oracle
+  publicKeyStoreFile: public.key    #许可证解密的公钥文件
+  license:
+    licenseFile: cloudpivot.license #许可证文件
+    verifyMode: offline # license授权验证方式，offline：本地授权文件方式；online：线上验证方式
+    instanceId:  #当使用online验证方式时，需要配置客户实例ID,变量：${custInstanceId}
+    host: https://license.cloudpivot.cn
+    perm-manage:
+      enabled: false #授权管理开关, 默认关闭
+  #ehcache缓存
+  cache:
+    heapEntries: 1000               #ehcache 在缓存存放的数据记录数
+    offheapSizeMB: 10               #ehcache 在堆外存放的数据大小，单位：MB
+    cluster:
+      enabled: false                #ehcache是否是集群部署，true:集群部署，false:非集群部署
+      uri:                          #ehcache集群服务器地址  默认：terracotta://localhost:9410/default-server
+      dedicatedSizeMB: 15           #ehcache 集群环境专用缓存大小，单位：MB
+      defaultResourceName:          #ehcache 集群方式堆外空间默认名称  默认：main
+  #钉钉同步
+  dingtalk:
+    is_syn_user_json: false         #是否保存钉钉所有的JSON属性
+    is_syn_edu: false               #是否同步家校通讯录
+    client:
+      aes_key: e6e18d0a42dd027cade89c213c75f477e6e18d0a42d   #数据加密密钥
+      aes_token: 2cc69a199b644f9ca0d21360f242d98d
+      #订阅的钉钉组织机构同步事件
+      callback_tag:
+        user_add_org,
+        user_modify_org,
+        user_leave_org,
+        org_admin_add,
+        org_admin_remove,
+        org_dept_create,
+        org_dept_modify,
+        org_dept_remove,
+        org_remove,
+        org_change,
+        label_user_change,
+        label_conf_add,
+        label_conf_del,
+        label_conf_modify
+      callback_url: /public/dingtalk/notify  #钉钉组织机构增量同步回调地址
+      dingtalk_server_proxy:  #多组织下的代理服务器，默认为空，多个组织情况下需要配置，如：http://127.0.0.1/,地址需要以“/”结尾（不是多组织不需要配置）
+  task:
+    enabled: true                            #是否开启定时任务，在集群部署环境下只开启一个节点的定时任务
+  workItem:
+    participant_number: 1000                 #待办 传阅 加签 等参与者数量限制
+  message:
+    profile:
+      active: simple                         #消息类型，simple：进程内消息，kafka：kafka中间件，默认simple
+  workflow:
+    runtime_mode: async                      #流程运行时模式，async:异步；synch:同步
+  bizlog:
+    storagetype: db                          #业务日志存储类型， sls 阿里云SLS日志服务，db 内置数据库
+    project: k8s-bizlog                      #SLS项目名称
+    endpoint: cn-shenzhen.log.aliyuncs.com   #地域节点 如：oss-cn-shenzhen.aliyuncs.com
+    accessKeyId:                             #
+    accessKeySecret:                         #
+    loginStore: biz_login_log                #登录日志库
+    integrationStore: biz_service_log        #业务服务日志库
+    exceptionStore: biz_exeception_log       #异常日志库
+    engineLogStore: engine_log               #引擎日志库
+  swagger:
+    enable: false                            #是否开启swagger-ui
+  event_push:
+    enable: false                            #是否开启事件订阅推送
+    consumer_number: 4                       #正常consumer线程数

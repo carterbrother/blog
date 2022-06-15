@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxx.demo.dal.mapper.SysUserMenuMapper">
+  <resultMap id="BaseResultMap" type="com.xxx.demo.dal.model.SysUserMenu">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="user_menu_id" jdbcType="VARCHAR" property="userMenuId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="menu_id" jdbcType="VARCHAR" property="menuId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.authine.cloudpivot</groupId>
+        <artifactId>base-dependency</artifactId>
+        <version>6.4-a1-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
+    <groupId>com.authine.cloudpivot</groupId>
+    <artifactId>app-flyway</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>app-flyway[根项目]</name>
+
+    <properties>
+        <!--放外部依赖的版本号-->
+        <authine.project.version>1.0-SNAPSHOT</authine.project.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--Project modules-->
+            <dependency>
+                <groupId>com.authine.cloudpivot</groupId>
+                <artifactId>app-flyway-controller</artifactId>
+                <version>${authine.project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.authine.cloudpivot</groupId>
+                <artifactId>app-flyway-client</artifactId>
+                <version>${authine.project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.authine.cloudpivot</groupId>
+                <artifactId>app-flyway-app</artifactId>
+                <version>${authine.project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.authine.cloudpivot</groupId>
+                <artifactId>app-flyway-domain</artifactId>
+                <version>${authine.project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.authine.cloudpivot</groupId>
+                <artifactId>app-flyway-infrastructure</artifactId>
+                <version>${authine.project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <configuration>
+                        <skip>false</skip>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <modules>
+        <module>app-flyway-client</module>
+        <module>app-flyway-controller</module>
+        <module>app-flyway-app</module>
+        <module>app-flyway-domain</module>
+        <module>app-flyway-infrastructure</module>
+        <module>start</module>
+    </modules>
+</project>

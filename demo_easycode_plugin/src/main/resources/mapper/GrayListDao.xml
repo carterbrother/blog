@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springbootpractice.demo.easycode.plugin.dao.GrayListDao">
+
+    <resultMap type="com.springbootpractice.demo.easycode.plugin.entity.GrayList" id="GrayListMap">
+        <result property="id" column="id" jdbcType="OTHER"/>
+        <result property="loginId" column="login_id" jdbcType="VARCHAR"/>
+        <result property="created" column="created" jdbcType="TIMESTAMP"/>
+        <result property="updated" column="updated" jdbcType="TIMESTAMP"/>
+        <result property="deleted" column="deleted" jdbcType="OTHER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="GrayListMap">
+        select
+          id, login_id, created, updated, deleted
+        from rpmaccount.gray_list
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="GrayListMap">
+        select
+          id, login_id, created, updated, deleted
+        from rpmaccount.gray_list
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="GrayListMap">
+        select
+          id, login_id, created, updated, deleted
+        from rpmaccount.gray_list
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="loginId != null and loginId != ''">
+                and login_id = #{loginId}
+            </if>
+            <if test="created != null">
+                and created = #{created}
+            </if>
+            <if test="updated != null">
+                and updated = #{updated}
+            </if>
+            <if test="deleted != null">
+                and deleted = #{deleted}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into rpmaccount.gray_list(login_id, created, updated, deleted)
+        values (#{loginId}, #{created}, #{updated}, #{deleted})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update rpmaccount.gray_list
+        <set>
+            <if test="loginId != null and loginId != ''">
+                login_id = #{loginId},
+            </if>
+            <if test="created != null">
+                created = #{created},
+            </if>
+            <if test="updated != null">
+                updated = #{updated},
+            </if>
+            <if test="deleted != null">
+                deleted = #{deleted},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from rpmaccount.gray_list where id = #{id}
+    </delete>
+
+</mapper>
