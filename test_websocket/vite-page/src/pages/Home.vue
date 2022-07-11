@@ -18,7 +18,7 @@ export default {
 
     const initLink = (val) => {
 
-        var socketUrl ="http://localhost:8080/websocket/" + data.userId;
+        var socketUrl ="http://localhost:8000/common/websocket/link/" + data.userId;
         socketUrl = socketUrl.replace("https", "ws").replace("http", "ws");
         console.log(socketUrl);
         var socket = data.socket;
