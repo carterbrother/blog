@@ -30,23 +30,23 @@ import java.util.Objects;
  */
 @RestController
 @Slf4j
-public class CallController {
+public class Call2Controller {
 
-    private String baseUrl = "https://cloud.metersphere.com/";
-    public static final String accessKey = "mwoblrg6rmiV4o6v";
-    public static final String secretKey = "enqTskXku3M4HFnW";
-    public static final String projectName = "cube-dev";
+    private String baseUrl = "http://10.10.1.47:8081/";
+    public static final String accessKey = "uXLvWli8nxXA4C7G";
+    public static final String secretKey = "Cfv7JtXKmc74w9bJ";
+    public static final String projectName = "cycube_dev";
     public static final String testPlanName = "sprint1";
-    public static final String envName = "cube-dev";
+    public static final String envName = "dev";
 
-    public static final String event = "xxx服务更新";
+    public static final String event = "xxx服务更新-内网meterSphere测试";
     //企业微信的URL
 
    public static final String webhookUrl = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=b9e516b2-9418-4261-b018-60e4ee4342c2";
 
 
 
-    @GetMapping(path = "/callMeterSphere")
+    @GetMapping(path = "/callMeterSphere2")
     public String callMeterSphere() {
 
         String projectId = getId("project/listAll", Method.GET, Collections.emptyMap(), "name", projectName, "id");
@@ -62,10 +62,12 @@ public class CallController {
 
         //run test plan
         Map<String, Object> bodyMapForRun = new HashMap<>(8);
-        bodyMapForRun.put("mode", "serial");
+
         bodyMapForRun.put("testPlanId", testPlanId);
-        bodyMapForRun.put("triggerMode", "API");
+        bodyMapForRun.put("projectId", projectId);
         bodyMapForRun.put("userId", userId);
+        bodyMapForRun.put("triggerMode", "API");
+        bodyMapForRun.put("mode", "serial");
         Map<String, Object> envMap = new HashMap<>(2);
         envMap.put(projectId, envName);
         bodyMapForRun.put("envMap", envMap);
@@ -87,9 +89,9 @@ public class CallController {
         Map<String,Object> bodyMapCall = new HashMap<>(2);
         bodyMapCall.put("msgtype","markdown");
         bodyMapCall.put("markdown",Collections.singletonMap("content", content));
-        HttpResponse callRes = HttpUtil.createPost(webhookUrl).body(JSONUtil.toJsonStr(bodyMapCall)).contentType("application/json").charset(StandardCharsets.UTF_8).execute();
+//        HttpResponse callRes = HttpUtil.createPost(webhookUrl).body(JSONUtil.toJsonStr(bodyMapCall)).contentType("application/json").charset(StandardCharsets.UTF_8).execute();
 
-        log.info("res: {} ",JSONUtil.toJsonPrettyStr(callRes.body()));
+//        log.info("res: {} ",JSONUtil.toJsonPrettyStr(callRes.body()));
 
         return reportUrl;
     }
