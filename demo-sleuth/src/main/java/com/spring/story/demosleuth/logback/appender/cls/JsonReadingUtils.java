@@ -1,4 +1,4 @@
-package com.zengame.cycube.api.lib.logback.appender;
+package com.spring.story.demosleuth.logback.appender.cls;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParseException;

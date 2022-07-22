@@ -1,4 +1,4 @@
-package com.zengame.cycube.api.lib.logback.appender;
+package com.spring.story.demosleuth.appender;
 
 import ch.qos.logback.classic.spi.IThrowableProxy;
 import ch.qos.logback.classic.spi.LoggingEvent;
@@ -7,7 +7,7 @@ import ch.qos.logback.classic.spi.ThrowableProxyUtil;
 import ch.qos.logback.core.CoreConstants;
 import ch.qos.logback.core.UnsynchronizedAppenderBase;
 import ch.qos.logback.core.encoder.Encoder;
-import cn.hutool.core.date.LocalDateTimeUtil;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.tencentcloudapi.cls.producer.AsyncProducerClient;
 import com.tencentcloudapi.cls.producer.AsyncProducerConfig;
@@ -17,13 +17,10 @@ import com.tencentcloudapi.cls.producer.errors.ProducerException;
 import com.tencentcloudapi.cls.producer.util.NetworkUtils;
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
-import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
 import java.util.*;
 
 /**
@@ -317,9 +314,9 @@ public class LoghubAppender<E> extends UnsynchronizedAppenderBase<E> {
         item.SetTime(event.getTimeStamp());
 
         if(formatter!=null){
-//            DateTime dateTime = new DateTime(event.getTimeStamp());
-//            item.PushBack("time", dateTime.toString(formatter));
-            item.PushBack("time", LocalDateTimeUtil.of(event.getTimeStamp()).atZone(ZoneId.of(timeZone)).toString());
+            DateTime dateTime = new DateTime(event.getTimeStamp());
+            item.PushBack("time", dateTime.toString(formatter));
+//            item.PushBack("time", LocalDateTimeUtil.of(event.getTimeStamp()).atZone(ZoneId.of(timeZone)).toString());
         }
 
         item.PushBack("level", event.getLevel().toString());

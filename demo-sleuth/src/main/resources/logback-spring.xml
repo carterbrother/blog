@@ -1,14 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <charset>utf-8</charset>
-            <pattern>%d{HH:mm:ss.SSS} %highlight(%-5level) %green(%logger{20}) :%msg%n</pattern>
-        </encoder>
-    </appender>
-    <logger name="com" level="INFO" additivity="true"/>
-    <logger name="ch.qos.logback" level="WARNING" additivity="true"/>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
 
-    <root level="info">
-        <appender-ref ref="CONSOLE"/>
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE" />
     </root>
+
+    <logger name="org.springframework.web" level="DEBUG"/>
 </configuration>

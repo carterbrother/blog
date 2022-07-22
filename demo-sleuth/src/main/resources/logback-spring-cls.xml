@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <property name="APP_NAME" value="api-common"/>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
 
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <charset>utf-8</charset>
-            <pattern>%d{HH:mm:ss.SSS} %highlight(%-5level) %green(%logger{20}) :%msg%n</pattern>
-        </encoder>
-    </appender>
+<!--    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>-->
+<!--    <include resource="org/springframework/boot/logging/logback/file-appender.xml" />-->
 
 
-    <appender name="LoghubAppender" class="com.zengame.cycube.api.lib.logback.appender.LoghubAppender">
+
+    <appender name="LoghubAppender" class="com.spring.story.demosleuth.appender.LoghubAppender">
         <!--必选项-->
         <endpoint>ap-shanghai.cls.tencentcs.com</endpoint>
-        <accessKeyId>AKID3wb3GExQfgRxDE0WnqeCVYOyJRL0QbYG</accessKeyId>
-        <accessKeySecret>WmpeDXcS3PWP3RdcNtAD1auzoOjoeFaf</accessKeySecret>
-        <topicId>c91256ef-4746-4f47-8140-ded10c3e129a</topicId>
+        <accessKeyId>yyyy</accessKeyId>
+        <accessKeySecret>xxxx</accessKeySecret>
+        <topicId>3293918e-2079-4d16-9a96-xxx</topicId>
 
         <envName>local</envName>
-        <serviceName>api-apprun</serviceName>
+        <serviceName>demo-sleuth</serviceName>
 
         <!-- 可选项 详见 '参数说明'-->
         <totalSizeInBytes>104857600</totalSizeInBytes>
@@ -33,20 +31,20 @@
 
 
         <!-- 可选项 设置时间格式 -->
-        <timeFormat>yyyy-MM-dd'T'HH:mm:ssZ</timeFormat>
+        <timeFormat>yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ</timeFormat>
         <timeZone>Asia/Shanghai</timeZone>
         <encoder>
-<!--            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg</pattern>-->
             <pattern>%logger</pattern>
         </encoder>
-        <mdcFields>exceptionClass,requestId,loginName,requestPath,clientIp,apiCost,req,res</mdcFields>
+        <mdcFields>exceptionClass,requestId,loginName,requestPath,clientIp,apiCost,req,res,traceId</mdcFields>
     </appender>
 
-    <logger name="com.zengame.cycube" level="DEBUG" additivity="true"/>
+    <logger name="org.springframework.web" level="DEBUG"/>
     <logger name="ch.qos.logback" level="WARNING" additivity="true"/>
 
-    <root level="INFO">
+    <root level="DEBUG">
         <appender-ref ref="CONSOLE" />
+<!--        <appender-ref ref="FILE" />-->
         <appender-ref ref="LoghubAppender" />
     </root>
 </configuration>

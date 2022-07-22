@@ -1,0 +1,8 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: demo-sleuth
+logging:
+  level:
+    web: TRACE

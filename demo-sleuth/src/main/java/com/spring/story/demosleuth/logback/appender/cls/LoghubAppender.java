@@ -1,4 +1,4 @@
-package com.zengame.cycube.api.lib.logback.appender;
+package com.spring.story.demosleuth.logback.appender.cls;
 
 import ch.qos.logback.classic.spi.IThrowableProxy;
 import ch.qos.logback.classic.spi.LoggingEvent;
@@ -7,7 +7,6 @@ import ch.qos.logback.classic.spi.ThrowableProxyUtil;
 import ch.qos.logback.core.CoreConstants;
 import ch.qos.logback.core.UnsynchronizedAppenderBase;
 import ch.qos.logback.core.encoder.Encoder;
-import cn.hutool.core.date.LocalDateTimeUtil;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.tencentcloudapi.cls.producer.AsyncProducerClient;
 import com.tencentcloudapi.cls.producer.AsyncProducerConfig;
@@ -15,21 +14,21 @@ import com.tencentcloudapi.cls.producer.Result;
 import com.tencentcloudapi.cls.producer.common.LogItem;
 import com.tencentcloudapi.cls.producer.errors.ProducerException;
 import com.tencentcloudapi.cls.producer.util.NetworkUtils;
-import org.joda.time.DateTime;
-import org.joda.time.DateTimeZone;
-import org.joda.time.LocalDate;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 /**
- * @author farmerx
  * @param <E>
+ * @author farmerx
  */
+@Data
+@Slf4j
 public class LoghubAppender<E> extends UnsynchronizedAppenderBase<E> {
 
     private String topicId;
@@ -59,6 +58,7 @@ public class LoghubAppender<E> extends UnsynchronizedAppenderBase<E> {
 
     private DateTimeFormatter formatter;
 
+
     protected Encoder<E> encoder;
 
     private String mdcFields;
@@ -73,188 +73,12 @@ public class LoghubAppender<E> extends UnsynchronizedAppenderBase<E> {
 
     private String envName;
 
-    public String getEnvName() {
-        return envName;
-    }
-
-    public void setEnvName(String envName) {
-        this.envName = envName;
-    }
-
-    public String getServiceName() {
-        return serviceName;
-    }
-
-    public void setServiceName(String serviceName) {
-        this.serviceName = serviceName;
-    }
-
-    public String getEndpoint() {
-        return endpoint;
-    }
-
-
-    public void setEndpoint(String endpoint) {
-        this.endpoint = endpoint;
-    }
-
-    public String getAccessKeyId() {
-        return accessKeyId;
-    }
-
-    public void setAccessKeyId(String accessKeyId) {
-        this.accessKeyId = accessKeyId;
-    }
-
-    public String getAccessKeySecret() {
-        return accessKeySecret;
-    }
-
-    public void setAccessKeySecret(String accessKeySecret) {
-        this.accessKeySecret = accessKeySecret;
-    }
-
-    public String getUserAgent() {
-        return userAgent;
-    }
-
-    public void setUserAgent(String userAgent) {
-        this.userAgent = userAgent;
-    }
-
-    public String getTotalSizeInBytes() {
-        return totalSizeInBytes;
-    }
-
-    public void setTotalSizeInBytes(String totalSizeInBytes) {
-        this.totalSizeInBytes = totalSizeInBytes;
-    }
-
-    public String getMaxBlockMs() {
-        return maxBlockMs;
-    }
-
-    public void setMaxBlockMs(String maxBlockMs) {
-        this.maxBlockMs = maxBlockMs;
-    }
-
-    public String getSendThreadCount() {
-        return sendThreadCount;
-    }
-
-    public void setSendThreadCount(String sendThreadCount) {
-        this.sendThreadCount = sendThreadCount;
-    }
-
-    public String getBatchSizeThresholdInBytes() {
-        return batchSizeThresholdInBytes;
-    }
-
-    public void setBatchSizeThresholdInBytes(String batchSizeThresholdInBytes) {
-        this.batchSizeThresholdInBytes = batchSizeThresholdInBytes;
-    }
-
-    public String getBatchCountThreshold() {
-        return batchCountThreshold;
-    }
-
-    public void setBatchCountThreshold(String batchCountThreshold) {
-        this.batchCountThreshold=batchCountThreshold;
-    }
-
-    public String getLingerMs() {
-        return lingerMs;
-    }
-
-    public void setLingerMs(String lingerMs) {
-        this.lingerMs = lingerMs;
-    }
-
-    public String getRetries() {
-        return retries;
-    }
-
-    public void setRetries(String retries) {
-        this.retries = retries;
-    }
-
-    public String getMaxReservedAttempts() {
-        return maxReservedAttempts;
-    }
-
-    public void setMaxReservedAttempts(String maxReservedAttempts) {
-        this.maxReservedAttempts = maxReservedAttempts;
-    }
-
-    public String getBaseRetryBackoffMs() {
-        return baseRetryBackoffMs;
-    }
-
-    public void setBaseRetryBackoffMs(String baseRetryBackoffMs) {
-        this.baseRetryBackoffMs = baseRetryBackoffMs;
-    }
-
-    public String getMaxRetryBackoffMs() {
-        return maxRetryBackoffMs;
-    }
-
-    public void setMaxRetryBackoffMs(String maxRetryBackoffMs) {
-        this.maxRetryBackoffMs = maxRetryBackoffMs;
-    }
-
-    public String getTopicId() {
-        return topicId;
-    }
-
-    public void setTopicId(String topicId) {
-        this.topicId = topicId;
-    }
-
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
-    }
-
-    public String getTimeFormat() {
-        return timeFormat;
-    }
-
-    public void setTimeFormat(String timeFormat) {
-        this.timeFormat = timeFormat;
-    }
-
-    public String getTimeZone() {
-        return timeZone;
-    }
-
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
-    }
-
-    public Encoder<E> getEncoder() {
-        return encoder;
-    }
-
-    public void setEncoder(Encoder<E> encoder) {
-        this.encoder = encoder;
-    }
-
-    public void setMdcFields(String mdcFields) {
-        this.mdcFields = mdcFields;
-    }
-
-    public void setCustomFields(String customFields) {
-        this.customFields = customFields;
-    }
 
     private final LoghubAppenderCallback<E> loghubAppenderCallback = new LoghubAppenderCallback<E>() {
         @Override
         public void onCompletion(Result result) {
             if (!result.isSuccessful()) {
-                addError( "Failed to send log, topic="  + topicId
+                addError("Failed to send log, topic=" + topicId
                         + ", source=" + source
                         + ", errorCode=" + result.getErrorCode()
                         + ", errorMessage=" + result.getErrorMessage());
@@ -267,13 +91,13 @@ public class LoghubAppender<E> extends UnsynchronizedAppenderBase<E> {
         try {
             customFieldsJsonProvider.setCustomFields(this.customFields);
             customFieldsJsonProvider.initializeCustomFields();
-            formatter = DateTimeFormat.forPattern(timeFormat).withZone(DateTimeZone.forID(timeZone));
-            if (source==null || source.isEmpty()) {
+            if (source == null || source.isEmpty()) {
                 source = NetworkUtils.getLocalMachineIP();
             }
             producerConfig = new AsyncProducerConfig(endpoint, accessKeyId, accessKeySecret, source);
             this.setProduceConfig();
             producer = new AsyncProducerClient(producerConfig);
+            log.info("===cls log init success!");
             super.start();
         } catch (Exception e) {
             addError("Failed to start LoghubAppender.", e);
@@ -316,12 +140,7 @@ public class LoghubAppender<E> extends UnsynchronizedAppenderBase<E> {
         LogItem item = new LogItem();
         item.SetTime(event.getTimeStamp());
 
-        if(formatter!=null){
-//            DateTime dateTime = new DateTime(event.getTimeStamp());
-//            item.PushBack("time", dateTime.toString(formatter));
-            item.PushBack("time", LocalDateTimeUtil.of(event.getTimeStamp()).atZone(ZoneId.of(timeZone)).toString());
-        }
-
+        item.PushBack("time", LocalDateTime.ofInstant(Instant.ofEpochMilli(event.getTimeStamp()), ZoneId.of(timeZone)).format(DateTimeFormatter.ofPattern(timeFormat)));
         item.PushBack("level", event.getLevel().toString());
         item.PushBack("thread", event.getThreadName());
         item.PushBack("serviceName", getServiceName());
@@ -329,14 +148,13 @@ public class LoghubAppender<E> extends UnsynchronizedAppenderBase<E> {
         item.PushBack("logClass", event.getLoggerName());
         item.PushBack("serverIp", getSource());
 
-
         StackTraceElement[] caller = event.getCallerData();
         if (caller != null && caller.length > 0) {
             item.PushBack("location", caller[0].toString());
         }
 
         String message = event.getFormattedMessage();
-        if (message.length() > 1024*1024) {
+        if (message.length() > 1024 * 1024) {
             addError("Failed to send log, message content exceed 1M, topicId=" + topicId
                     + ", source=" + source
                     + ", logItem=" + item, new Exception("message content exceed 1M"));
@@ -354,25 +172,25 @@ public class LoghubAppender<E> extends UnsynchronizedAppenderBase<E> {
 
         if (this.encoder != null) {
             String logMessage = new String(this.encoder.encode(eventObject));
-            if (logMessage.length() > 1024*1024) {
+            if (logMessage.length() > 1024 * 1024) {
                 addError("Failed to send log, message content exceed 1M, topicId=" + topicId
                         + ", source=" + source
                         + ", logItem=" + item, new Exception("message content exceed 1M"));
                 return;
             }
-//            item.PushBack("log", logMessage);
+            item.PushBack("log", logMessage);
         }
 
         Optional.ofNullable(mdcFields).ifPresent(
-                f->event.getMDCPropertyMap().entrySet().stream()
-                        .filter(v-> Arrays.stream(f.split(",")).anyMatch(i->i.equals(v.getKey())))
-                        .forEach(map-> item.PushBack(map.getKey(),map.getValue()))
+                f -> event.getMDCPropertyMap().entrySet().stream()
+                        .filter(v -> Arrays.stream(f.split(",")).anyMatch(i -> i.equals(v.getKey())))
+                        .forEach(map -> item.PushBack(map.getKey(), map.getValue()))
         );
 
 
         if (customFieldsJsonProvider.getCustomFieldsNode() != null) {
             for (Iterator<Map.Entry<String, JsonNode>> fields = customFieldsJsonProvider.getCustomFieldsNode().fields();
-                 fields.hasNext();) {
+                 fields.hasNext(); ) {
                 Map.Entry<String, JsonNode> field = fields.next();
                 item.PushBack(field.getKey(), field.getValue().asText());
             }
@@ -385,7 +203,7 @@ public class LoghubAppender<E> extends UnsynchronizedAppenderBase<E> {
             addError("Failed to send log, topicId=" + topicId
                     + ", source=" + source
                     + ", logItem=" + item
-                    + " err message "+ e.getMessage());
+                    + " err message " + e.getMessage());
         }
     }
 
@@ -432,10 +250,10 @@ public class LoghubAppender<E> extends UnsynchronizedAppenderBase<E> {
         if (maxReservedAttempts != null && !maxReservedAttempts.isEmpty()) {
             producerConfig.setMaxReservedAttempts(Integer.parseInt(maxReservedAttempts));
         }
-        if (baseRetryBackoffMs !=null && !baseRetryBackoffMs.isEmpty()) {
+        if (baseRetryBackoffMs != null && !baseRetryBackoffMs.isEmpty()) {
             producerConfig.setBaseRetryBackoffMs(Long.parseLong(baseRetryBackoffMs));
         }
-        if (maxRetryBackoffMs !=null && !maxRetryBackoffMs.isEmpty()) {
+        if (maxRetryBackoffMs != null && !maxRetryBackoffMs.isEmpty()) {
             producerConfig.setMaxRetryBackoffMs(Long.parseLong(maxRetryBackoffMs));
         }
     }

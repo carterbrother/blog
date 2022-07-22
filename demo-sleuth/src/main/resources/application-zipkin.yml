@@ -12,4 +12,4 @@ spring:
 logging:
   config: classpath:logback-spring-cls.xml
   level:
-    web: TRACE
+    web: DEBUG
