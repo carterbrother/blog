@@ -1,0 +1,14 @@
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>utf-8</charset>
+            <pattern>%d{HH:mm:ss.SSS} %highlight(%-5level) %green(%logger{20}) :%msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="com" level="INFO" additivity="true"/>
+    <logger name="ch.qos.logback" level="WARNING" additivity="true"/>
+
+    <root level="info">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>

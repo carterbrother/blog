@@ -1,0 +1,15 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: demo-sleuth
+  zipkin:
+    baseUrl: http://localhost:9411/
+  sleuth:
+    sampler:
+      probability: 1.0
+      rate: 1000
+logging:
+  config: classpath:logback-spring-cls.xml
+  level:
+    web: TRACE
