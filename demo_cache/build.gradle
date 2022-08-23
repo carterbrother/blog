@@ -1,0 +1,41 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.2'
+	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+	id 'java'
+}
+
+group = 'com.spring.history'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	maven { url 'https://repo.spring.io/release' }
+	maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'com.alibaba:fastjson:2.0.10'
+	implementation 'org.redisson:redisson:3.17.5'
+	implementation 'commons-lang:commons-lang:2.6'
+	implementation 'redis.clients:jedis:4.2.3'
+	implementation 'org.aspectj:aspectjrt:1.9.9.1'
+	implementation 'com.ctrip.framework.apollo:apollo-client:2.0.1'
+	implementation 'commons-codec:commons-codec:1.15'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
