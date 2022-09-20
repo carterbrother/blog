@@ -1,8 +1,9 @@
 <template>
-    <h1>websocket连接</h1>
+    <h1>uat 环境webSocket测试</h1>
     <button @click="initLink">建立连接</button>
 
     <button @click="clickButton">发送消息到websocket</button>
+    <button @click="closeButton">关闭消息到websocket</button>
 </template>
 <script>
 import {reactive, toRefs} from 'vue'
@@ -18,7 +19,7 @@ export default {
 
     const initLink = (val) => {
 
-        var socketUrl ="http://localhost:8000/common/websocket/link/" + data.userId;
+        var socketUrl ="https://cycube.365you.com/api/common//websocket/link/" + data.userId+"/carter";
         socketUrl = socketUrl.replace("https", "ws").replace("http", "ws");
         console.log(socketUrl);
         var socket = data.socket;
@@ -47,6 +48,8 @@ export default {
     //获得消息事件
         socket.onmessage = function(msg) {
           console.log( JSON.stringify(msg));
+          console.log( JSON.stringify(msg.data));
+
           //发现消息进入    开始处理前端触发逻辑
         ElMessage({
             showClose: true,
@@ -61,13 +64,21 @@ export default {
     }
 
      const clickButton = (val) => {
+        console.log("发送消息到服务端")
         data.socket.send(JSON.stringify({'a':'aaaaaaaa'}));
 
      }
 
+
+      const closeButton = (val) => {
+        data.socket.close(3000,"test close");
+
+      }
+
     return {
         ...toRefs(data),
         clickButton,
+      closeButton,
         initLink
 
     }

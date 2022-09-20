@@ -9,9 +9,9 @@
     <el-container>
       <el-aside width="200px">
         <el-link type="success">
-          <router-link to="/">websocket连接测试</router-link>
+          <router-link to="/">A uat</router-link>
         </el-link><br>
-        <router-link to="/about">webSocket通知响应</router-link>
+        <router-link to="/about">B prod</router-link>
       </el-aside>
       <el-main>
         <router-view></router-view>
