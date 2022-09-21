@@ -1,0 +1,5 @@
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+COPY run1.sh /tmp/
+COPY target/*.jar /tmp/app.jar
+ENTRYPOINT ["/tmp/run1.sh"]
