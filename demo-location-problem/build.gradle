@@ -1,0 +1,57 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.6'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+//	id 'org.springframework.experimental.aot' version '0.12.1'
+	id 'application'
+}
+
+group = 'com.zengame.platweb'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+
+application{
+	mainClass = 'com.zengame.platweb.LocationProblemApplication'
+	applicationDefaultJvmArgs = ['-Xms1g','-Xmx1g','-XX:+HeapDumpOnOutOfMemoryError','-XX:HeapDumpPath=./dump/']
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	maven { url 'https://repo.spring.io/release' }
+	mavenCentral()
+}
+
+configurations.implementation {
+//	exclude group: 'org.apache.tomcat.embed', module: ':tomcat-embed-websocket'
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+	implementation 'cn.hutool:hutool-all:5.8.10'
+	implementation 'com.taobao.arthas:arthas-spring-boot-starter:3.6.7'
+	implementation 'mysql:mysql-connector-java:8.0.30'
+	//	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	compileOnly 'org.projectlombok:lombok'
+//	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+//	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	annotationProcessor 'org.projectlombok:lombok'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//	testImplementation 'io.projectreactor:reactor-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+tasks.named('bootBuildImage') {
+	builder = 'paketobuildpacks/builder:tiny'
+	environment = ['BP_NATIVE_IMAGE': 'true']
+}
